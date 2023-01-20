@@ -1,4 +1,25 @@
-const { client, createUser, getAllUsers, createAdminUser } = require("./");
+const {
+  client,
+  createUser,
+  getAllUsers,
+  createAdminUser,
+  updateUser,
+  getUserById,
+  createListing,
+  getAllListings,
+  deleteListing,
+  getListingByCategory,
+  getListingByIsHot,
+  getListingByName,
+  getListingByPrice,
+  createOrders,
+  getOrdersById,
+  getOrdersByIsActive,
+  getOrdersByUserIsActive,
+  createOrderListings,
+  updateOrderListings,
+  getOrderListingById,
+} = require("./");
 
 async function buildTables() {
   try {
@@ -21,7 +42,7 @@ async function buildTables() {
     description TEXT NOT NULL,
     category TEXT NOT NULL,
     price INTEGER NOT NULL,
-    stock INTEGER NOT NULL
+    stock INTEGER NOT NULL DEFAULT 100
     );
 
 
@@ -29,15 +50,15 @@ async function buildTables() {
       id SERIAL PRIMARY KEY,
       email VARCHAR(255) UNIQUE NOT NULL,
       password VARCHAR(255) NOT NULL,
-      firstName VARCHAR(255) NOT NULL,
-      lastName VARCHAR(255) NOT NULL,
+      firstname VARCHAR(255) NOT NULL,
+      lastname VARCHAR(255) NOT NULL,
       address VARCHAR(255) NOT NULL,
       "isAdmin" BOOLEAN DEFAULT false
     );
 
       CREATE TABLE reviews(
         id SERIAL PRIMARY KEY,
-        "userID" INTEGER REFERENCES users(id),
+        "userId" INTEGER REFERENCES users(id),
         title VARCHAR(255) NOT NULL,
         description VARCHAR(255) NOT NULL,
         rating SMALLINT NOT NULL CHECK(rating BETWEEN 1 AND 5)
@@ -48,7 +69,7 @@ async function buildTables() {
       id SERIAL PRIMARY KEY,
       "userId" INTEGER REFERENCES users(id),
       "isActive" BOOLEAN DEFAULT true,
-      total INTEGER
+      total INTEGER DEFAULT 0
 
     );
 
@@ -79,35 +100,65 @@ async function populateInitialData() {
     await createAdminUser({
       email: "hamoodaayyad@gmail.com",
       password: "FullstackRocks",
-      firstName: "moe",
-      lastName: "ayyad",
+      firstname: "moe",
+      lastname: "ayyad",
       address: "louisiana",
     });
     await createAdminUser({
       email: "rahmatbak95@gmail.com",
       password: "FullstackRocks",
-      firstName: "Rahmat",
-      lastName: "Bakhshi",
+      firstname: "Rahmat",
+      lastname: "Bakhshi",
       address: "Ohio",
     });
     await createAdminUser({
       email: "Solan.jellena@gmail.com",
       password: "FullstackRocks",
-      firstName: "Jellena",
-      lastName: "Solan",
+      firstname: "Jellena",
+      lastname: "Solan",
       address: "New Jersey",
     });
     await createAdminUser({
       email: "chasepettypiece@gmail.com",
       password: "FullstackRocks",
-      firstName: "Christopher",
-      lastName: "pettypiece",
+      firstname: "Christopher",
+      lastname: "pettypiece",
       address: "Oklahoma",
     });
-    await getAllUsers();
-    // create useful starting data by leveraging your
-    // Model.method() adapters to seed your db, for example:
-    // const user1 = await User.createUser({ ...user info goes here... })
+
+    await createListing({
+      isHot: true,
+      image: "https://unsplash.com/photos/hcB2HnGxXpg",
+      name: "Luxury Dog Pillow",
+      description: "Your pooch will snooze like never before!",
+      category: "Pet Pillows",
+      price: 350,
+      stock: 100,
+    });
+
+    await createListing({
+      isHot: true,
+      image: "https://unsplash.com/photos/hcB2HnGxXpg",
+      name: "Luxury Cat Pillow",
+      description: "Your car will snooze like never before!",
+      category: "Pet Pillows",
+      price: 300,
+      stock: 100,
+    });
+
+    await createListing({
+      isHot: true,
+      image: "https://unsplash.com/photos/hcB2HnGxXpg",
+      name: "Memory Foam Pillow",
+      description: "memoryfoam!",
+      category: "Pet Pillows",
+      price: 100,
+      stock: 100,
+    });
+
+    await createOrders(1);
+
+    await createOrderListings(1, 1);
   } catch (error) {
     throw error;
   }
