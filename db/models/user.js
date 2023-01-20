@@ -1,7 +1,7 @@
 const client = require("../client");
 const bcrypt = require("bcrypt");
 
-async function createUser({ email, password, firstName, lastName, address }) {
+async function createUser({ email, password, firstname, lastname, address }) {
   try {
     const SALT_COUNT = 10;
     const hashedPassword = await bcrypt.hash(password, SALT_COUNT);
@@ -10,9 +10,9 @@ async function createUser({ email, password, firstName, lastName, address }) {
       rows: [user],
     } = await client.query(
       `
-    INSERT INTO users (email, password, firstName, lastName, address) VALUES($1,$2,$3,$4,$5)
+    INSERT INTO users (email, password, firstname, lastname, address) VALUES($1,$2,$3,$4,$5)
     ON CONFLICT (email) DO NOTHING RETURNING *`,
-      [email, hashedPassword, firstName, lastName, address]
+      [email, hashedPassword, firstname, lastname, address]
     );
 
     delete user.password;
@@ -25,8 +25,8 @@ async function createUser({ email, password, firstName, lastName, address }) {
 async function createAdminUser({
   email,
   password,
-  firstName,
-  lastName,
+  firstname,
+  lastname,
   address,
 }) {
   try {
@@ -37,9 +37,9 @@ async function createAdminUser({
       rows: [user],
     } = await client.query(
       `
-    INSERT INTO users (email, password, firstName, lastName, address, "isAdmin") VALUES($1,$2,$3,$4,$5,true)
+    INSERT INTO users (email, password, firstname, lastname, address, "isAdmin") VALUES($1,$2,$3,$4,$5,true)
     ON CONFLICT (email) DO NOTHING RETURNING *`,
-      [email, hashedPassword, firstName, lastName, address]
+      [email, hashedPassword, firstname, lastname, address]
     );
 
     delete user.password;
@@ -98,8 +98,49 @@ async function getAllUsers() {
     SELECT * FROM users`);
 
     delete users.password;
-    console.log(users);
     return users;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function updateUser({ id, ...fields }) {
+  const setString = Object.keys(fields)
+    .map((key, index) => `"${key}"=$${index + 1}`)
+    .join(", ");
+
+  try {
+    if (!setString.length) return;
+    const {
+      rows: [users],
+    } = await client.query(
+      `
+        UPDATE users
+        SET ${setString}
+        WHERE id=${id}
+        RETURNING *;
+        `,
+      Object.values(fields)
+    );
+
+    return users;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function getUserById(id) {
+  try {
+    const {
+      rows: [user],
+    } = await client.query(
+      `
+    SELECT * FROM users 
+    WHERE id =$1`,
+      [id]
+    );
+
+    return user;
   } catch (error) {
     console.error(error);
   }
@@ -109,4 +150,6 @@ module.exports = {
   createUser,
   getAllUsers,
   createAdminUser,
+  updateUser,
+  getUserById,
 };
