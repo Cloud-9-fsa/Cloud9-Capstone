@@ -3,7 +3,7 @@ const { getUserById } = require("../db");
 const { JWT_SECRET } = process.env;
 const jwt = require("jsonwebtoken");
 
-router.use(async (req, res, next) => {
+apiRouter.use(async (req, res, next) => {
   const prefix = "Bearer ";
   const auth = req.header("Authorization");
 
