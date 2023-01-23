@@ -25,6 +25,7 @@ const {
   deleteReviews,
   createReviewListings,
   getReviewsByListingId,
+  attachReviewsToListings,
 } = require("./");
 
 async function buildTables() {
@@ -176,6 +177,7 @@ async function populateInitialData() {
     // await deleteReviews(1, 1);
     await createReviewListings(1, 1);
     await getReviewsByListingId(1);
+    await getAllListings();
   } catch (error) {
     throw error;
   }

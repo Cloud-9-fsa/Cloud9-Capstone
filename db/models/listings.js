@@ -30,7 +30,7 @@ async function getAllListings() {
     const { rows: listings } = await client.query(`
       SELECT * FROM listings`);
 
-    return listings;
+    return attachReviewsToListings(listings);
   } catch (error) {
     console.error(error);
   }
@@ -114,6 +114,30 @@ async function getListingByPrice(price) {
     return listing;
   } catch (error) {
     console.error(error);
+  }
+}
+
+async function attachReviewsToListings(listings) {
+  const listingsToReturn = [...listings];
+
+  try {
+    const { rows: reviews } = await client.query(`
+          SELECT reviews.*, review_listings.id 
+          AS "reviewListingId", review_listings."listingId"
+          FROM reviews
+          JOIN review_listings ON review_listings."reviewId" = reviews.id;
+        `);
+
+    for (const listing of listingsToReturn) {
+      const reviewsToAdd = reviews.filter(
+        (review) => review.listingId === listing.id
+      );
+      listing.reviews = reviewsToAdd;
+    }
+    console.log("This is listings to return:", listingsToReturn);
+    return listingsToReturn;
+  } catch (error) {
+    throw error;
   }
 }
 

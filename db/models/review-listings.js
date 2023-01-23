@@ -24,7 +24,6 @@ async function getReviewsByListingId(id) {
           WHERE id =$1`,
       [id]
     );
-    console.log("This is review-listing:", reviewListings);
     return reviewListings;
   } catch (error) {
     console.error(error);
