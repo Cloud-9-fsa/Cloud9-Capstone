@@ -73,9 +73,24 @@ async function getOrderListingById(id) {
   }
 }
 
+async function getOrderListingByListingId(id) {
+  try {
+    const { rows: orders } = await client.query(
+      `
+        SELECT * FROM order_listings
+        WHERE "listingId" =$1`,
+      [id]
+    );
+    return orders;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 module.exports = {
   createOrderListings,
   updateOrderListings,
   attachListingsToOrders,
   getOrderListingById,
+  getOrderListingByListingId,
 };

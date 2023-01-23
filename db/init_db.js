@@ -19,6 +19,12 @@ const {
   createOrderListings,
   updateOrderListings,
   getOrderListingById,
+  getOrderListingByListingId,
+  createReviews,
+  getReviewsByUser,
+  deleteReviews,
+  createReviewListings,
+  getReviewsByListingId,
 } = require("./");
 
 async function buildTables() {
@@ -159,6 +165,17 @@ async function populateInitialData() {
     await createOrders(1);
 
     await createOrderListings(1, 1);
+    await getOrderListingByListingId(1);
+    await createReviews({
+      title: "First Title",
+      userId: 1,
+      description: "This is the description",
+      rating: 5,
+    });
+    await getReviewsByUser(1);
+    // await deleteReviews(1, 1);
+    await createReviewListings(1, 1);
+    await getReviewsByListingId(1);
   } catch (error) {
     throw error;
   }
