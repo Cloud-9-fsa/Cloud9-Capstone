@@ -8,7 +8,7 @@ const { getUserByEmail, createUser } = require("../db");
 router.post("/register", async (req, res, next) => {
   const { email, password, firstname, lastname, address } = req.body;
   try {
-    const _user = await getUserbyEmail({ email });
+    const _user = await getUserByEmail({ email });
 
     if (_user) {
       next({

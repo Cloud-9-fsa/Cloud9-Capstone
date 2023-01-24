@@ -6,6 +6,7 @@ import { getAPIHealth } from "../axios-services";
 import "../style/App.css";
 import { Route, Routes } from "react-router-dom";
 import LogIn from "./Login";
+import Register from "./Register";
 
 const App = () => {
   const [APIHealth, setAPIHealth] = useState("");
@@ -28,6 +29,7 @@ const App = () => {
     <div className="app-container">
       <Routes>
         <Route path="/login" element={<LogIn />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );
