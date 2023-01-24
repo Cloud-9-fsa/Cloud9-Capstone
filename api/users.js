@@ -3,7 +3,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const { requireUser } = require("./utils");
-const { getUserbyEmail, createUser } = require("../db");
+const { getUserByEmail, createUser } = require("../db");
 
 router.post("/register", async (req, res, next) => {
   const { email, password, firstname, lastname, address } = req.body;
@@ -69,7 +69,7 @@ router.post("/login", async (req, res, next) => {
   }
 
   try {
-    const user = await getUserbyEmail({ email });
+    const user = await getUserByEmail({ email });
     const isValid = await bcrypt.compare(password, user.password);
     if (user && isValid) {
       const token = jwt.sign(
