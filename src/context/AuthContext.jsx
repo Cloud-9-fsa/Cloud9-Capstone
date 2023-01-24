@@ -6,6 +6,9 @@ export default function AuthProvider({ children }) {
   const [token, setToken] = useState(localStorage["token"] || "");
   const [user, setUser] = useState({});
 
+
+
+
   //   useEffect(() => {
   //     setToken(localStorage["token"] || "");
   //     const getUser = async () => {
@@ -28,6 +31,7 @@ export default function AuthProvider({ children }) {
     setUser,
     token,
     setToken,
+
     // add your state here
   };
 
