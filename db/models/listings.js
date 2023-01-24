@@ -52,15 +52,13 @@ async function deleteListing(id) {
 
 async function getListingByCategory(category) {
   try {
-    const {
-      rows: [listing],
-    } = await client.query(
+    const { rows: listing } = await client.query(
       `
       SELECT * FROM listings 
       WHERE category =$1`,
       [category]
     );
-    return listing;
+    return attachReviewsToListings(listing);
   } catch (error) {
     console.error(error);
   }
@@ -77,7 +75,7 @@ async function getListingByName(name) {
       [name]
     );
 
-    return listing;
+    return attachReviewsToListings(listing);
   } catch (error) {
     console.error(error);
   }
@@ -85,16 +83,14 @@ async function getListingByName(name) {
 
 async function getListingByIsHot(isHot) {
   try {
-    const {
-      rows: [listing],
-    } = await client.query(
+    const { rows: listing } = await client.query(
       `
       SELECT * FROM listings 
       WHERE "isHot" =$1`,
       [isHot]
     );
 
-    return listing;
+    return attachReviewsToListings(listing);
   } catch (error) {
     console.error(error);
   }
@@ -102,16 +98,14 @@ async function getListingByIsHot(isHot) {
 
 async function getListingByPrice(price) {
   try {
-    const {
-      rows: [listing],
-    } = await client.query(
+    const { rows: listing } = await client.query(
       `
       SELECT * FROM listings 
       WHERE price =$1`,
       [price]
     );
 
-    return listing;
+    return attachReviewsToListings(listing);
   } catch (error) {
     console.error(error);
   }
