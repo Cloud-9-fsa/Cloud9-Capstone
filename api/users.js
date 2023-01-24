@@ -76,6 +76,7 @@ router.post("/login", async (req, res, next) => {
         { id: user.id, email: user.email },
         process.env.JWT_SECRET
       );
+      delete user.password;
       user.token = token;
       res.send({ user: user, message: "you're logged in!", token: token });
     } else {
