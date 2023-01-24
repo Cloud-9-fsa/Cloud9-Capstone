@@ -13,6 +13,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { login } from "../apiCalls/loginApi";
+import { useAuth } from '../context/UseAuth';
+
 
 function Copyright(props) {
   return (
@@ -35,6 +37,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function LogIn() {
+  const { token, setToken } = useAuth();
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -45,6 +48,8 @@ export default function LogIn() {
        data.get("email"),
        data.get("password"),
     );
+    setToken(response.token);
+    localStorage.setItem("token", response.token);
     console.log(response);
   };
 

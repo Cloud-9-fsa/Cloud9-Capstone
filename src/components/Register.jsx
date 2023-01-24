@@ -13,6 +13,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { registerUser } from '../apiCalls/registerApi';
+import { useAuth } from '../context/UseAuth';
+
 
 
 function Copyright(props) {
@@ -31,19 +33,23 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+    const { token, setToken } = useAuth();
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    console.log( data.get('firstname'),
+    data.get('lastname'),)
     const response = await registerUser(
 
        data.get('email'),
        data.get('password'),
        data.get('address'),
-         data.get('firstName'),
-         data.get('lastName'),
+         data.get('firstname'),
+         data.get('lastname'),
     );
-
-    console.log(response);
+setToken(response.token);
+localStorage.setItem('token', response.token);
+console.log(response);
   };
 
   return (
@@ -69,10 +75,10 @@ export default function SignUp() {
               <Grid item xs={12} sm={6}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="firstname"
                   required
                   fullWidth
-                  id="firstName"
+                  id="firstname"
                   label="First Name"
                   autoFocus
                 />
@@ -81,9 +87,9 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
-                  id="lastName"
+                  id="lastname"
                   label="Last Name"
-                  name="lastName"
+                  name="lastname"
                   autoComplete="family-name"
                 />
               </Grid>

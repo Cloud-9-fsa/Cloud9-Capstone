@@ -1,8 +1,8 @@
 export const registerUser = async (
   email,
   password,
-  firstName,
-  lastName,
+  firstname,
+  lastname,
   address
 ) => {
   try {
@@ -11,7 +11,7 @@ export const registerUser = async (
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password, firstName, lastName, address }),
+      body: JSON.stringify({ email, password, firstname, lastname, address }),
     });
     const data = await response.json();
     return data;
