@@ -1,6 +1,6 @@
-export const login = async (email, password) => {
+export const registerUser = async (email, password) => {
   try {
-    const response = await fetch(`/api/users/login`, {
+    const response = await fetch(`/api/users/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

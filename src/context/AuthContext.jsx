@@ -5,6 +5,8 @@ export const AuthContext = createContext();
 export default function AuthProvider({ children }) {
   const [token, setToken] = useState(localStorage["token"] || "");
   const [user, setUser] = useState({});
+  const [login, setLogin] = useState(false);
+
 
 
 
@@ -31,7 +33,7 @@ export default function AuthProvider({ children }) {
     setUser,
     token,
     setToken,
-
+    login,
     // add your state here
   };
 
