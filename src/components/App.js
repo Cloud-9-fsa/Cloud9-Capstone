@@ -7,6 +7,8 @@ import "../style/App.css";
 import { Route, Routes } from "react-router-dom";
 import LogIn from "./Login";
 import Register from "./Register";
+import Navbar from "./Navbar";
+import Home from "./Home";
 
 const App = () => {
   const [APIHealth, setAPIHealth] = useState("");
@@ -27,7 +29,9 @@ const App = () => {
 
   return (
     <div className="app-container">
+      <Navbar />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/register" element={<Register />} />
       </Routes>
