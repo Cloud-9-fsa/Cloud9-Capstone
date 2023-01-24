@@ -150,6 +150,7 @@ module.exports = {
   createUser,
   getAllUsers,
   createAdminUser,
+  getUserByEmail,
   updateUser,
   getUserById,
 };
