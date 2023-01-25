@@ -1,51 +1,43 @@
-import React, { useState, useEffect } from "react";
-import {fetchMyRoutines} from "../api/myRoutinesAPI";
-import { EditForm } from "./EditRoutine";
-import { RoutineForm } from "./RoutineForm";
-import "./routineANDactivities.css"
+import React, { useEffect } from "react";
+import { fetchListings } from "../apiCalls/listingsAPI";
+import { useAuth } from '../context/UseAuth';
+import 
 
-export const PrivateRoutines= (props) => {
-  const [privateRoutineList, setPrivateRoutineList] = useState([]);
+
+
+
+export const Shop= () => {
+    const { listings, setListings } = useAuth();
   
   useEffect(() => {
-    const getAllPrivateRoutines = async () => {
-      console.log("THESE ARE MY PROPS", props)
-      const data = await fetchMyRoutines(localStorage.getItem("user"));
-      setPrivateRoutineList(data);
-    
-    }; if (localStorage.getItem("user")){
-      getAllPrivateRoutines();
-    }
+    const getAllListings = async () => {
+      const data = await fetchListings();
+      setListings(data);
+    //   console.log("THESE ARE MY Listings", data)
+    }; 
+    getAllListings();
   }, []);
-  const routineAndActivitiesList = privateRoutineList?.map(({id, creatorName, name, goal, activities, isPublic}) => {
+  console.log("here are the listings:", listings);
+  const allCategoryListings = listings?.map(({id, category, name, isHot, price}) => {
     return( 
-    <div className="AllRoutines" key={id}>
-      <EditForm name={name} goal={goal} ispublic={isPublic} routineId={id}/>
-      <div>
-        {
-        activities?.map(({id, name, description, count, duration}) => {
-        return( 
-        <div className="AllActivities" key={id}>
-          <h3>Activity Name:  {name}</h3>
-          <h4>Description: {description}</h4>
-          <h4>Duration: {duration}</h4>
-          <h4>Count: {count}</h4>
-        </div>
-        )})
-      }
-     </div>
+    <div className="AllListings" key={id}>
+        <p>Category: {category}</p>
+        <p>Name: {name}</p>
+        <FontAwesomeIcon icon="fa-solid fa-house" />
+        <p>isHot: {isHot}</p>
+        <p>Price: {price}</p>
     </div>)
   }   
   )
 
   return (
     <div>
-      <h1>My Routines</h1>
-      <div className="RoutineForm"> 
-      <RoutineForm privateRoutineList={privateRoutineList} setPrivateRoutineList={setPrivateRoutineList}/>
-      <div className="AllRoutines">{routineAndActivitiesList}</div>
+      <h1>Main Product Page</h1>
+      {/* <div className="RoutineForm"> 
+      <RoutineForm privateRoutineList={privateRoutineList} setPrivateRoutineList={setPrivateRoutineList}/> */}
+      <div className="AllListings">{allCategoryListings}</div>
       </div>
-    </div>
+    // </div>
     )
 
 }

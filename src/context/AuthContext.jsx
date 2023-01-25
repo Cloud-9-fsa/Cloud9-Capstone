@@ -6,6 +6,7 @@ export default function AuthProvider({ children }) {
   const [token, setToken] = useState(localStorage["token"] || "");
   const [user, setUser] = useState({});
   const [login, setLogin] = useState(false);
+  const [listings, setListings] = useState([]);
 
 
 
@@ -34,6 +35,8 @@ export default function AuthProvider({ children }) {
     token,
     setToken,
     login,
+    listings,
+    setListings
     // add your state here
   };
 
