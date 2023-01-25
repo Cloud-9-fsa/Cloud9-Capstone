@@ -26,6 +26,7 @@ const {
   createReviewListings,
   getReviewsByListingId,
   attachReviewsToListings,
+  makeOrderInactive,
 } = require("./");
 
 async function buildTables() {

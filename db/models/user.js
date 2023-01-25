@@ -139,6 +139,7 @@ async function getUserById(id) {
     WHERE id =$1`,
       [id]
     );
+    delete user.password;
 
     return user;
   } catch (error) {

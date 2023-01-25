@@ -41,11 +41,17 @@ apiRouter.get("/health", (req, res, next) => {
     healthy: true,
   });
 });
-// place your routers here
+
 const usersRouter = require("./users");
 apiRouter.use("/users", usersRouter);
 
 const listingsRouter = require("./listings");
 apiRouter.use("/listings", listingsRouter);
+
+const ordersRouter = require("./orders");
+apiRouter.use("/orders", ordersRouter);
+
+const orderListingsRouter = require("./orderListings");
+apiRouter.use("/orderlistings", orderListingsRouter);
 
 module.exports = apiRouter;

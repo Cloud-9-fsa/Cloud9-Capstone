@@ -60,10 +60,50 @@ async function getOrdersByUserIsActive(isActive, userId) {
     console.error(error);
   }
 }
+async function deleteOrder(id) {
+  try {
+    await client.query(
+      `
+    DELETE FROM order_listings
+    WHERE "orderId" = $1
+    `,
+      [id]
+    );
+    const { rows: order } = await client.query(
+      `
+    DELETE FROM orders 
+    WHERE id=$1 
+    RETURNING * `,
+      [id]
+    );
+    return order;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function makeOrderInactive(id) {
+  try {
+    const { rows: order } = await client.query(
+      `
+    UPDATE orders 
+    SET "isActive" = false
+    WHERE id=$1 
+    RETURNING * `,
+      [id]
+    );
+    console.log(order);
+    return order;
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 module.exports = {
   createOrders,
   getOrdersById,
   getOrdersByIsActive,
   getOrdersByUserIsActive,
+  deleteOrder,
+  makeOrderInactive,
 };
