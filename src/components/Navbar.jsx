@@ -1,10 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {useAuth } from "../context/UseAuth";
-
-
-
-
+import { useAuth } from "../context/UseAuth";
 
 const Navbar = () => {
   const { token, setToken } = useAuth();
@@ -30,8 +26,12 @@ const Navbar = () => {
           Logout
         </NavLink>
       )}
+      <NavLink to="/Cart" className="cart">
+        Cart
+      </NavLink>
+      <NavLink to="/Article">Article</NavLink>
     </nav>
   );
-}
+};
 
 export default Navbar;

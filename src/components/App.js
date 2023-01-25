@@ -8,7 +8,6 @@ import { Route, Routes } from "react-router-dom";
 import LogIn from "./Login";
 import Register from "./Register";
 import Navbar from "./Navbar";
-import Home from "./Home";
 import { Shop } from "./Shop";
 
 const App = () => {
@@ -32,7 +31,7 @@ const App = () => {
     <div className="app-container">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Shop />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/register" element={<Register />} />
         <Route path="/shop" element={<Shop />} />
