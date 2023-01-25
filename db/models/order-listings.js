@@ -87,10 +87,25 @@ async function getOrderListingByListingId(id) {
   }
 }
 
+async function deleteOrderListing(orderId, listingId) {
+  try {
+    const { rows: listing } = await client.query(
+      `
+  DELETE FROM order_listings
+  WHERE "orderId" = $1 AND "listingId" = $2`,
+      [orderId, listingId]
+    );
+    return listing;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 module.exports = {
   createOrderListings,
   updateOrderListings,
   attachListingsToOrders,
   getOrderListingById,
   getOrderListingByListingId,
+  deleteOrderListing,
 };
