@@ -146,16 +146,16 @@ async function populateInitialData() {
 
     await createListing({
       isHot: true,
-      image: "https://unsplash.com/photos/hcB2HnGxXpg",
+      image: "https://cdn.mos.cms.futurecdn.net/YxjQB5hE5ScQgYWKTgk2b5.jpg",
       name: "Luxury Cat Pillow",
-      description: "Your car will snooze like never before!",
+      description: "Your cat will snooze like never before!",
       category: "Pet Pillows",
       price: 300,
       stock: 100,
     });
 
     await createListing({
-      isHot: true,
+      isHot: false,
       image: "https://unsplash.com/photos/hcB2HnGxXpg",
       name: "Memory Foam Pillow",
       description: "memoryfoam!",
