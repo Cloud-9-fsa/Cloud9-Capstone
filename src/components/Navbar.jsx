@@ -8,24 +8,40 @@ const Navbar = () => {
     localStorage.clear();
     setToken("");
   };
+  const LoginLogout = () => {
+    if (localStorage.getItem("token")) {
+      return (
+        <NavLink
+          to="/"
+          id="logout"
+          onClick={() => {
+            logout();
+          }}
+        >
+          Logout
+        </NavLink>
+      );
+    } else {
+      return (
+        <>
+        <NavLink to="Login" id="login">
+          {" "}
+          Login{" "}
+        </NavLink>
+        <NavLink to="/register" className="navbar-link">
+        Signup
+      </NavLink>
+        </>
+      );
+    }
+  };
 
   return (
     <nav className="navbar">
       <NavLink to="/" className="navbar-link">
         Home
       </NavLink>
-      <NavLink to="/login" className="navbar-link">
-        Login
-      </NavLink>
-      <NavLink to="/register" className="navbar-link">
-        Signup
-      </NavLink>
-
-      {token && (
-        <NavLink to="/" className="navbar-link" onClick={logout}>
-          Logout
-        </NavLink>
-      )}
+      <LoginLogout/>
       <NavLink to="/Cart" className="cart">
         Cart
       </NavLink>

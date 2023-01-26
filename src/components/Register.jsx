@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { registerUser } from '../apiCalls/registerApi';
 import { useAuth } from '../context/UseAuth';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -34,6 +35,7 @@ const theme = createTheme();
 
 export default function SignUp() {
     const { token, setToken } = useAuth();
+    const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -47,9 +49,15 @@ export default function SignUp() {
          data.get('firstname'),
          data.get('lastname'),
     );
-setToken(response.token);
-localStorage.setItem('token', response.token);
+    if (response.error) {
+      alert(response.message)};
+    if (response.token) {
+    setToken(response.token);
+    localStorage.setItem('token', response.token);
+    }
+
 console.log(response);
+if (localStorage.getItem ("token")) navigate("/")
   };
 
   return (
