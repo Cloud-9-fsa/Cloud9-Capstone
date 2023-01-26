@@ -1,87 +1,43 @@
-import React, { useEffect } from "react";
-import { fetchListings } from "../apiCalls/listingsAPI";
+import React from "react";
 import { useAuth } from "../context/UseAuth";
-import FireEmoji from "../assets/FireEmoji.png";
 import { Link } from "react-router-dom";
-import { createOrder } from "../apiCalls/cart/createOrderApi";
-import { addListingToOrder } from "../apiCalls/cart/addListingToOrder";
-import { getOrder } from "../apiCalls/cart/getOrder";
 
 export const Shop = () => {
-  const { listings, setListings, order, setOrder, token } = useAuth();
-
-  useEffect(() => {
-    const getAllListings = async () => {
-      const data = await fetchListings();
-      setListings(data);
-      //   console.log("THESE ARE MY Listings", data)
-    };
-    getAllListings();
-  }, []);
-
-  console.log("here are the listings:", listings);
-  const allCategoryListings = listings?.map(
-    ({ id, category, name, isHot, price, image, description }) => {
-      return (
-        <div className="AllListings" key={id}>
-          <p>Category: {category}</p>
-          <p>Name: {name}</p>
-          <img style={{ width: 150, height: 150 }} src={image} />
-          {isHot ? (
-            <div>
-              <img
-                style={{ width: 25, height: 25 }}
-                className="fireEmoji"
-                src="https://www.clipartmax.com/png/small/26-260450_fire-emoji-png.png"
-                alt="Fire Emoji Png @clipartmax.com"
-              />
-              <img
-                style={{ width: 25, height: 25 }}
-                className="fireEmoji"
-                src="https://www.clipartmax.com/png/small/26-260450_fire-emoji-png.png"
-                alt="Fire Emoji Png @clipartmax.com"
-              />
-              <img
-                style={{ width: 25, height: 25 }}
-                className="fireEmoji"
-                src="https://www.clipartmax.com/png/small/26-260450_fire-emoji-png.png"
-                alt="Fire Emoji Png @clipartmax.com"
-              />
-            </div>
-          ) : (
-            <></>
-          )}
-          <p>Price: {price}</p>
-          <button
-            type="button"
-            onClick={async () => {
-              if (order.length === 0) {
-                const newOrder = await createOrder(token);
-                setOrder(newOrder);
-              }
-              addListingToOrder(order.id, id);
-              const oldOrder = await getOrder(token);
-
-              setOrder(oldOrder[0]);
-            }}
-          >
-            Add To Cart
-          </button>
-        </div>
-      );
-    }
-  );
 
   return (
     <div>
+      <div className="CampaignImg">
       <h1>Welcome To Cloud9</h1>
-      <div className="AllListings">{allCategoryListings}</div>
+      <img src="https://images.unsplash.com/flagged/photo-1553802922-28e2f719977d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"></img>
+      </div>
+
+
       <div>
-        <Link to="/Pet Pillows">Pet Pillows</Link>
-        <Link to="/Sleep">Sleep</Link>
-        <Link to="/Decorative">Decorative</Link>
-        <Link to="/Outdoor">Outdoor</Link>
-        <Link to="/Accessories">Accessories</Link>
+        <div className="LinkHeader">
+          <h2>Pet Pillows</h2>
+        <Link to="/petpillows"><img src="https://cdn.shopify.com/s/files/1/0616/1331/0131/products/0c8c4e6eddb70f14e41f7aa38dd05400_1080x.jpg?v=1666880239"></img></Link>
+        </div>
+
+      <div className="LinkHeader">
+      <h2>Sleep</h2>
+      <Link to="/sleep"><img src="https://cb.scene7.com/is/image/Crate/CresteCrdryIvoryPillowsFSSF22/$web_pdp_main_carousel_high$/220818095037/creste-ivory-corduroy-throw-pillows-by-athena-calderone.jpg"></img></Link>
+      </div>
+
+      <div className="LinkHeader">
+      <h2>Decorative</h2>
+      <Link to="/decorative"><img src="https://cb.scene7.com/is/image/Crate/CresteCrdryIvoryPillowsFSSF22/$web_pdp_main_carousel_high$/220818095037/creste-ivory-corduroy-throw-pillows-by-athena-calderone.jpg"></img></Link>
+      </div>
+      
+      <div className="LinkHeader">
+      <h2>Outdoor</h2>
+      <Link to="/outdoor"><img src="https://images.unsplash.com/flagged/photo-1553802922-28e2f719977d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"></img></Link>
+      </div>
+      
+      <div className="LinkHeader">
+      <h2>Accessories</h2>
+      <Link to="/accessories"><img src="https://images.unsplash.com/flagged/photo-1553802922-28e2f719977d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"></img></Link>
+      </div>
+
       </div>
     </div>
   );
