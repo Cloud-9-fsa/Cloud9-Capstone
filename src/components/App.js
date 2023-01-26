@@ -10,6 +10,7 @@ import Register from "./Register";
 import Navbar from "./Navbar";
 import { Shop } from "./Shop";
 import { Cart } from "./Cart";
+import AboutUs from "./AboutUs";
 
 const App = () => {
   const [APIHealth, setAPIHealth] = useState("");
@@ -37,6 +38,8 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/aboutus" element={<AboutUs />} />
       </Routes>
     </div>
   );

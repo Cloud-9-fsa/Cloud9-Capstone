@@ -20,11 +20,12 @@ const Navbar = () => {
       <NavLink to="/register" className="navbar-link">
         Signup
       </NavLink>
-
+      <NavLink to="/aboutus">About Us</NavLink>
       {token && (
         <NavLink to="/" className="navbar-link" onClick={logout}>
           Logout
         </NavLink>
+
       )}
       <NavLink to="/Cart" className="cart">
         Cart
