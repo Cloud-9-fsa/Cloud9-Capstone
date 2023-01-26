@@ -41,11 +41,18 @@ const Navbar = () => {
       <NavLink to="/" className="navbar-link">
         Home
       </NavLink>
+
+   
+     
+  
+
       <LoginLogout/>
+
       <NavLink to="/Cart" className="cart">
         Cart
       </NavLink>
       <NavLink to="/Article">Article</NavLink>
+ <NavLink to="/aboutus">About Us</NavLink>
     </nav>
   );
 };
