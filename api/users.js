@@ -3,7 +3,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const { requireUser, requireUserAdmin } = require("./utils");
-const { getUserByEmail, createUser } = require("../db");
+const { getUserByEmail, createUser, getUserById } = require("../db");
 
 router.post("/register", async (req, res, next) => {
   const { email, password, firstname, lastname, address } = req.body;
@@ -85,6 +85,15 @@ router.post("/login", async (req, res, next) => {
         message: "Username or password is incorrect",
       });
     }
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/info", requireUser, async (req, res, next) => {
+  try {
+    const userInfo = await getUserById(req.user.id);
+    res.send(userInfo);
   } catch (error) {
     next(error);
   }

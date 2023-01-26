@@ -9,18 +9,19 @@ const { requireUser, requireUserAdmin } = require("./utils");
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
-  const { userId, isActive } = req.body;
   try {
-    const orders = await getOrdersByUserIsActive(isActive, userId);
+    const orders = await getOrdersByUserIsActive(req.user.id);
+
     res.send(orders);
   } catch (error) {
     next(error);
   }
 });
 
-router.post("/", requireUser, async (req, res, next) => {
+router.post("/create", requireUser, async (req, res, next) => {
+  console.log(req.user);
   try {
-    const order = await createOrders(userId);
+    const order = await createOrders(req.user.id);
     res.send(order);
   } catch (error) {
     next(error);

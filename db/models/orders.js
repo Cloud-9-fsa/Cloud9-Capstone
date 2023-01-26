@@ -47,14 +47,15 @@ async function getOrdersByIsActive(isActive) {
   }
 }
 
-async function getOrdersByUserIsActive(isActive, userId) {
+async function getOrdersByUserIsActive(userId) {
   try {
     const { rows: orders } = await client.query(
       `
         SELECT * FROM orders 
-        WHERE "isActive" =$1 AND "userId" =$2`,
-      [isActive, userId]
+        WHERE "isActive" =true AND "userId" =$1`,
+      [userId]
     );
+
     return attachListingsToOrders(orders);
   } catch (error) {
     console.error(error);
