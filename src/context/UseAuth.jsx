@@ -12,6 +12,8 @@ export const useAuth = () => {
     setListings,
     order,
     setOrder,
+    categoryListings,
+    setCategoryListings,
 
     // add your state here
   } = useContext(AuthContext);
@@ -26,6 +28,8 @@ export const useAuth = () => {
     setListings,
     order,
     setOrder,
+    categoryListings,
+    setCategoryListings,
 
     // add your state here
   };
