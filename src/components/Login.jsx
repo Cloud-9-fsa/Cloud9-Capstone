@@ -14,6 +14,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { login } from "../apiCalls/loginApi";
 import { useAuth } from '../context/UseAuth';
+import { useNavigate } from "react-router-dom";
 
 
 function Copyright(props) {
@@ -38,6 +39,7 @@ const theme = createTheme();
 
 export default function LogIn() {
   const { token, setToken } = useAuth();
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -48,9 +50,14 @@ export default function LogIn() {
        data.get("email"),
        data.get("password"),
     );
+    if (response.error) {
+      alert(response.message)};
+    if (response.token) {
     setToken(response.token);
-    localStorage.setItem("token", response.token);
+    localStorage.setItem('token', response.token);
+    }
     console.log(response);
+      if (localStorage.getItem ("token")) navigate("/")
   };
 
   return (
@@ -106,6 +113,7 @@ export default function LogIn() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+            
             >
               Log In
             </Button>

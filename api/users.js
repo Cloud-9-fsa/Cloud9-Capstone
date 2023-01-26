@@ -70,19 +70,26 @@ router.post("/login", async (req, res, next) => {
 
   try {
     const user = await getUserByEmail({ email });
-    const isValid = await bcrypt.compare(password, user.password);
-    if (user && isValid) {
-      const token = jwt.sign(
-        { id: user.id, email: user.email },
-        process.env.JWT_SECRET
-      );
-      delete user.password;
-      user.token = token;
-      res.send({ user: user, message: "you're logged in!", token: token });
+    if (user) {
+      const isValid = await bcrypt.compare(password, user.password);
+      if (isValid) {
+        const token = jwt.sign(
+          { id: user.id, email: user.email },
+          process.env.JWT_SECRET
+        );
+        delete user.password;
+        user.token = token;
+        res.send({ user: user, message: "you're logged in!", token: token });
+      } else {
+        next({
+          name: "IncorrectCredentialsError",
+          message: "Email or password is incorrect",
+        });
+      }
     } else {
       next({
         name: "IncorrectCredentialsError",
-        message: "Username or password is incorrect",
+        message: "Email or password is incorrect",
       });
     }
   } catch (error) {

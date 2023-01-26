@@ -124,7 +124,7 @@ async function populateInitialData() {
       address: "Ohio",
     });
     await createAdminUser({
-      email: "Solan.jellena@gmail.com",
+      email: "solan.jellena@gmail.com",
       password: "FullstackRocks",
       firstname: "Jellena",
       lastname: "Solan",
@@ -237,7 +237,7 @@ async function populateInitialData() {
       name: "Silk Bed Sheets",
       description:
         "Our silk sheets are made with natural protein fibers which are ideal for your skin. If you truly want to sleep in the clouds these sheets will get you there.",
-      category: "Sleep",
+      category: "Accessories",
       price: 350,
       stock: 100,
     });
