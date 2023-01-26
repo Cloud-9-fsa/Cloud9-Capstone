@@ -3,6 +3,10 @@ const client = require("../client");
 async function createListing({
   isHot,
   image,
+  image2,
+  image3,
+  image4,
+  image5,
   name,
   description,
   category,
@@ -14,9 +18,22 @@ async function createListing({
       rows: [listing],
     } = await client.query(
       `
-      INSERT INTO listings ("isHot", image, name, description, category, price, stock) VALUES($1,$2,$3,$4,$5,$6,$7)
+      INSERT INTO listings ("isHot", image, image2,image3,image4,image5, 
+      name, description, category, price, stock) VALUES($1,$2,$3,$4,$5,$6,$7, $8, $9, $10, $11)
       RETURNING *`,
-      [isHot, image, name, description, category, price, stock]
+      [
+        isHot,
+        image,
+        image2,
+        image3,
+        image4,
+        image5,
+        name,
+        description,
+        category,
+        price,
+        stock,
+      ]
     );
 
     return listing;
