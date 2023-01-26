@@ -1,15 +1,16 @@
-export async function createOrder(token) {
+export const getUserInfo = async (token) => {
   try {
-    const response = await fetch(`/api/orders/create`, {
-      method: "POST",
+    const response = await fetch(`/api/users/info`, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     });
+
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
-}
+};

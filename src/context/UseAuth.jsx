@@ -3,19 +3,30 @@ import { AuthContext } from "../context/AuthContext";
 
 export const useAuth = () => {
   const {
+    user,
+    setUser,
     token,
     setToken,
+    login,
     listings,
-    setListings
+    setListings,
+    order,
+    setOrder,
 
     // add your state here
   } = useContext(AuthContext);
 
   return {
+    user,
+    setUser,
     token,
     setToken,
+    login,
     listings,
-    setListings
+    setListings,
+    order,
+    setOrder,
+
     // add your state here
   };
 };

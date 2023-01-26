@@ -1,7 +1,7 @@
 export async function addListingToOrder(orderId, listingId) {
   try {
-    const response = await fetch(`/api/order-listings/listings`, {
-      method: "GET",
+    const response = await fetch(`/api/orderlistings/listings`, {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -10,6 +10,8 @@ export async function addListingToOrder(orderId, listingId) {
         listingId,
       }),
     });
+    const data = response.json();
+    return data;
   } catch (error) {
     console.error(error);
   }

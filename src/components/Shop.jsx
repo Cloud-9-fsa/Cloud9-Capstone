@@ -3,9 +3,12 @@ import { fetchListings } from "../apiCalls/listingsAPI";
 import { useAuth } from "../context/UseAuth";
 import FireEmoji from "../assets/FireEmoji.png";
 import { Link } from "react-router-dom";
+import { createOrder } from "../apiCalls/cart/createOrderApi";
+import { addListingToOrder } from "../apiCalls/cart/addListingToOrder";
+import { getOrder } from "../apiCalls/cart/getOrder";
 
 export const Shop = () => {
-  const { listings, setListings } = useAuth();
+  const { listings, setListings, order, setOrder, token } = useAuth();
 
   useEffect(() => {
     const getAllListings = async () => {
@@ -49,7 +52,21 @@ export const Shop = () => {
             <></>
           )}
           <p>Price: {price}</p>
-          <button>Add To Cart</button>
+          <button
+            type="button"
+            onClick={async () => {
+              if (order.length === 0) {
+                const newOrder = await createOrder(token);
+                setOrder(newOrder);
+              }
+              addListingToOrder(order.id, id);
+              const oldOrder = await getOrder(token);
+
+              setOrder(oldOrder[0]);
+            }}
+          >
+            Add To Cart
+          </button>
         </div>
       );
     }
