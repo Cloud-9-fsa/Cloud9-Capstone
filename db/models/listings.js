@@ -1,5 +1,11 @@
 const client = require("../client");
 
+const capitalName = (name) => {
+  const result = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+
+  return result;
+};
+
 async function createListing({
   isHot,
   image,
@@ -30,7 +36,7 @@ async function createListing({
         image5,
         name,
         description,
-        category,
+        capitalName(category),
         price,
         stock,
       ]
@@ -46,6 +52,21 @@ async function getAllListings() {
   try {
     const { rows: listings } = await client.query(`
       SELECT * FROM listings`);
+
+    return attachReviewsToListings(listings);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function getListingById(id) {
+  try {
+    const { rows: listings } = await client.query(
+      `
+      SELECT * FROM listings
+      WHERE id = $1`,
+      [id]
+    );
 
     return attachReviewsToListings(listings);
   } catch (error) {
@@ -73,7 +94,7 @@ async function getListingByCategory(category) {
       `
       SELECT * FROM listings 
       WHERE category =$1`,
-      [category]
+      [capitalName(category)]
     );
     return attachReviewsToListings(listing);
   } catch (error) {
@@ -145,7 +166,7 @@ async function attachReviewsToListings(listings) {
       );
       listing.reviews = reviewsToAdd;
     }
-    console.log("This is listings to return:", listingsToReturn);
+
     return listingsToReturn;
   } catch (error) {
     throw error;
@@ -160,4 +181,5 @@ module.exports = {
   getListingByIsHot,
   getListingByName,
   getListingByPrice,
+  getListingById,
 };

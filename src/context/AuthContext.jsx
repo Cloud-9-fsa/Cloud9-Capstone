@@ -2,6 +2,7 @@ import React, { useState, useEffect, createContext } from "react";
 import { createOrder } from "../apiCalls/cart/createOrderApi";
 import { getOrder } from "../apiCalls/cart/getOrder";
 import { getUserInfo } from "../apiCalls/getUserInfoAPI";
+import { fetchListings } from "../apiCalls/listingsAPI";
 
 export const AuthContext = createContext();
 
@@ -11,6 +12,7 @@ export default function AuthProvider({ children }) {
   const [login, setLogin] = useState(false);
   const [listings, setListings] = useState([]);
   const [order, setOrder] = useState({});
+  const [categoryListings, setCategoryListings] = useState([]);
 
   useEffect(() => {
     setToken(localStorage["token"] || "");
@@ -25,6 +27,12 @@ export default function AuthProvider({ children }) {
       setOrder(oldOrder[0]);
     };
     orders();
+    const getAllListings = async () => {
+      const data = await fetchListings();
+      setListings(data);
+      console.log("THESE ARE MY Listings", data);
+    };
+    getAllListings();
   }, []);
 
   const providerValue = {
@@ -37,6 +45,8 @@ export default function AuthProvider({ children }) {
     setListings,
     order,
     setOrder,
+    categoryListings,
+    setCategoryListings,
 
     // add your state here
   };

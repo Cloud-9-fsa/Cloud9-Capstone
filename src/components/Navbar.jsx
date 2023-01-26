@@ -24,13 +24,13 @@ const Navbar = () => {
     } else {
       return (
         <>
-        <NavLink to="Login" id="login">
-          {" "}
-          Login{" "}
-        </NavLink>
-        <NavLink to="/register" className="navbar-link">
-        Signup
-      </NavLink>
+          <NavLink to="Login" id="login">
+            {" "}
+            Login{" "}
+          </NavLink>
+          <NavLink to="/register" className="navbar-link">
+            Signup
+          </NavLink>
         </>
       );
     }
@@ -42,17 +42,13 @@ const Navbar = () => {
         Home
       </NavLink>
 
-   
-     
-  
-
-      <LoginLogout/>
+      <LoginLogout />
 
       <NavLink to="/Cart" className="cart">
         Cart
       </NavLink>
       <NavLink to="/Article">Article</NavLink>
- <NavLink to="/aboutus">About Us</NavLink>
+      <NavLink to="/aboutus">About Us</NavLink>
     </nav>
   );
 };
