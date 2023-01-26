@@ -221,6 +221,157 @@ async function populateInitialData() {
       stock: 100,
     });
 
+    await createListing({
+      isHot: true,
+      image: "",
+      name: "Memory Foam Mattress",
+      description:
+        "Our memory foam mattresses uses your own body heat to soften and form to your shape. these mattresses provide incredible support and comfort.",
+      category: "Sleep",
+      price: 1200,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image: "",
+      name: "Silk Bed Sheets",
+      description:
+        "Our silk sheets are made with natural protein fibers which are ideal for your skin. If you truly want to sleep in the clouds these sheets will get you there.",
+      category: "Sleep",
+      price: 350,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image: "",
+      name: "Satin Pillow Case",
+      description:
+        "Our 100% polyester satin pillowcases help protect your beard from scratches, creases and tugs, helping to reduce split ends and ensuring a night of restorative beard sleep.",
+      category: "Sleep",
+      price: 75,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image: "",
+      name: "Foot Pillow",
+      description:
+        "This pillow provides effective pain relief for those who sit for hours. Raising your feet at the desk promotes good sitting posture. Dont't let your feet suffer a long days work.",
+      category: "Sleep",
+      price: 150,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image: "",
+      name: "Body Pillow",
+      description:
+        "For all of the side sleepers out there this pillow was designed with you in mind. If you're tired of waking up with your shoulders and hips hurting this pillow can provide the support you need to combat that wake up pain. You'll find yourself awaking to a fully rested body without changing your sleeping style.",
+      category: "Sleep",
+      price: 350,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image: "",
+      name: "Inflatable Outdoor Pillow",
+      description:
+        "This inflatable pillow will fit snug in your bag so that you can sleep snug at night.",
+      category: "Outdoor",
+      price: 50,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image: "",
+      name: "Compressed Pillow",
+      description:
+        "Few emergency pillows come close to matching the comfort of our compressed pillow. It can fit in any bag and takes up less space than a flashlight.",
+      category: "Outdoor",
+      price: 75,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image: "",
+      name: "Sleeping Pad",
+      description:
+        "This outdoor necessity will keep you comfortable on any surface you choose. Our sleeping pad has built in pillows and is made for even the most unforgiving of surfaces.",
+      category: "Outdoor",
+      price: 300,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image: "",
+      name: "Extreme Camping Pillow",
+      description:
+        "This pillow can take whatever the wild has to throw at it. Whether it's weather or terrain nothing can keep you from having comfort in your bag. This pillow will outlast you.",
+      category: "Outdoor",
+      price: 200,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image: "",
+      name: "Outdoor Comfort Pillow",
+      description:
+        "If you want to bring the comforts of home with you during your adventures, then this pillow was made for you. It may not be meant for the extremes that the outdoors can throw at you, but it can make a light camping trip feel not so far from home.",
+      category: "Outdoor",
+      price: 100,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image: "",
+      name: "Cinder Block",
+      description:
+        "If you feel like your day wasn't hard enough, we invite you to try out our cinder block pillow. Our cinder blocks are cut to order. Stop worrying about having a good nights rest and make sure you have a bad one with our product.",
+      category: "Accessories",
+      price: 250,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image: "",
+      name: "Bundle of sticks",
+      description:
+        "All of our sticks are locally sourced. If you've ever wondered what it was like to sleep on the forest floor, this pillow is for you. With this pillow you will go to bed uncomfortably and wake up feeling like a caveman. Comfort is for the weak, be strong, sleep on sticks.",
+      category: "Accessories",
+      price: 50,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image: "",
+      name: "Sack of Dirt",
+      description:
+        "Have you ever woke up early in the morning and stepped outside to smell the earthy air? We wanted to bring that refreshing smell to you while you slip off to dreamland. We introduce our bag of dirt. Our dirt is harvested from just outside of out shipping facilities. The bags are made from 100% sun-dried wool. We promise we will never not have these pillows in stock.",
+      category: "Accessories",
+      price: 350,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image: "",
+      name: "Stolen Hotel Lobby Pillow",
+      description:
+        "Our team went on a company retreat and came back with pillows from every hotel we could find. Though we can't provide the names of the hotels we can tell you that these pillows are seemingly comfortable and overpriced.",
+      category: "Accessories",
+      price: 12000,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image: "",
+      name: "Water Pillow",
+      description:
+        "You may have heard of a water bed, but I'm guessing you've never heard of a water pillow. Our water pillows bring all of the joy of a water bed into a smaller inconveniet size. Water balloons don't have anything on this pillow. Please buy them, we made too many.",
+      category: "Accessories",
+      price: 350,
+      stock: 100,
+    });
+
     await createOrders(1);
 
     await createOrderListings(1, 1);
