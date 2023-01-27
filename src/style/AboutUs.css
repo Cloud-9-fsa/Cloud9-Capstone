@@ -16,7 +16,10 @@
     font-size: 28px;
     margin-bottom: 20px;
     text-decoration: underline;
+
     color: black;
+
+
   }
 
   .about-us-text-container p {
@@ -32,3 +35,21 @@
   .about-us-image-container {
     width: 50%;
   }
+
+
+
+  footer{
+    text-align: center;
+    bottom: 0;
+
+}
+
+.contact
+{
+    width: 120px;
+}
+footer img
+{
+    width: 75px;
+}
+

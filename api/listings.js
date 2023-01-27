@@ -5,6 +5,7 @@ const {
   getListingByCategory,
   createListing,
   deleteListing,
+  getListingById,
 } = require("../db");
 const { requireUser, requireUserAdmin } = require("./utils");
 
@@ -17,10 +18,20 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:catagory", async (req, res, next) => {
-  const { catagory } = req.params;
+router.get("/:listingId", async (req, res, next) => {
+  const { listingId } = req.params;
   try {
-    const listings = await getListingByCategory(catagory);
+    const listings = await getListingById(listingId);
+    res.send(listings);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/:category", async (req, res, next) => {
+  const { category } = req.params;
+  try {
+    const listings = await getListingByCategory(category);
     res.send(listings);
   } catch (error) {
     next(error);
