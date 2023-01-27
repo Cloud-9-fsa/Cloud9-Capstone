@@ -42,7 +42,9 @@ const Navbar = () => {
         Home
       </NavLink>
 
+
       <LoginLogout />
+
 
       <NavLink to="/Cart" className="cart">
         Cart

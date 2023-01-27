@@ -8,8 +8,12 @@ import Navbar from "./Navbar";
 import { Shop } from "./Shop";
 import { Cart } from "./Cart";
 import AboutUs from "./AboutUs";
+import Footer from "./Footer";
+import ContactUs from "./ContactUs";
+import Returns from "./returns";
 import { ListingDetails } from "./ListingDetails";
 import { Categories } from "./Categories";
+
 
 const App = () => {
   const [APIHealth, setAPIHealth] = useState("");
@@ -26,9 +30,64 @@ const App = () => {
     <div className="app-container">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Shop />} />
-        <Route path="/login" element={<LogIn />} />
+        <Route
+          path="/contact"
+          element={
+            <>
+              <ContactUs />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/returns"
+          element={
+            <>
+              <Returns />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <>
+              <Shop />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <>
+              <LogIn /> <Footer />
+            </>
+          }
+        />
         <Route path="/register" element={<Register />} />
+
+        <Route path="/shop" element={<Shop />} />
+        <Route
+          path="/cart"
+          element={
+            <>
+              <Cart />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/aboutus"
+          element={
+            <>
+              <AboutUs />
+              <Footer />
+            </>
+          }
+        />
+      
+
         <Route path="/cart" element={<Cart />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/listings/:listingId" element={<ListingDetails />} />
