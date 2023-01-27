@@ -1,17 +1,18 @@
 .footer {
     width: 100%;
     position:sticky;
-border-radius: 10px;
 display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: rgb(185, 191, 193);
+    background-color: rgb(255, 255, 255);
     color: #fff;
     padding: 1rem;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+
   }
 
   .footer a {
-    color: #fff;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     margin: 0 1rem;
   }
