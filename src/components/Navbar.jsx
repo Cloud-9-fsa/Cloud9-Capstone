@@ -3,9 +3,10 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/UseAuth";
 
 const Navbar = () => {
-  const { token, setToken } = useAuth();
+  const { token, setToken, setUser } = useAuth();
   const logout = () => {
     localStorage.clear();
+    setUser({});
     setToken("");
   };
   const LoginLogout = () => {
@@ -42,9 +43,7 @@ const Navbar = () => {
         Home
       </NavLink>
 
-
       <LoginLogout />
-
 
       <NavLink to="/Cart" className="cart">
         Cart

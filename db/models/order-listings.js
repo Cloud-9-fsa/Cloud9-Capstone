@@ -7,6 +7,7 @@ async function createOrderListings(orderId, listingId) {
     } = await client.query(
       `
           INSERT INTO order_listings ("orderId", "listingId") VALUES($1, $2)
+          ON CONFLICT ("orderId", "listingId") DO NOTHING
           RETURNING *`,
       [orderId, listingId]
     );
@@ -23,8 +24,10 @@ async function updateOrderListings({ id, quantity }) {
       rows: [orderListings],
     } = await client.query(
       `
-            UPDATE order_listings SET id = ${id}, quantity = ${quantity}
-            RETURNING *`
+            UPDATE order_listings SET quantity = $1
+            WHERE id =$2
+            RETURNING *`,
+      [quantity, id]
     );
 
     return orderListings;

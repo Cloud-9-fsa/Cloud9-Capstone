@@ -7,7 +7,7 @@ export const fetchListings = async () => {
       },
     });
     const data = await response.json();
-    console.log("THIS IS MY DATA", data);
+
     return data;
   } catch (error) {
     throw error;
