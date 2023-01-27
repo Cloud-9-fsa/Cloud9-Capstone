@@ -19,7 +19,6 @@ router.get("/", async (req, res, next) => {
 });
 
 router.post("/create", requireUser, async (req, res, next) => {
-  console.log(req.user);
   try {
     const order = await createOrders(req.user.id);
     res.send(order);
