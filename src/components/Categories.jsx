@@ -89,7 +89,7 @@ export const Categories = () => {
 
       <div className="AllListings">{allCategoryListings}</div>
       <div>
-        <Link to="/Pet Pillows">Pet Pillows</Link>
+        <Link to="/Pet">Pet Pillows</Link>
         <Link to="/Sleep">Sleep</Link>
         <Link to="/Decorative">Decorative</Link>
         <Link to="/Outdoor">Outdoor</Link>
