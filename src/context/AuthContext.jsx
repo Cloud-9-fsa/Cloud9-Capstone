@@ -30,7 +30,6 @@ export default function AuthProvider({ children }) {
     const getAllListings = async () => {
       const data = await fetchListings();
       setListings(data);
-      console.log("THESE ARE MY Listings", data);
     };
     getAllListings();
   }, []);

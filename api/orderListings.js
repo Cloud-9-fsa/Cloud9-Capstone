@@ -20,7 +20,7 @@ router.post("/Listings", async (req, res, next) => {
 router.patch("/Listings/quantity", async (req, res, next) => {
   const { id, quantity } = req.body;
   try {
-    const changeQuantity = await updateOrderListings(id, quantity);
+    const changeQuantity = await updateOrderListings({ id, quantity });
     res.send(changeQuantity);
   } catch (error) {
     next(error);
