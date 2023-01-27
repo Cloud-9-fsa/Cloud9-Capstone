@@ -5,9 +5,10 @@ import "../style/Navbar.css"
 
 
 const Navbar = () => {
-  const { token, setToken } = useAuth();
+  const { token, setToken, setUser } = useAuth();
   const logout = () => {
     localStorage.clear();
+    setUser({});
     setToken("");
   };
   const LoginLogout = () => {
@@ -59,6 +60,7 @@ const Navbar = () => {
         </div>
         <div className="shop-dropdown-card">
 
+
         <a href="/Outdoor">Outdoor</a>
         </div>
         <div className="shop-dropdown-card">
@@ -74,6 +76,10 @@ const Navbar = () => {
 
       <NavLink to="/Article" className="navbar-link" >Article</NavLink>
       <NavLink to="/aboutus"className="navbar-link" >About Us</NavLink>
+
+    
+
+
       <NavLink to="/Cart" className="cart">
       <img
       src="https://icons-for-free.com/download-icon-checkout+commerce+shopping+cart+icon-1320166580788754282_256.png"

@@ -1,20 +1,42 @@
-import React, { useEffect } from "react";
-import { createOrder } from "../apiCalls/cart/createOrderApi";
-import { getOrder } from "../apiCalls/cart/getOrder";
+import React from "react";
 import { useAuth } from "../context/UseAuth";
+import { editOrder } from "../apiCalls/cart/editOrderQuantity";
+
+import "../style/Cart.css";
 
 export const Cart = () => {
-  const { user, order, setOrder, token } = useAuth();
-  if (order) {
+  const { order, user, token, setOrder } = useAuth();
+  if (order.listings && order.listings.length) {
+    console.log(order);
     const CartListings = order.listings.map((listing) => {
       return (
-        <div>
-          <h1>{listing.name}</h1>
-          <h1>{listing.price}</h1>
-          <h1>{listing.quantity}</h1>
+        <div className="cartForm" key={listing.id}>
+          <h1>Name:{listing.name}</h1>
+          <h1>Price:{listing.price}</h1>
+
+          <label>Quantity:</label>
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            placeholder={listing.quantity}
+            onChange={async (e) => {
+              await editOrder(listing.orderListingId, e.target.value);
+            }}
+            min="1"
+          />
+          <button>Remove From Cart</button>
         </div>
       );
     });
-    return <div>{CartListings}</div>;
+    return (
+      <div>
+        <h1>
+          You have {order.listings.length} items in your cart , {user.firstname}
+          !
+        </h1>
+        {CartListings}
+      </div>
+    );
   }
 };

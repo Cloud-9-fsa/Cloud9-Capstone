@@ -13,9 +13,9 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { login } from "../apiCalls/loginApi";
-import { useAuth } from '../context/UseAuth';
+import { useAuth } from "../context/UseAuth";
 import { useNavigate } from "react-router-dom";
-
+import { getUserInfo } from "../apiCalls/getUserInfoAPI";
 
 function Copyright(props) {
   return (
@@ -38,7 +38,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function LogIn() {
-  const { token, setToken } = useAuth();
+  const { token, setToken, user, setUser } = useAuth();
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -46,18 +46,18 @@ export default function LogIn() {
     console.log(data.get("email"));
     console.log(data.get("password"));
 
-    const response = await login(
-       data.get("email"),
-       data.get("password"),
-    );
+    const response = await login(data.get("email"), data.get("password"));
     if (response.error) {
-      alert(response.message)};
+      alert(response.message);
+    }
     if (response.token) {
-    setToken(response.token);
-    localStorage.setItem('token', response.token);
+      setToken(response.token);
+      localStorage.setItem("token", response.token);
+      const info = await getUserInfo(token);
+      setUser(info);
     }
     console.log(response);
-      if (localStorage.getItem ("token")) navigate("/")
+    if (localStorage.getItem("token")) navigate("/");
   };
 
   return (
@@ -113,7 +113,6 @@ export default function LogIn() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-            
             >
               Log In
             </Button>
