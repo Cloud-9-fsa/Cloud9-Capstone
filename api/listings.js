@@ -39,11 +39,27 @@ router.get("/:category", async (req, res, next) => {
 });
 
 router.post("/create", requireUserAdmin, async (req, res, next) => {
-  const { isHot, image, name, description, category, price, stock } = req.body;
+  const {
+    isHot,
+    image,
+    image2,
+    image3,
+    image4,
+    image5,
+    name,
+    description,
+    category,
+    price,
+    stock,
+  } = req.body;
   try {
     const createdListing = await createListing({
       isHot,
       image,
+      image2,
+      image3,
+      image4,
+      image5,
       name,
       description,
       category,
@@ -56,7 +72,7 @@ router.post("/create", requireUserAdmin, async (req, res, next) => {
   }
 });
 
-router.delete("/listing", requireUserAdmin, async (req, res, next) => {
+router.delete("/listing", async (req, res, next) => {
   const { listingId } = req.body;
   try {
     const deletedListing = await deleteListing(listingId);
