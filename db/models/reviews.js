@@ -1,14 +1,21 @@
 const client = require("../client");
 
-async function createReviews({ userId, title, description, rating }) {
+async function createReviews({
+  userId,
+  firstname,
+  lastname,
+  title,
+  description,
+  rating,
+}) {
   try {
     const {
       rows: [reviews],
     } = await client.query(
       `
-          INSERT INTO reviews ("userId", title, description, rating) VALUES($1, $2, $3, $4)
+          INSERT INTO reviews ("userId", firstname, lastname, title, description, rating) VALUES($1, $2, $3, $4,$5,$6)
           RETURNING *`,
-      [userId, title, description, rating]
+      [userId, firstname, lastname, title, description, rating]
     );
     // console.log("This is reviews:", reviews);
     return reviews;

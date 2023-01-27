@@ -54,6 +54,8 @@ async function buildTables() {
       CREATE TABLE reviews(
         id SERIAL PRIMARY KEY,
         "userId" INTEGER REFERENCES users(id),
+        firstname VARCHAR(255) NOT NULL,
+        lastname VARCHAR(255) NOT NULL,
         title VARCHAR(255) NOT NULL,
         description VARCHAR(255) NOT NULL,
         rating SMALLINT NOT NULL CHECK(rating BETWEEN 1 AND 5)
@@ -80,6 +82,7 @@ async function buildTables() {
       id SERIAL PRIMARY KEY,
       "orderId" INTEGER REFERENCES orders(id),
       "listingId" INTEGER REFERENCES listings(id),
+      UNIQUE ("orderId","listingId"),
       quantity INTEGER DEFAULT 1
 
     );
@@ -361,6 +364,8 @@ async function populateInitialData() {
     await getOrderListingByListingId(1);
     await createReviews({
       title: "First Title",
+      firstname: "moe",
+      lastname: "ayyad",
       userId: 1,
       description: "This is the description",
       rating: 5,
