@@ -14,7 +14,6 @@ import Returns from "./returns";
 import { ListingDetails } from "./ListingDetails";
 import { Categories } from "./Categories";
 
-
 const App = () => {
   const [APIHealth, setAPIHealth] = useState("");
 
@@ -30,69 +29,19 @@ const App = () => {
     <div className="app-container">
       <Navbar />
       <Routes>
-        <Route
-          path="/contact"
-          element={
-            <>
-              <ContactUs />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/returns"
-          element={
-            <>
-              <Returns />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/"
-          element={
-            <>
-              <Shop />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/login"
-          element={
-            <>
-              <LogIn /> <Footer />
-            </>
-          }
-        />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/returns" element={<Returns />} />
+        <Route path="/" element={<Shop />} />
+        <Route path="/login" element={<LogIn />} />
         <Route path="/register" element={<Register />} />
-
-        <Route path="/shop" element={<Shop />} />
-        <Route
-          path="/cart"
-          element={
-            <>
-              <Cart />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/aboutus"
-          element={
-            <>
-              <AboutUs />
-              <Footer />
-            </>
-          }
-        />
-      
-
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/listings/:listingId" element={<ListingDetails />} />
         <Route path="/shop/:category" element={<Categories />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
