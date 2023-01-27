@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import { useAuth } from "../context/UseAuth";
 import { Link } from "react-router-dom";
 import { createOrder } from "../apiCalls/cart/createOrderApi";
@@ -6,11 +6,14 @@ import { addListingToOrder } from "../apiCalls/cart/addListingToOrder";
 import { getOrder } from "../apiCalls/cart/getOrder";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { deleteListing } from "../apiCalls/deleteListingAPI";
+import { fetchListings } from "../apiCalls/listingsAPI";
 
 export const Categories = () => {
-  const { listings, order, setOrder, token } = useAuth();
+  const { listings, order, setOrder, token, user, setListings } = useAuth();
   const { category } = useParams();
   const navigate = useNavigate();
+  console.log("this is user", user);
 
   const capitalName = (name) => {
     const result = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
@@ -78,6 +81,19 @@ export const Categories = () => {
           >
             Add To Cart
           </button>
+          {user.isAdmin ? (
+            <button
+              onClick={async () => {
+                await deleteListing(id);
+                const data = listings?.filter((listing) => listing.id !== id);
+                setListings(data);
+              }}
+            >
+              Delete Listing
+            </button>
+          ) : (
+            <></>
+          )}
         </div>
       );
     }

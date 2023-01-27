@@ -18,7 +18,7 @@ export function ListingDetails() {
   const handleSubmit = async (listingId, e) => {
     if (token) {
       e.preventDefault();
-      const newReview = await createReview(
+      await createReview(
         listingId,
         user.id,
         user.firstname,
@@ -71,7 +71,7 @@ export function ListingDetails() {
           {create ? (
             <div className="newReviewForm">
               <h4>Review</h4>
-              <form onSubmit={(e) => handleSubmit(e)}>
+              <form className="reviewForm" onSubmit={(e) => handleSubmit(e)}>
                 <input
                   value={title}
                   type="text"
