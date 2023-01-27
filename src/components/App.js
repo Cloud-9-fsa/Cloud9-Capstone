@@ -16,7 +16,9 @@ import { Decorative } from "./Decorative";
 import { PetPillows } from "./Pet Pillows";
 import { Sleep } from "./Sleep";
 import { Outdoor } from "./Outdoor";
-
+import Footer from "./Footer";
+import ContactUs from "./ContactUs";
+import Returns from "./returns";
 
 const App = () => {
   const [APIHealth, setAPIHealth] = useState("");
@@ -39,18 +41,66 @@ const App = () => {
     <div className="app-container">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Shop />} />
-        <Route path="/login" element={<LogIn />} />
+        <Route
+          path="/contact"
+          element={
+            <>
+              <ContactUs />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/returns"
+          element={
+            <>
+              <Returns />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <>
+              <Shop />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <>
+              <LogIn /> <Footer />
+            </>
+          }
+        />
         <Route path="/register" element={<Register />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/cart" element={<Cart />} />      
-        <Route path="/aboutus" element={<AboutUs />} />
+        <Route
+          path="/cart"
+          element={
+            <>
+              <Cart />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/aboutus"
+          element={
+            <>
+              <AboutUs />
+              <Footer />
+            </>
+          }
+        />
         <Route path="/Accessories" element={<Accessories />} />
         <Route path="/Decorative" element={<Decorative />} />
         <Route path="/PetPillows" element={<PetPillows />} />
         <Route path="/Sleep" element={<Sleep />} />
         <Route path="/Outdoor" element={<Outdoor />} />
-
       </Routes>
     </div>
   );

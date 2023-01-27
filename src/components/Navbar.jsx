@@ -42,9 +42,9 @@ const Navbar = () => {
         Home
       </NavLink>
 
-   
-     
-  
+
+
+
 
       <LoginLogout/>
 
