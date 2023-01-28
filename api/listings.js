@@ -72,8 +72,9 @@ router.post("/create", requireUserAdmin, async (req, res, next) => {
   }
 });
 
-router.delete("/listing", async (req, res, next) => {
-  const { listingId } = req.body;
+router.delete("/delete/:listing", requireUserAdmin, async (req, res, next) => {
+  const { listingId } = req.params;
+
   try {
     const deletedListing = await deleteListing(listingId);
     res.send(deletedListing);

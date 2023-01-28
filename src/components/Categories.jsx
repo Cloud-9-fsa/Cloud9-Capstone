@@ -84,7 +84,7 @@ export const Categories = () => {
           {user.isAdmin ? (
             <button
               onClick={async () => {
-                await deleteListing(id);
+                await deleteListing(id, token);
                 const data = listings?.filter((listing) => listing.id !== id);
                 setListings(data);
               }}

@@ -29,6 +29,7 @@ router.patch("/Listings/quantity", async (req, res, next) => {
 
 router.delete("/delete", async (req, res, next) => {
   const { orderId, listingId } = req.body;
+
   try {
     const deleteListings = await deleteOrderListing(orderId, listingId);
     res.send(deleteListings);
