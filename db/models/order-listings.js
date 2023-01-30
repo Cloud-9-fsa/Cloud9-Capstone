@@ -197,7 +197,7 @@ async function updateOrderPrice(orderId) {
     const allOrders = await attachListingsToOrders(orders);
 
     let total = 0;
-
+    console.log(allOrders);
     allOrders[0].listings.map((listing) => {
       let listingTotal = listing.price * listing.quantity;
       total = total + listingTotal;

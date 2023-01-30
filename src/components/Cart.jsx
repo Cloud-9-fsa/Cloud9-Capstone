@@ -3,6 +3,7 @@ import { useAuth } from "../context/UseAuth";
 import { editOrder } from "../apiCalls/cart/editOrderQuantity";
 import { deleteListingFromOrder } from "../apiCalls/cart/deleteListingFromOrder";
 import { getOrder } from "../apiCalls/cart/getOrder";
+
 import "../style/Cart.css";
 
 export const Cart = () => {
