@@ -76,13 +76,15 @@ async function getListingById(id) {
 
 async function deleteListing(id) {
   try {
-    await client.query(
+    const { rows } = await client.query(
       `
         DELETE FROM listings
         WHERE id = $1
+        RETURNING *
         `,
       [id]
     );
+    return rows;
   } catch (error) {
     console.error(error);
   }
