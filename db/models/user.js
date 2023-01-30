@@ -95,9 +95,8 @@ async function getUser({ email, password }) {
 async function getAllUsers() {
   try {
     const { rows: users } = await client.query(`
-    SELECT * FROM users`);
+    SELECT id, email, firstname, lastname, address, "isAdmin" FROM users`);
 
-    delete users.password;
     return users;
   } catch (error) {
     console.error(error);
