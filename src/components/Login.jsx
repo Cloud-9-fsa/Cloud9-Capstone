@@ -53,8 +53,7 @@ export default function LogIn() {
     if (response.token) {
       setToken(response.token);
       localStorage.setItem("token", response.token);
-      const info = await getUserInfo(token);
-      setUser(info);
+      setUser(response.user);
     }
     console.log(response);
     if (localStorage.getItem("token")) navigate("/");
