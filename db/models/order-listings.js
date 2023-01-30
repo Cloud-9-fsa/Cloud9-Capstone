@@ -12,6 +12,34 @@ async function createOrderListings(orderId, listingId) {
       [orderId, listingId]
     );
 
+    // if (orderListings) {
+    //   const {
+    //     rows: [price],
+    //   } = await client.query(
+    //     `
+    //     SELECT price FROM listings
+    //       WHERE id = $1`,
+    //     [listingId]
+    //   );
+    //   const {
+    //     rows: [total],
+    //   } = await client.query(
+    //     `SELECT total FROM orders
+    //         WHERE id=$1`,
+    //     [orderId]
+    //   );
+
+    //   const currentTotal = total.total + price.price;
+    //   console.log(currentTotal);
+    //   await client.query(
+    //     `
+    //           UPDATE orders SET total = $1
+    //           WHERE id = $2`,
+    //     [currentTotal, orderId]
+    //   );
+    // }
+    await updateOrderPrice(orderId);
+
     return orderListings;
   } catch (error) {
     console.error(error);
@@ -29,6 +57,32 @@ async function updateOrderListings({ id, quantity }) {
             RETURNING *`,
       [quantity, id]
     );
+
+    // const {
+    //   rows: [price],
+    // } = await client.query(
+    //   `
+    //   SELECT price FROM listings
+    //     WHERE id = $1`,
+    //   [orderListings.listingId]
+    // );
+    // const {
+    //   rows: [total],
+    // } = await client.query(
+    //   `SELECT total FROM orders
+    //       WHERE id=$1`,
+    //   [orderId]
+    // );
+
+    // const currentTotal = total.total + price.price;
+    // console.log(currentTotal);
+    // await client.query(
+    //   `
+    //         UPDATE orders SET total = $1
+    //         WHERE id = $2`,
+    //   [currentTotal, orderId]
+    // );
+    await updateOrderPrice(id);
 
     return orderListings;
   } catch (error) {
@@ -98,7 +152,62 @@ async function deleteOrderListing(orderId, listingId) {
   WHERE "orderId" = $1 AND "listingId" = $2`,
       [orderId, listingId]
     );
+
+    const {
+      rows: [price],
+    } = await client.query(
+      `
+      SELECT price FROM listings
+        WHERE id = $1`,
+      [listingId]
+    );
+    const {
+      rows: [total],
+    } = await client.query(
+      `SELECT total FROM orders
+          WHERE id=$1`,
+      [orderId]
+    );
+
+    const currentTotal = total.total - price.price;
+    console.log(currentTotal);
+    await client.query(
+      `
+            UPDATE orders SET total = $1
+            WHERE id = $2`,
+      [currentTotal, orderId]
+    );
+
     return listing;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function updateOrderPrice(orderId) {
+  try {
+    const { rows: orders } = await client.query(
+      `
+      SELECT * FROM orders 
+      WHERE id =$1`,
+      [orderId]
+    );
+
+    const allOrders = await attachListingsToOrders(orders);
+
+    let total = 0;
+
+    allOrders[0].listings.map((listing) => {
+      let listingTotal = listing.price * listing.quantity;
+      total = total + listingTotal;
+    });
+
+    await client.query(
+      `
+            UPDATE orders SET total = $1
+            WHERE id = $2`,
+      [total, orderId]
+    );
   } catch (error) {
     console.error(error);
   }

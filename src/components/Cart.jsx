@@ -1,11 +1,16 @@
 import React from "react";
 import { useAuth } from "../context/UseAuth";
 import { editOrder } from "../apiCalls/cart/editOrderQuantity";
-
+import { deleteListingFromOrder } from "../apiCalls/cart/deleteListingFromOrder";
+import { getOrder } from "../apiCalls/cart/getOrder";
 import "../style/Cart.css";
 
 export const Cart = () => {
   const { order, user, token, setOrder } = useAuth();
+
+  const deleteListing = async (listingId, orderId) => {
+    await deleteListingFromOrder(listingId, orderId);
+  };
   if (order.listings && order.listings.length) {
     console.log(order);
     const CartListings = order.listings.map((listing) => {
@@ -25,7 +30,16 @@ export const Cart = () => {
             }}
             min="1"
           />
-          <button>Remove From Cart</button>
+          <button
+            onClick={async () => {
+              console.log("hi");
+              await deleteListing(listing.id, order.id);
+              const oldOrder = await getOrder(token);
+              setOrder(oldOrder[0]);
+            }}
+          >
+            Remove From Cart
+          </button>
         </div>
       );
     });
@@ -36,6 +50,7 @@ export const Cart = () => {
           !
         </h1>
         {CartListings}
+        <h1>Your total is: {order.total}</h1>
       </div>
     );
   }
