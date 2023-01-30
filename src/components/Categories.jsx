@@ -8,6 +8,8 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { deleteListing } from "../apiCalls/deleteListingAPI";
 import { fetchListings } from "../apiCalls/listingsAPI";
+import { Reviews } from "@mui/icons-material";
+import { deleteReview } from "../apiCalls/deleteReview";
 
 export const Categories = () => {
   const { listings, order, setOrder, token, user, setListings } = useAuth();

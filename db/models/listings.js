@@ -76,11 +76,29 @@ async function getListingById(id) {
 
 async function deleteListing(id) {
   try {
+    await client.query(
+      `
+        DELETE FROM review_listings
+        WHERE "listingId" = $1
+        RETURNING *;
+        `,
+      [id]
+    );
+
+    await client.query(
+      `
+        DELETE FROM reviews
+        WHERE id = $1
+        RETURNING *;
+        `,
+      [id]
+    );
+
     const { rows } = await client.query(
       `
         DELETE FROM listings
         WHERE id = $1
-        RETURNING *
+        RETURNING *;
         `,
       [id]
     );
