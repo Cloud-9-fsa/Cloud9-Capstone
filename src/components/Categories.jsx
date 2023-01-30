@@ -7,7 +7,10 @@ import { getOrder } from "../apiCalls/cart/getOrder";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { deleteListing } from "../apiCalls/deleteListingAPI";
+import { fetchListings } from "../apiCalls/listingsAPI";
+import "../styles/Categories.css";
 import { updateListing } from "../apiCalls/updateListingAPI";
+
 
 export const Categories = () => {
   const { listings, order, setOrder, token, user, setListings } = useAuth();

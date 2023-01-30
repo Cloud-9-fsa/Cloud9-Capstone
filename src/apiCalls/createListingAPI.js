@@ -9,13 +9,15 @@ export async function createListing(
   description,
   category,
   price,
-  stock
+  stock,
+  token
 ) {
   try {
     const response = await fetch(`/api/listings/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         isHot,
@@ -34,6 +36,6 @@ export async function createListing(
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error;
+    console.error(error);
   }
 }

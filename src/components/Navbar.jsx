@@ -77,7 +77,7 @@ const Navbar = () => {
       <NavLink to="/Article" className="navbar-link" >Article</NavLink>
       <NavLink to="/aboutus"className="navbar-link" >About Us</NavLink>
 
-    
+
 
 
       <NavLink to="/Cart" className="cart">
@@ -85,6 +85,10 @@ const Navbar = () => {
       src="https://icons-for-free.com/download-icon-checkout+commerce+shopping+cart+icon-1320166580788754282_256.png"
       alt="cart1"
       className="cart2"/>
+      </NavLink>
+
+      <NavLink to="/Profile" >
+        <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" alt="profile" className="profilepic"/>
       </NavLink>
     </nav>
   );
