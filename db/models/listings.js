@@ -87,8 +87,8 @@ async function deleteListing(id) {
 
     await client.query(
       `
-        DELETE FROM reviews
-        WHERE id = $1
+        DELETE FROM order_listings
+        WHERE "listingId" = $1
         RETURNING *;
         `,
       [id]
