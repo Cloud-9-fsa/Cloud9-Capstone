@@ -7,15 +7,11 @@ import { getOrder } from "../apiCalls/cart/getOrder";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { deleteListing } from "../apiCalls/deleteListingAPI";
-import { fetchListings } from "../apiCalls/listingsAPI";
-import { Reviews } from "@mui/icons-material";
-import { deleteReview } from "../apiCalls/deleteReview";
 
 export const Categories = () => {
   const { listings, order, setOrder, token, user, setListings } = useAuth();
   const { category } = useParams();
   const navigate = useNavigate();
-  console.log("this is user", user);
 
   const capitalName = (name) => {
     const result = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
