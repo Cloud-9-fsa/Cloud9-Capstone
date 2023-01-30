@@ -13,6 +13,7 @@ import ContactUs from "./ContactUs";
 import Returns from "./returns";
 import { ListingDetails } from "./ListingDetails";
 import { Categories } from "./Categories";
+import { Profile } from "./Profile";
 
 const App = () => {
   const [APIHealth, setAPIHealth] = useState("");
@@ -29,6 +30,7 @@ const App = () => {
     <div className="app-container">
       <Navbar />
       <Routes>
+        <Route path="/profile" element={<Profile />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/returns" element={<Returns />} />
         <Route path="/" element={<Shop />} />
