@@ -6,6 +6,7 @@ const {
   createListing,
   deleteListing,
   getListingById,
+  updateListing,
 } = require("../db");
 const { requireUser, requireUserAdmin } = require("./utils");
 
@@ -72,15 +73,55 @@ router.post("/create", requireUserAdmin, async (req, res, next) => {
   }
 });
 
-router.delete("/delete/:listing", requireUserAdmin, async (req, res, next) => {
+router.patch("/:listingId", requireUserAdmin, async (req, res, next) => {
   const { listingId } = req.params;
-
+  const {
+    isHot,
+    image,
+    image2,
+    image3,
+    image4,
+    image5,
+    name,
+    description,
+    category,
+    price,
+    stock,
+  } = req.body;
   try {
-    const deletedListing = await deleteListing(listingId);
-    res.send(deletedListing);
+    const updatedlisting = await updateListing({
+      id: listingId,
+      isHot,
+      image,
+      image2,
+      image3,
+      image4,
+      image5,
+      name,
+      description,
+      category,
+      price,
+      stock,
+    });
+    res.send(updatedlisting);
   } catch (error) {
     next(error);
   }
 });
+
+router.delete(
+  "/delete/:listingId",
+  requireUserAdmin,
+  async (req, res, next) => {
+    const { listingId } = req.params;
+    console.log(req.params);
+    try {
+      const deletedListing = await deleteListing(listingId);
+      res.send(deletedListing);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
 
 module.exports = router;

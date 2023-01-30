@@ -3,7 +3,7 @@ const { createReviews, createReviewListings, deleteReviews } = require("../db");
 const { requireUser } = require("./utils");
 const router = express.Router();
 
-router.post("/:listingId", requireUser, async (res, req, next) => {
+router.post("/:listingId", requireUser, async (req, res, next) => {
   const { listingId } = req.params;
   const { userId, firstname, lastname, title, description, rating } = req.body;
   try {
@@ -15,7 +15,6 @@ router.post("/:listingId", requireUser, async (res, req, next) => {
       description,
       rating,
     });
-    console.log(review);
 
     const reviewListing = await createReviewListings(review.id, listingId);
 

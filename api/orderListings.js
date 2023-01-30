@@ -27,11 +27,12 @@ router.patch("/Listings/quantity", async (req, res, next) => {
   }
 });
 
-router.delete("/delete", async (req, res, next) => {
-  const { orderId, listingId } = req.body;
+router.delete("/delete/:orderId/:listingId", async (req, res, next) => {
+  const { orderId, listingId } = req.params;
 
   try {
     const deleteListings = await deleteOrderListing(orderId, listingId);
+
     res.send(deleteListings);
   } catch (error) {
     next(error);

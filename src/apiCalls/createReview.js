@@ -5,13 +5,16 @@ export async function createReview(
   lastname,
   title,
   description,
-  rating
+  rating,
+  token
 ) {
   try {
+    console.log(listingId);
     const response = await fetch(`/api/reviews/${listingId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         userId,
