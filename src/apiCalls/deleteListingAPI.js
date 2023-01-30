@@ -1,6 +1,6 @@
-export async function deleteListing(ListingId, token) {
+export async function deleteListing(listingId, token) {
   try {
-    const response = await fetch(`/api/listings/delete/${ListingId}`, {
+    const response = await fetch(`/api/listings/delete/${listingId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -8,8 +8,9 @@ export async function deleteListing(ListingId, token) {
       },
     });
     const data = await response.json();
+    console.log("data from delete:", data);
     return data;
   } catch (error) {
-    console.error;
+    console.error(error);
   }
 }
