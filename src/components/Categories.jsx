@@ -7,6 +7,7 @@ import { getOrder } from "../apiCalls/cart/getOrder";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { deleteListing } from "../apiCalls/deleteListingAPI";
+import { updateListing } from "../apiCalls/updateListingAPI";
 
 export const Categories = () => {
   const { listings, order, setOrder, token, user, setListings } = useAuth();
@@ -22,6 +23,7 @@ export const Categories = () => {
   const categoryListings = listings.filter(
     (listing) => listing.category === capitalName(category)
   );
+  
 
   const allCategoryListings = categoryListings?.map(
     ({ id, category, name, isHot, price, image, description }) => {
@@ -88,6 +90,34 @@ export const Categories = () => {
               }}
             >
               Delete Listing
+            </button>
+          ) : (
+            <></>
+          )}
+          
+
+          {user.isAdmin ? (
+            <button
+              onClick={async () => {
+                await updateListing({ 
+                  id, 
+                  token,
+                  isHot,
+                  image,
+                  image2,
+                  image3,
+                  image4,
+                  image5,
+                  name,
+                  description,
+                  category,
+                  price,
+                  stock
+                });
+              }}
+              type="edit"
+            >
+              Edit Listing
             </button>
           ) : (
             <></>

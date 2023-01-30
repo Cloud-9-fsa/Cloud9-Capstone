@@ -74,6 +74,34 @@ async function getListingById(id) {
   }
 }
 
+async function updateListing({ id, ...fields }) {
+  const setString = Object.keys(fields)
+    .map((key, index) => `"${key}"=$${index + 1}`)
+    .join(", ");
+  console.log("these are my fields", fields);
+  console.log("THIS IS MY SETSTRING:", setString);
+  // console.log("dependency array", Object.values(fields));
+  try {
+    if (!setString.length) return;
+    const {
+      rows: [listing],
+    } = await client.query(
+      `
+        UPDATE listings
+        SET ${setString}
+        WHERE id=${id}
+        RETURNING *;
+        `,
+      Object.values(fields)
+    );
+
+    console.log("this is the updated listing:", listing);
+    return listing;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 async function deleteListing(id) {
   try {
     await client.query(
@@ -202,4 +230,5 @@ module.exports = {
   getListingByName,
   getListingByPrice,
   getListingById,
+  updateListing,
 };
