@@ -93,7 +93,7 @@ async function makeOrderInactive(id) {
     RETURNING * `,
       [id]
     );
-    console.log(order);
+
     return order;
   } catch (error) {
     console.error(error);

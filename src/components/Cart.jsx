@@ -27,7 +27,10 @@ export const Cart = () => {
             name="quantity"
             placeholder={listing.quantity}
             onChange={async (e) => {
-              await editOrder(listing.orderListingId, e.target.value);
+              console.log();
+              await editOrder(order.id, listing.orderListingId, e.target.value);
+              const oldOrder = await getOrder(token);
+              setOrder(oldOrder[0]);
             }}
             min="1"
           />
