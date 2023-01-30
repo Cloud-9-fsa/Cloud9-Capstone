@@ -11,7 +11,7 @@ export const Cart = () => {
   const deleteListing = async (listingId, orderId) => {
     await deleteListingFromOrder(listingId, orderId);
   };
-  if (order.listings && order.listings.length) {
+  if (user && order && order.listings && order.listings.length) {
     console.log(order);
     const CartListings = order.listings.map((listing) => {
       return (
@@ -43,6 +43,7 @@ export const Cart = () => {
         </div>
       );
     });
+
     return (
       <div>
         <h1>

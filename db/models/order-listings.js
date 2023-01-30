@@ -186,6 +186,7 @@ async function deleteOrderListing(orderId, listingId) {
 
 async function updateOrderPrice(orderId) {
   try {
+    console.log(orderId);
     const { rows: orders } = await client.query(
       `
       SELECT * FROM orders 
