@@ -1,5 +1,6 @@
 const client = require("../client");
 const bcrypt = require("bcrypt");
+const { createOrders } = require("./orders");
 
 async function createUser({ email, password, firstname, lastname, address }) {
   try {
@@ -14,7 +15,7 @@ async function createUser({ email, password, firstname, lastname, address }) {
     ON CONFLICT (email) DO NOTHING RETURNING *`,
       [email, hashedPassword, firstname, lastname, address]
     );
-
+    await createOrders(user.id);
     delete user.password;
     return user;
   } catch (error) {
@@ -42,6 +43,7 @@ async function createAdminUser({
       [email, hashedPassword, firstname, lastname, address]
     );
 
+    await createOrders(user.id);
     delete user.password;
     return user;
   } catch (error) {

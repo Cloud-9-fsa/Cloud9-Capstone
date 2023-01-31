@@ -32,7 +32,7 @@ async function getReviewsByUser(userId) {
           WHERE "userId" = $1`,
       [userId]
     );
-    // console.log("This is reviews by user:", reviews);
+
     return reviews;
   } catch (error) {
     console.error(error);
