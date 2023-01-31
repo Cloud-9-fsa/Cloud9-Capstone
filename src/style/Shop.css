@@ -1,0 +1,41 @@
+.main {
+  width: 100%;
+  display: flexbox;
+  align-items: center;
+}
+
+.LinkHeader {
+  display: flex;
+}
+
+.CampaignImg {
+  display: block;
+  width: 200vh;
+  margin: auto;
+  text-align: center;
+}
+
+.CampaignImg h1 {
+  color: #1597ca;
+  text-align: center;
+  padding: 20px 20px 20px 20px;
+}
+
+.LinkHeader h2 {
+  color: #1597ca;
+}
+
+.picshop {
+  width: 359px;
+  height: 300px;
+  margin: auto;
+  padding: 20px 20px 20px 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px #1597ca;
+}
+
+.textit h2 {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
