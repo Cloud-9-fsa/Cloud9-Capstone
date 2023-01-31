@@ -49,23 +49,23 @@ const Navbar = () => {
     <a  href="Shop" className="navbar-link">Shop⌄</a>
     <div className="shop-dropdown">
       <div className="shop-dropdown-card">
-        <a href="/Pet">Pet</a>
+        <a href="/shop/Pet">Pet</a>
         </div>
         <div className="shop-dropdown-card">
-          <a href="/Sleep">Sleep</a>
+          <a href="/shop/Sleep">Sleep</a>
           </div>
           <div className="shop-dropdown-card">
 
-        <a href="/Decorative">Decorative</a>
+        <a href="/shop/decorative">Decorative</a>
         </div>
         <div className="shop-dropdown-card">
 
 
-        <a href="/Outdoor">Outdoor</a>
+        <a href="/shop/Outdoor">Outdoor</a>
         </div>
         <div className="shop-dropdown-card">
 
-        <a href="/Accessories">Accessories</a>
+        <a href="/shop/Accessories">Accessories</a>
         </div>
     </div>
 </div>
