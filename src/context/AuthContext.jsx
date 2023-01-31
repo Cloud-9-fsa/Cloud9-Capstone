@@ -1,5 +1,4 @@
 import React, { useState, useEffect, createContext } from "react";
-import { createOrder } from "../apiCalls/cart/createOrderApi";
 import { getOrder } from "../apiCalls/cart/getOrder";
 import { getUserInfo } from "../apiCalls/getUserInfoAPI";
 import { fetchListings } from "../apiCalls/listingsAPI";
@@ -13,6 +12,17 @@ export default function AuthProvider({ children }) {
   const [listings, setListings] = useState([]);
   const [order, setOrder] = useState({});
   const [categoryListings, setCategoryListings] = useState([]);
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zipcode, setZipcode] = useState("");
+  const [country, setCountry] = useState("");
+  const [cardName, setCardName] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardExpiry, setCardExpiry] = useState("");
+  const [cardCVV, setCardCVV] = useState("");
 
   useEffect(() => {
     setToken(localStorage["token"] || "");
@@ -46,6 +56,28 @@ export default function AuthProvider({ children }) {
     setOrder,
     categoryListings,
     setCategoryListings,
+    firstname,
+    setFirstname,
+    lastname,
+    setLastname,
+    address,
+    setAddress,
+    city,
+    setCity,
+    state,
+    setState,
+    zipcode,
+    setZipcode,
+    country,
+    setCountry,
+    cardName,
+    setCardName,
+    cardExpiry,
+    setCardExpiry,
+    cardCVV,
+    setCardCVV,
+    cardNumber,
+    setCardNumber,
 
     // add your state here
   };
