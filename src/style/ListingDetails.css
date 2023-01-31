@@ -1,0 +1,134 @@
+.singleListing {
+  display: inline-flex;
+  color: #1597ca;
+  position: inherit;
+  align-items: right;
+  justify-content: center;
+  height: 100vh;
+}
+
+.singleListing h1 {
+  color: #1597ca;
+}
+.name1 {
+  text-align: center;
+  color: #1597ca;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px#1597ca;
+}
+
+.pic1 {
+  display: block;
+  margin: auto;
+  height: 700px;
+  width: 850px;
+  align-content: center;
+}
+
+.price1 {
+  text-align: center;
+  color: #1597ca;
+  font-size: 30px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px #1597ca;
+}
+.namepic {
+  display: inline-block;
+  color: #1597ca;
+  flex-direction: row;
+  gap: 8px;
+  height: 100vh;
+  justify-content: left;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px #1597ca;
+}
+
+.info {
+  display: inline-block;
+  color: #1597ca;
+  flex-direction: row;
+  gap: 8px;
+  text-align: center;
+  justify-content: right;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px #1597ca;
+}
+
+.singleReview {
+  display: inline-block;
+  flex-direction: row;
+  gap: 8px;
+  height: 100vh;
+  text-align: left;
+  justify-content: left;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.newReviewForm {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.button {
+  background-color: #1597ca;
+  background-image: linear-gradient(#1597ca);
+  border: 1px solid #1597ca;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
+  color: #ffffff;
+  cursor: pointer;
+  display: block;
+  font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 100%;
+  margin: 0;
+  outline: 0;
+  padding: 11px 15px 12px;
+  text-align: center;
+  transition: box-shadow 0.05s ease-in-out, opacity 0.05s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.button:hover {
+  box-shadow: rgba(255, 255, 255, 0.3) 0 0 2px inset,
+    rgba(0, 0, 0, 0.4) 0 1px 2px;
+  text-decoration: none;
+  transition-duration: 0.15s, 0.15s;
+}
+
+.button:active {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset, rgba(0, 0, 0, 0.4) 0 1px 1px;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.button:disabled:active {
+  pointer-events: none;
+}
+
+.button:disabled:hover {
+  box-shadow: none;
+}

@@ -209,7 +209,8 @@ async function populateInitialData() {
 
     await createListing({
       isHot: true,
-      image: "",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZd9HFB5qJ_IaFB9rcleVvkQGmcB2Zzmqg8niMKMKAwAjxatMXqRVzN2zI6L3PMIJmT0s&usqp=CAU",
       name: "Memory Foam Mattress",
       description:
         "Our memory foam mattresses uses your own body heat to soften and form to your shape. these mattresses provide incredible support and comfort.",
@@ -219,17 +220,19 @@ async function populateInitialData() {
     });
     await createListing({
       isHot: true,
-      image: "",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpLKP9w3C3xz76XCJ2zHGdRqjWN0HG4lfZmjydMP9n2-i_MlN-Qz9g5iuJSTuAZrK5ZXE&usqp=CAU",
       name: "Silk Bed Sheets",
       description:
         "Our silk sheets are made with natural protein fibers which are ideal for your skin. If you truly want to sleep in the clouds these sheets will get you there.",
-      category: "Accessories",
+      category: "Sleep",
       price: 350,
       stock: 100,
     });
     await createListing({
       isHot: true,
-      image: "",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7rqKw_pRhE_wDAFcnr7o4XVa7le49GQqQ5k_P_n_IE6k5GEwaTKiQ4V2rco-pc3D01Fw&usqp=CAU",
       name: "Satin Pillow Case",
       description:
         "Our 100% polyester satin pillowcases help protect your beard from scratches, creases and tugs, helping to reduce split ends and ensuring a night of restorative beard sleep.",
@@ -239,7 +242,8 @@ async function populateInitialData() {
     });
     await createListing({
       isHot: true,
-      image: "",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSTvizXFdNlDwJ3kVhnlK-HQJ7yRUrU7su6w&usqp=CAU",
       name: "Foot Pillow",
       description:
         "This pillow provides effective pain relief for those who sit for hours. Raising your feet at the desk promotes good sitting posture. Dont't let your feet suffer a long days work.",
@@ -249,7 +253,8 @@ async function populateInitialData() {
     });
     await createListing({
       isHot: true,
-      image: "",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQWPzTPjd3aJMFbOVqDz9-XLJmQldDjS1u8g&usqp=CAU",
       name: "Body Pillow",
       description:
         "For all of the side sleepers out there this pillow was designed with you in mind. If you're tired of waking up with your shoulders and hips hurting this pillow can provide the support you need to combat that wake up pain. You'll find yourself awaking to a fully rested body without changing your sleeping style.",
@@ -259,7 +264,8 @@ async function populateInitialData() {
     });
     await createListing({
       isHot: true,
-      image: "",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-TChhgIJFw4MOcL-55B8aVinRVScdkkAfQbwzJDi11OHw8enA8dSHpBdopWaK0Y41ErY&usqp=CAU",
       name: "Inflatable Outdoor Pillow",
       description:
         "This inflatable pillow will fit snug in your bag so that you can sleep snug at night.",
@@ -269,7 +275,8 @@ async function populateInitialData() {
     });
     await createListing({
       isHot: true,
-      image: "",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ZexDV2xe1ZIQbogZ_IExs2VA1zAuok5-djuw87bBXhCtkSZB-AlV9AO88sC9SChI6N8&usqp=CAU",
       name: "Compressed Pillow",
       description:
         "Few emergency pillows come close to matching the comfort of our compressed pillow. It can fit in any bag and takes up less space than a flashlight.",
@@ -279,7 +286,8 @@ async function populateInitialData() {
     });
     await createListing({
       isHot: true,
-      image: "",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8mxs-Lg63QxK-8l_X5ifJPA5p2rncI_Cgyw&usqp=CAU",
       name: "Sleeping Pad",
       description:
         "This outdoor necessity will keep you comfortable on any surface you choose. Our sleeping pad has built in pillows and is made for even the most unforgiving of surfaces.",
@@ -289,7 +297,8 @@ async function populateInitialData() {
     });
     await createListing({
       isHot: true,
-      image: "",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-enicCGiSbzDugCOZl38gxsMi5XR0IcaSNw&usqp=CAU",
       name: "Extreme Camping Pillow",
       description:
         "This pillow can take whatever the wild has to throw at it. Whether it's weather or terrain nothing can keep you from having comfort in your bag. This pillow will outlast you.",
@@ -299,7 +308,8 @@ async function populateInitialData() {
     });
     await createListing({
       isHot: true,
-      image: "",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz5Yw4rbVe0qpT0WctPQxo_EMOwYNqPIV3jA&usqp=CAU",
       name: "Outdoor Comfort Pillow",
       description:
         "If you want to bring the comforts of home with you during your adventures, then this pillow was made for you. It may not be meant for the extremes that the outdoors can throw at you, but it can make a light camping trip feel not so far from home.",
@@ -309,7 +319,8 @@ async function populateInitialData() {
     });
     await createListing({
       isHot: true,
-      image: "",
+      image:
+        "https://images.squarespace-cdn.com/content/v1/522005d3e4b005122eb8eb5e/1448399907214-HW04YZZ0XDQ5CRN3XCSB/image-asset.jpeg",
       name: "Cinder Block",
       description:
         "If you feel like your day wasn't hard enough, we invite you to try out our cinder block pillow. Our cinder blocks are cut to order. Stop worrying about having a good nights rest and make sure you have a bad one with our product.",
@@ -319,7 +330,8 @@ async function populateInitialData() {
     });
     await createListing({
       isHot: true,
-      image: "",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgFy9s8wxJ3j3SGsJ0qABc2zAyD-459D1ReA&usqp=CAU",
       name: "Bundle of sticks",
       description:
         "All of our sticks are locally sourced. If you've ever wondered what it was like to sleep on the forest floor, this pillow is for you. With this pillow you will go to bed uncomfortably and wake up feeling like a caveman. Comfort is for the weak, be strong, sleep on sticks.",
@@ -329,7 +341,8 @@ async function populateInitialData() {
     });
     await createListing({
       isHot: true,
-      image: "",
+      image:
+        "https://previews.123rf.com/images/alexan66/alexan661211/alexan66121100025/16177176-sack-of-soil-and-peat-pot.jpg",
       name: "Sack of Dirt",
       description:
         "Have you ever woke up early in the morning and stepped outside to smell the earthy air? We wanted to bring that refreshing smell to you while you slip off to dreamland. We introduce our bag of dirt. Our dirt is harvested from just outside of out shipping facilities. The bags are made from 100% sun-dried wool. We promise we will never not have these pillows in stock.",
@@ -339,7 +352,8 @@ async function populateInitialData() {
     });
     await createListing({
       isHot: true,
-      image: "",
+      image:
+        "https://images.squarespace-cdn.com/content/v1/6054d185e94f5975342c7d5e/f1b4fa36-475b-4dbb-820c-e76cbffcfd98/The+Eliza+Jane+Hotel+Lobby+Pillows.jpg",
       name: "Stolen Hotel Lobby Pillow",
       description:
         "Our team went on a company retreat and came back with pillows from every hotel we could find. Though we can't provide the names of the hotels we can tell you that these pillows are seemingly comfortable and overpriced.",
@@ -349,7 +363,8 @@ async function populateInitialData() {
     });
     await createListing({
       isHot: true,
-      image: "",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQkGDnSqqvytFeKFa71rlBegkDMr0Pildy5Q&usqp=CAU",
       name: "Water Pillow",
       description:
         "You may have heard of a water bed, but I'm guessing you've never heard of a water pillow. Our water pillows bring all of the joy of a water bed into a smaller inconveniet size. Water balloons don't have anything on this pillow. Please buy them, we made too many.",

@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 import { deleteListing } from "../apiCalls/deleteListingAPI";
 import "../styles/Categories.css";
 
-
 export const Categories = () => {
   const { listings, order, setOrder, token, user, setListings } = useAuth();
   const { category } = useParams();
@@ -94,7 +93,6 @@ export const Categories = () => {
             <></>
           )}
 
-
           {user.isAdmin ? (
             <button
               onClick={async () => {
@@ -108,7 +106,6 @@ export const Categories = () => {
             <></>
           )}
           {edit ? <RenderUpdateListing /> : null}
-
 
         </div>
       );
