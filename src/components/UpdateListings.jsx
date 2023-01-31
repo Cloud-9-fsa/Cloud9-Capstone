@@ -2,48 +2,54 @@ import React, { useState } from "react";
 import { useAuth } from "../context/UseAuth";
 import { updateListing } from "../apiCalls/updateListingAPI";
 
-export const RenderUpdateListing = () => {
-  const { user, token, setListings } = useAuth();
-  const [isHot, setIsHot] = useState(false);
-  const [image, setImage] = useState("");
-  const [image2, setImage2] = useState("");
-  const [image3, setImage3] = useState("");
-  const [image4, setImage4] = useState("");
-  const [image5, setImage5] = useState("");
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
-  const [price, setPrice] = useState("");
-  const [stock, setStock] = useState("");
+export const RenderUpdateListing = ({listingId}) => {
+    const {user,token,setListings} = useAuth();
+const [isHot, setIsHot] = useState(false);
+const [image, setImage] = useState("");
+const [image2, setImage2] = useState("");
+const [image3, setImage3] = useState("");
+const [image4, setImage4] = useState("");
+const [image5, setImage5] = useState("");
+const [name, setName] = useState("");
+const [description, setDescription] = useState("");
+const [category, setCategory] = useState("");
+const [price, setPrice] = useState("");
+const [stock, setStock] = useState("");
 
   const handleSubmit = async () => {
     if (user.isAdmin) {
-      await updateListing(
-        isHot,
-        image,
-        image2,
-        image3,
-        image4,
-        image5,
-        name,
-        description,
-        category,
-        price,
-        stock,
-        token
-      );
-      setName("");
-      setDescription("");
-      setCategory("");
-      setPrice("");
-      setStock("");
-      setImage("");
-      setImage2("");
-      setImage3("");
-      setImage4("");
-      setImage5("");
-      setIsHot(true);
-      await updateListing().then((data) => setListings(data));
+
+        await updateListing({
+            listingId,
+            token,
+            isHot,
+            image,
+            image2,
+            image3,
+            image4,
+            image5,
+            name,
+            description,
+            category,
+            price,
+            stock
+            
+    });
+        setName("");
+        setDescription("");
+        setCategory("");
+        setPrice("");
+        setStock("");
+        setImage("");
+        setImage2("");
+        setImage3("");
+        setImage4("");
+        setImage5("");
+        setIsHot(true);
+
+
+
+
     }
   };
   return (
