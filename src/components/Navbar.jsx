@@ -1,15 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/UseAuth";
-import "../style/Navbar.css"
-
+import "../style/Navbar.css";
 
 const Navbar = () => {
-  const { token, setToken, setUser } = useAuth();
+  const { token, setToken, setUser, setOrder } = useAuth();
   const logout = () => {
     localStorage.clear();
     setUser({});
     setToken("");
+    setOrder({});
   };
   const LoginLogout = () => {
     if (localStorage.getItem("token")) {
@@ -67,28 +67,31 @@ const Navbar = () => {
 
         <a href="/shop/Accessories">Accessories</a>
         </div>
-    </div>
-</div>
+      </div>
 
       <LoginLogout />
 
-
-
-      <NavLink to="/Article" className="navbar-link" >Article</NavLink>
-      <NavLink to="/aboutus"className="navbar-link" >About Us</NavLink>
-
-
-
-
-      <NavLink to="/Cart" className="cart">
-      <img
-      src="https://icons-for-free.com/download-icon-checkout+commerce+shopping+cart+icon-1320166580788754282_256.png"
-      alt="cart1"
-      className="cart2"/>
+      <NavLink to="/Article" className="navbar-link">
+        Article
+      </NavLink>
+      <NavLink to="/aboutus" className="navbar-link">
+        About Us
       </NavLink>
 
-      <NavLink to="/Profile" >
-        <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" alt="profile" className="profilepic"/>
+      <NavLink to="/Cart" className="cart">
+        <img
+          src="https://icons-for-free.com/download-icon-checkout+commerce+shopping+cart+icon-1320166580788754282_256.png"
+          alt="cart1"
+          className="cart2"
+        />
+      </NavLink>
+
+      <NavLink to="/Profile">
+        <img
+          src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png"
+          alt="profile"
+          className="profilepic"
+        />
       </NavLink>
     </nav>
   );

@@ -39,6 +39,6 @@ export const updateListing = async ({
     console.log(data);
     return data;
   } catch (error) {
-    console.error("oh no");
+    console.error(error);
   }
 };
