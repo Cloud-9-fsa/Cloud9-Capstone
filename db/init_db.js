@@ -179,7 +179,8 @@ async function populateInitialData() {
       image:
         "https://cb.scene7.com/is/image/Crate/CresteCrdryIvoryPillowsFSSF22/$web_pdp_main_carousel_high$/220818095037/creste-ivory-corduroy-throw-pillows-by-athena-calderone.jpg",
       name: "The Ivory Throw Collection",
-      description: "XXX living room",
+      description:
+        "With this ribbing texture, the Ivory Collection is meant to live in any home. It's simplicity and minimalistic design will enhance any space of the house.",
       category: "Decorative",
       price: 100,
       stock: 100,
@@ -190,7 +191,8 @@ async function populateInitialData() {
       image:
         "https://cb.scene7.com/is/image/Crate/SkaColorblckVlvLn23PlwsFSSF22/$web_pdp_main_carousel_high$/220816143327/ska-23-colorblock-velvet-linen-pillows.jpg",
       name: "The Arizona Velvet",
-      description: "XXX bedroom and living room",
+      description:
+        "The Arizona collection is met with classic pieces that fits any home. It's simplistic color scheme adds a touch of modernism. This works well with any home that strives for the western look. ",
       category: "Decorative",
       price: 100,
       stock: 100,
@@ -201,7 +203,8 @@ async function populateInitialData() {
       image:
         "https://cb.scene7.com/is/image/Crate/PeruvianLlamaPillowSSS21/$web_pdp_main_carousel_high$/201209113320/peruvian-llama-pillow.jpg",
       name: "The Peruvian Llama",
-      description: "XXX - kids ",
+      description:
+        "Our prestigious Peruvian collection will grant a magical llama to guide your dreams into the sweetest of slumbers. Recommended for any child who frequently has nightmares.",
       category: "Decorative",
       price: 100,
       stock: 100,

@@ -16,7 +16,6 @@ export const Profile = () => {
             setUserInfo(data);
         };
         fetchData();
-        console.log(fetchData);
     }, []);
 
     const capitalName = (name) => {
