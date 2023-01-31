@@ -8,9 +8,13 @@ const router = express.Router();
 
 //////////// Order-Listings \\\\\\\\\\\\
 router.post("/Listings", async (req, res, next) => {
-  const { orderId, listingId } = req.body;
+  const { orderId, listingId, quantity } = req.body;
   try {
-    const addListingsToOrder = await createOrderListings(orderId, listingId);
+    const addListingsToOrder = await createOrderListings(
+      orderId,
+      listingId,
+      quantity
+    );
     res.send(addListingsToOrder);
   } catch (error) {
     next(error);

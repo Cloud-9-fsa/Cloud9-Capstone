@@ -1,4 +1,4 @@
-export async function addListingToOrder(orderId, listingId) {
+export async function addListingToOrder(orderId, listingId, quantity) {
   try {
     const response = await fetch(`/api/orderlistings/listings`, {
       method: "POST",
@@ -8,6 +8,7 @@ export async function addListingToOrder(orderId, listingId) {
       body: JSON.stringify({
         orderId,
         listingId,
+        quantity,
       }),
     });
     const data = await response.json();

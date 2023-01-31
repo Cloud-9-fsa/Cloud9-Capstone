@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { deleteListing } from "../apiCalls/deleteListingAPI";
 import { fetchListings } from "../apiCalls/listingsAPI";
-import "../styles/Categories.css";
+import "../style/Categories.css";
 import { updateListing } from "../apiCalls/updateListingAPI";
 import { RenderUpdateListing } from "./UpdateListings";
 
@@ -20,7 +20,7 @@ export const AllListings = () => {
   const allListings = listings?.map(
     ({ id, category, name, isHot, price, image, description }) => {
       return (
-        <div>
+        <div key={id}>
           <div
             className="AllListings"
             key={id}
@@ -57,7 +57,7 @@ export const AllListings = () => {
 
             <p>Price: {price}</p>
           </div>
-          <button
+          {/* <button
             type="button"
             onClick={async () => {
               if (order.length === 0) {
@@ -71,7 +71,7 @@ export const AllListings = () => {
             }}
           >
             Add To Cart
-          </button>
+          </button> */}
           {user.isAdmin ? (
             <button
               onClick={async () => {

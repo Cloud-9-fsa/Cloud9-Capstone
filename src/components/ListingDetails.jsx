@@ -13,7 +13,7 @@ export function ListingDetails() {
   const { listingId } = useParams();
   const { listings, token, user, order, setOrder } = useAuth();
   const [edit, setEdit] = useState(false);
-
+  const [quantity, setQuantity] = useState(1);
   const [create, setCreate] = useState(false);
 
   const singleListing = listings.find(
@@ -53,19 +53,33 @@ export function ListingDetails() {
             <h1 className="price1">${singleListing.price}</h1>
             <h1 className="price1">{singleListing.description}</h1>
             <h1 className="price1">Category: {singleListing.category}</h1>
-
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              value={quantity}
+              placeholder="1"
+              onChange={async (e) => {
+                setQuantity(e.target.value);
+              }}
+              min="1"
+            />
             <button
               className="button"
               type="button"
               onClick={async () => {
-                if (order.length === 0) {
-                  const newOrder = await createOrder(token);
-                  setOrder(newOrder);
+                if (order) {
+                  addListingToOrder(
+                    order.id,
+                    singleListing.id,
+                    Number(quantity)
+                  );
+                  const oldOrder = await getOrder(token);
+                  setOrder(oldOrder[0]);
+                } else {
+                  localStorage.setItem("cart", singleListing);
+                  console.log(localStorage.getItem("cart"));
                 }
-                addListingToOrder(order.id, id);
-                const oldOrder = await getOrder(token);
-
-                setOrder(oldOrder[0]);
               }}
             >
               Add To Cart

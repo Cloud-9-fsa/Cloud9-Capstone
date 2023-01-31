@@ -373,10 +373,6 @@ async function populateInitialData() {
       stock: 100,
     });
 
-    await createOrders(1);
-
-    await createOrderListings(1, 1);
-    await getOrderListingByListingId(1);
     await createReviews({
       title: "First Title",
       firstname: "moe",
