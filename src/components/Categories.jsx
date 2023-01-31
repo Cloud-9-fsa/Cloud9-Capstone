@@ -7,7 +7,7 @@ import { getOrder } from "../apiCalls/cart/getOrder";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { deleteListing } from "../apiCalls/deleteListingAPI";
-import "../styles/Categories.css";
+import "../style/Categories.css";
 
 export const Categories = () => {
   const { listings, order, setOrder, token, user, setListings } = useAuth();
@@ -28,7 +28,7 @@ export const Categories = () => {
   const allCategoryListings = categoryListings?.map(
     ({ id, category, name, isHot, price, image, description }) => {
       return (
-        <div>
+        <div key={id}>
           <div
             className="AllListings"
             key={id}
@@ -65,7 +65,7 @@ export const Categories = () => {
 
             <p>Price: {price}</p>
           </div>
-          <button
+          {/* <button
             type="button"
             onClick={async () => {
               if (order.length === 0) {
@@ -79,7 +79,7 @@ export const Categories = () => {
             }}
           >
             Add To Cart
-          </button>
+          </button> */}
           {user.isAdmin ? (
             <button
               onClick={async () => {

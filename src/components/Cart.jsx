@@ -14,8 +14,8 @@ export const Cart = () => {
   const deleteListing = async (listingId, orderId) => {
     await deleteListingFromOrder(listingId, orderId);
   };
-  if (user && order && order.listings && order.listings.length) {
-    console.log(order);
+  console.log(order);
+  if (order && order.listings && order.listings.length) {
     const CartListings = order.listings.map((listing) => {
       return (
         <div className="cartForm" key={listing.id}>
@@ -67,5 +67,11 @@ export const Cart = () => {
         </button>
       </div>
     );
-  }
+  } else
+    return (
+      <h1>
+        Seems like your Cart is empty. Go add some of our wonderful Cinder
+        Blocks® to it!
+      </h1>
+    );
 };

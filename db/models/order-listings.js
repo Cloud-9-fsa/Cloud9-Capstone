@@ -1,43 +1,18 @@
 const client = require("../client");
 
-async function createOrderListings(orderId, listingId) {
+async function createOrderListings(orderId, listingId, quantity) {
   try {
+    console.log(quantity);
     const {
       rows: [orderListings],
     } = await client.query(
       `
-          INSERT INTO order_listings ("orderId", "listingId") VALUES($1, $2)
+          INSERT INTO order_listings ("orderId", "listingId",quantity) VALUES($1, $2,$3)
           ON CONFLICT ("orderId", "listingId") DO NOTHING
           RETURNING *`,
-      [orderId, listingId]
+      [orderId, listingId, quantity]
     );
 
-    // if (orderListings) {
-    //   const {
-    //     rows: [price],
-    //   } = await client.query(
-    //     `
-    //     SELECT price FROM listings
-    //       WHERE id = $1`,
-    //     [listingId]
-    //   );
-    //   const {
-    //     rows: [total],
-    //   } = await client.query(
-    //     `SELECT total FROM orders
-    //         WHERE id=$1`,
-    //     [orderId]
-    //   );
-
-    //   const currentTotal = total.total + price.price;
-    //   console.log(currentTotal);
-    //   await client.query(
-    //     `
-    //           UPDATE orders SET total = $1
-    //           WHERE id = $2`,
-    //     [currentTotal, orderId]
-    //   );
-    // }
     await updateOrderPrice(orderId);
 
     return orderListings;
@@ -154,30 +129,6 @@ async function deleteOrderListing(orderId, listingId) {
       [orderId, listingId]
     );
 
-    // const {
-    //   rows: [price],
-    // } = await client.query(
-    //   `
-    //   SELECT price FROM listings
-    //     WHERE id = $1`,
-    //   [listingId]
-    // );
-    // const {
-    //   rows: [total],
-    // } = await client.query(
-    //   `SELECT total FROM orders
-    //       WHERE id=$1`,
-    //   [orderId]
-    // );
-
-    // const currentTotal = total.total - price.price;
-    // console.log(currentTotal);
-    // await client.query(
-    //   `
-    //         UPDATE orders SET total = $1
-    //         WHERE id = $2`,
-    //   [currentTotal, orderId]
-    // );
     await updateOrderPrice(orderId);
 
     return listing;

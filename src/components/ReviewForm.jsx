@@ -3,7 +3,7 @@ import { useAuth } from "../context/UseAuth";
 import { createReview } from "../apiCalls/createReview";
 
 export const ReviewForm = ({ listingId }) => {
-  const { user, token } = useAuth();
+  const { user, token, listings, setListings } = useAuth();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState(5);
@@ -22,6 +22,7 @@ export const ReviewForm = ({ listingId }) => {
         rating,
         token
       );
+
       setTitle("");
       setRating("");
       setDescription("");
