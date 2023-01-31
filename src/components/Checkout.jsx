@@ -18,7 +18,7 @@ import Review from "./Review";
 import { completeOrder } from "../apiCalls/cart/completeOrder";
 import { useAuth } from "../context/UseAuth";
 import { getOrder } from "../apiCalls/cart/getOrder";
-const { createOrder } = require("../apiCalls/cart/createOrderAPI");
+import { createOrder } from "../apiCalls/cart/createOrderAPI";
 
 function Copyright() {
   return (

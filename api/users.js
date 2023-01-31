@@ -9,7 +9,6 @@ const {
   getUserById,
   getAllUsers,
 } = require("../db");
-const { createOrder } = require("../src/apiCalls/cart/createOrderAPI");
 
 router.post("/register", async (req, res, next) => {
   const { email, password, firstname, lastname, address } = req.body;
@@ -51,7 +50,7 @@ router.post("/register", async (req, res, next) => {
           expiresIn: "1w",
         }
       );
-      await createOrder(user.id);
+
       res.send({
         message: "thank you for signing up",
         token: token,

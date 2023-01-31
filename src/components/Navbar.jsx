@@ -46,26 +46,25 @@ const Navbar = () => {
         Home
       </NavLink>
       <div className="shop">
-    <a  href="Shop" className="navbar-link">Shop⌄</a>
-    <div className="shop-dropdown">
-      <div className="shop-dropdown-card">
-        <a href="/shop/Pet">Pet</a>
-        </div>
-        <div className="shop-dropdown-card">
-          <a href="/shop/Sleep">Sleep</a>
+        <a href="/Shop" className="navbar-link">
+          Shop
+        </a>
+        <div className="shop-dropdown">
+          <div className="shop-dropdown-card">
+            <a href="/shop/Pet">Pet</a>
           </div>
           <div className="shop-dropdown-card">
-
-        <a href="/shop/decorative">Decorative</a>
-        </div>
-        <div className="shop-dropdown-card">
-
-
-        <a href="/shop/Outdoor">Outdoor</a>
-        </div>
-        <div className="shop-dropdown-card">
-
-        <a href="/shop/Accessories">Accessories</a>
+            <a href="/shop/Sleep">Sleep</a>
+          </div>
+          <div className="shop-dropdown-card">
+            <a href="/shop/decorative">Decorative</a>
+          </div>
+          <div className="shop-dropdown-card">
+            <a href="/shop/Outdoor">Outdoor</a>
+          </div>
+          <div className="shop-dropdown-card">
+            <a href="/shop/Accessories">Accessories</a>
+          </div>
         </div>
       </div>
 
