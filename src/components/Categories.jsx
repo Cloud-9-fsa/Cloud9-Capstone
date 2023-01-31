@@ -26,7 +26,7 @@ export const Categories = () => {
   const categoryListings = listings.filter(
     (listing) => listing.category === capitalName(category)
   );
-  
+
 
   const allCategoryListings = categoryListings?.map(
     ({ id, category, name, isHot, price, image, description }) => {
@@ -39,11 +39,10 @@ export const Categories = () => {
               navigate(`/listings/${id}`);
             }}
           >
-            <p>Category: {category}</p>
-            <p>Name: {name}</p>
+            <p>{name}</p>
             <img style={{ width: 150, height: 150 }} src={image} />
             {isHot ? (
-              <div>
+              <>
                 <img
                   style={{ width: 25, height: 25 }}
                   className="fireEmoji"
@@ -62,11 +61,11 @@ export const Categories = () => {
                   src="https://www.clipartmax.com/png/small/26-260450_fire-emoji-png.png"
                   alt="Fire Emoji Png @clipartmax.com"
                 />
-              </div>
+              </>
             ) : (
               <></>
             )}
-            <p>Description: {description}</p>
+
             <p>Price: {price}</p>
           </div>
           <button
@@ -97,13 +96,13 @@ export const Categories = () => {
           ) : (
             <></>
           )}
-          
+
 
           {user.isAdmin ? (
             <button
               onClick={async () => {
-                await updateListing({ 
-                  id, 
+                await updateListing({
+                  id,
                   token,
                   isHot,
                   image,
@@ -135,13 +134,7 @@ export const Categories = () => {
       <h1>Welcome To Cloud9</h1>
 
       <div className="AllListings">{allCategoryListings}</div>
-      <div>
-        <Link to="/Pet">Pet Pillows</Link>
-        <Link to="/Sleep">Sleep</Link>
-        <Link to="/Decorative">Decorative</Link>
-        <Link to="/Outdoor">Outdoor</Link>
-        <Link to="/Accessories">Accessories</Link>
-      </div>
+
     </div>
   );
 };
