@@ -12,7 +12,6 @@ import "../styles/Categories.css";
 import { updateListing } from "../apiCalls/updateListingAPI";
 import { RenderUpdateListing } from "./UpdateListings";
 
-
 export const Categories = () => {
   const { listings, order, setOrder, token, user, setListings } = useAuth();
   const { category } = useParams();
@@ -28,7 +27,6 @@ export const Categories = () => {
   const categoryListings = listings.filter(
     (listing) => listing.category === capitalName(category)
   );
-
 
   const allCategoryListings = categoryListings?.map(
     ({ id, category, name, isHot, price, image, description }) => {
@@ -99,12 +97,10 @@ export const Categories = () => {
             <></>
           )}
 
-
           {user.isAdmin ? (
             <button
               onClick={async () => {
-
-              setEdit(!edit);
+                setEdit(!edit);
               }}
               type="edit"
             >
@@ -113,7 +109,7 @@ export const Categories = () => {
           ) : (
             <></>
           )}
-          {edit? (<RenderUpdateListing/>) : null }
+          {edit ? <RenderUpdateListing /> : null}
         </div>
       );
     }
@@ -124,7 +120,6 @@ export const Categories = () => {
       <h1>Welcome To Cloud9</h1>
 
       <div className="AllListings">{allCategoryListings}</div>
-
     </div>
   );
 };
