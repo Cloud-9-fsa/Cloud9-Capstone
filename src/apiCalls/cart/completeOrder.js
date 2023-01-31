@@ -1,11 +1,13 @@
-export async function createOrder(token) {
+export async function completeOrder(orderId) {
   try {
-    const response = await fetch(`/api/orders/create`, {
-      method: "POST",
+    const response = await fetch(`/api/orders/setactive`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
+      body: JSON.stringify({
+        orderId,
+      }),
     });
     const data = await response.json();
     return data;

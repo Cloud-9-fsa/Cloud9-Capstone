@@ -5,12 +5,14 @@ import "../style/ListingDetails.css";
 import { createOrder } from "../apiCalls/cart/createOrderApi";
 import { addListingToOrder } from "../apiCalls/cart/addListingToOrder";
 import { getOrder } from "../apiCalls/cart/getOrder";
+import { RenderUpdateListing } from "./UpdateListings";
 
 import { ReviewForm } from "./ReviewForm";
 
 export function ListingDetails() {
   const { listingId } = useParams();
   const { listings, token, user, order, setOrder } = useAuth();
+  const [edit, setEdit] = useState(false);
 
   const [create, setCreate] = useState(false);
 
@@ -79,6 +81,21 @@ export function ListingDetails() {
             <RenderReviews />
           </div>
           {create ? <ReviewForm listingId={listingId} /> : <></>}
+
+          {user.isAdmin ? (
+            <button
+              onClick={async () => {
+
+              setEdit(!edit);
+              }}
+              type="edit"
+            >
+              Edit
+            </button>
+          ) : (
+            <></>
+          )}
+          {edit? (<RenderUpdateListing listingId={listingId}/>) : null }
         </div>
       );
     }
