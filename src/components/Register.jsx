@@ -16,6 +16,8 @@ import { registerUser } from "../apiCalls/registerApi";
 import { useAuth } from "../context/UseAuth";
 import { useNavigate } from "react-router-dom";
 import { getUserInfo } from "../apiCalls/getUserInfoAPI";
+// import { createOrder } from "../apiCalls/cart/createOrderApi";
+import { createOrder } from "../apiCalls/cart/createOrderAPI";
 
 function Copyright(props) {
   return (
@@ -59,6 +61,7 @@ export default function SignUp() {
       setUser(info);
       setToken(response.token);
       localStorage.setItem("token", response.token);
+      await createOrder(token);
     }
 
     console.log(response);

@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../context/UseAuth";
+import "../style/ListingDetails.css";
+import { createOrder } from "../apiCalls/cart/createOrderAPI";
+import { addListingToOrder } from "../apiCalls/cart/addListingToOrder";
+import { getOrder } from "../apiCalls/cart/getOrder";
+import { RenderUpdateListing } from "./UpdateListings";
 
 import { ReviewForm } from "./ReviewForm";
 
 export function ListingDetails() {
   const { listingId } = useParams();
-  const { listings, token, user } = useAuth();
+  const { listings, token, user, order, setOrder } = useAuth();
+  const [edit, setEdit] = useState(false);
 
   const [create, setCreate] = useState(false);
 
@@ -39,16 +45,56 @@ export function ListingDetails() {
     if (singleListing) {
       return (
         <div className="singleListing" key={listingId}>
-          <h1>{singleListing.name}</h1>
-          <h1>{singleListing.id}</h1>
-          <h1>{singleListing.price}</h1>
-          <h1>{singleListing.description}</h1>
-          <h1>{singleListing.category}</h1>
-          <div>
+          <div className="namepic">
+            <h1 className="name1">{singleListing.name}</h1>
+            <img className="pic1" src={singleListing.image} />
+          </div>
+          <div className="info">
+            <h1 className="price1">${singleListing.price}</h1>
+            <h1 className="price1">{singleListing.description}</h1>
+            <h1 className="price1">Category: {singleListing.category}</h1>
+
+            <button
+              className="button"
+              type="button"
+              onClick={async () => {
+                if (order.length === 0) {
+                  const newOrder = await createOrder(token);
+                  setOrder(newOrder);
+                }
+                addListingToOrder(order.id, id);
+                const oldOrder = await getOrder(token);
+
+                setOrder(oldOrder[0]);
+              }}
+            >
+              Add To Cart
+            </button>
+            <br></br>
+            <button
+              className="button"
+              role="button"
+              onClick={() => handleClick()}
+            >
+              Add Review
+            </button>
             <RenderReviews />
-            <button onClick={() => handleClick()}>Add Review</button>
           </div>
           {create ? <ReviewForm listingId={listingId} /> : <></>}
+
+          {user.isAdmin ? (
+            <button
+              onClick={async () => {
+                setEdit(!edit);
+              }}
+              type="edit"
+            >
+              Edit
+            </button>
+          ) : (
+            <></>
+          )}
+          {edit ? <RenderUpdateListing listingId={listingId} /> : null}
         </div>
       );
     }

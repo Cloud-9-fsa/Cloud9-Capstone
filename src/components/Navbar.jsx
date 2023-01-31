@@ -1,15 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/UseAuth";
-import "../style/Navbar.css"
-
+import "../style/Navbar.css";
 
 const Navbar = () => {
-  const { token, setToken, setUser } = useAuth();
+  const { token, setToken, setUser, setOrder } = useAuth();
   const logout = () => {
     localStorage.clear();
     setUser({});
     setToken("");
+    setOrder({});
   };
   const LoginLogout = () => {
     if (localStorage.getItem("token")) {
@@ -48,6 +48,7 @@ const Navbar = () => {
         Home
       </NavLink>
       <div className="shop">
+
     <a  href="Shop" className="navbar-link">Shop</a>
     <div className="shop-dropdown">
       <div className="shop-dropdown-card">
@@ -55,22 +56,19 @@ const Navbar = () => {
         </div>
         <div className="shop-dropdown-card">
           <a href="/shop/Sleep">Sleep</a>
+
+          <div className="shop-dropdown-card">
+            <a href="/shop/decorative">Decorative</a>
           </div>
           <div className="shop-dropdown-card">
-
-        <a href="/shop/decorative">Decorative</a>
+            <a href="/shop/Outdoor">Outdoor</a>
+          </div>
+          <div className="shop-dropdown-card">
+            <a href="/shop/Accessories">Accessories</a>
+          </div>
         </div>
-        <div className="shop-dropdown-card">
+      </div>
 
-
-        <a href="/shop/Outdoor">Outdoor</a>
-        </div>
-        <div className="shop-dropdown-card">
-
-        <a href="/shop/Accessories">Accessories</a>
-        </div>
-    </div>
-</div>
 
 
 
@@ -82,15 +80,21 @@ const Navbar = () => {
 
       <LoginLogout />
 
+
       <NavLink to="/Cart" className="cart">
-      <img
-      src="https://icons-for-free.com/download-icon-checkout+commerce+shopping+cart+icon-1320166580788754282_256.png"
-      alt="cart1"
-      className="cart2"/>
+        <img
+          src="https://icons-for-free.com/download-icon-checkout+commerce+shopping+cart+icon-1320166580788754282_256.png"
+          alt="cart1"
+          className="cart2"
+        />
       </NavLink>
 
-      <NavLink to="/Profile" >
-        <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png" alt="profile" className="profilepic"/>
+      <NavLink to="/Profile">
+        <img
+          src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png"
+          alt="profile"
+          className="profilepic"
+        />
       </NavLink>
     </nav>
   );

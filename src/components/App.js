@@ -14,6 +14,8 @@ import Returns from "./returns";
 import { ListingDetails } from "./ListingDetails";
 import { Categories } from "./Categories";
 import { Profile } from "./Profile";
+import Checkout from "./Checkout";
+import { AllListings } from "./AllListings";
 
 const App = () => {
   const [APIHealth, setAPIHealth] = useState("");
@@ -41,7 +43,9 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/listings/:listingId" element={<ListingDetails />} />
+        <Route path="/shop/" element={<AllListings />} />
         <Route path="/shop/:category" element={<Categories />} />
+        <Route path="/cart/checkout" element={<Checkout />} />
       </Routes>
       <Footer />
     </div>

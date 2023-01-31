@@ -21,7 +21,7 @@
     "@emotion/styled": "^11.10.5",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/icons-material": "^5.11.0",
-    "@mui/material": "^5.11.6",
+    "@mui/material": "^5.11.7",
     "axios": "^0.19.2",
     "bcrypt": "^5.1.0",
     "concurrently": "^7.0.0",

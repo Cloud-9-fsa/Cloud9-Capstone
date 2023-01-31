@@ -50,6 +50,7 @@ router.post("/register", async (req, res, next) => {
           expiresIn: "1w",
         }
       );
+
       res.send({
         message: "thank you for signing up",
         token: token,
@@ -84,6 +85,7 @@ router.post("/login", async (req, res, next) => {
         );
         delete user.password;
         user.token = token;
+
         res.send({ user: user, message: "you're logged in!", token: token });
       } else {
         next({

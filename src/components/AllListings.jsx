@@ -1,31 +1,23 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/UseAuth";
 import { Link } from "react-router-dom";
-import { createOrder } from "../apiCalls/cart/createOrderAPI";
+
 import { addListingToOrder } from "../apiCalls/cart/addListingToOrder";
 import { getOrder } from "../apiCalls/cart/getOrder";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { deleteListing } from "../apiCalls/deleteListingAPI";
+import { fetchListings } from "../apiCalls/listingsAPI";
 import "../styles/Categories.css";
+import { updateListing } from "../apiCalls/updateListingAPI";
+import { RenderUpdateListing } from "./UpdateListings";
 
-export const Categories = () => {
+export const AllListings = () => {
   const { listings, order, setOrder, token, user, setListings } = useAuth();
-  const { category } = useParams();
   const navigate = useNavigate();
   const [edit, setEdit] = useState(false);
 
-  const capitalName = (name) => {
-    const result = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
-
-    return result;
-  };
-
-  const categoryListings = listings.filter(
-    (listing) => listing.category === capitalName(category)
-  );
-
-  const allCategoryListings = categoryListings?.map(
+  const allListings = listings?.map(
     ({ id, category, name, isHot, price, image, description }) => {
       return (
         <div>
@@ -116,7 +108,7 @@ export const Categories = () => {
     <div>
       <h1>Welcome To Cloud9</h1>
 
-      <div className="AllListings">{allCategoryListings}</div>
+      <div className="AllListings">{allListings}</div>
     </div>
   );
 };

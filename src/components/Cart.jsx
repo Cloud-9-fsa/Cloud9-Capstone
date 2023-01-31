@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router";
 import { useAuth } from "../context/UseAuth";
 import { editOrder } from "../apiCalls/cart/editOrderQuantity";
 import { deleteListingFromOrder } from "../apiCalls/cart/deleteListingFromOrder";
@@ -8,6 +9,7 @@ import "../style/Cart.css";
 
 export const Cart = () => {
   const { order, user, token, setOrder } = useAuth();
+  const navigate = useNavigate();
 
   const deleteListing = async (listingId, orderId) => {
     await deleteListingFromOrder(listingId, orderId);
@@ -56,6 +58,13 @@ export const Cart = () => {
         </h1>
         {CartListings}
         <h1>Your total is: {order.total}</h1>
+        <button
+          onClick={() => {
+            navigate("/cart/checkout");
+          }}
+        >
+          Checkout Here!
+        </button>
       </div>
     );
   }
