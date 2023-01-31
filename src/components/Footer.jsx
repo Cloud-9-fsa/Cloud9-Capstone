@@ -6,8 +6,8 @@ import "../style/footer.css";
 const Footer = () => {
   return (
     <div className="footer">
-      <Link to="/terms">Terms & Conditions</Link> |
-      <Link to="/privacy">Privacy Policy</Link> |
+      <Link to="">Terms & Conditions</Link> |
+      <Link to="">Privacy Policy</Link> |
       <Link to="/contact">Contact Us</Link> |
       <Link to="/returns">Return Policy</Link>
       <div className="social-icons">
