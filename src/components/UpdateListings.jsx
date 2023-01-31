@@ -3,7 +3,7 @@ import { useAuth } from "../context/UseAuth";
 import { createListing } from "../apiCalls/createListingAPI";
 import { updateListing } from "../apiCalls/updateListingAPI";
 
-export const RenderUpdateListing = () => {
+export const RenderUpdateListing = ({listingId}) => {
     const {user,token,setListings} = useAuth();
 const [isHot, setIsHot] = useState(false);
 const [image, setImage] = useState("");
@@ -20,7 +20,9 @@ const [stock, setStock] = useState("");
 
 const handleSubmit = async () => {
     if (user.isAdmin) {
-        await updateListing(
+        await updateListing({
+            listingId,
+            token,
             isHot,
             image,
             image2,
@@ -31,9 +33,9 @@ const handleSubmit = async () => {
             description,
             category,
             price,
-            stock,
-            token
-        );
+            stock
+            
+    });
         setName("");
         setDescription("");
         setCategory("");
@@ -45,7 +47,7 @@ const handleSubmit = async () => {
         setImage4("");
         setImage5("");
         setIsHot(true);
-        await updateListing().then((data) => setListings(data));
+
 
 
     }

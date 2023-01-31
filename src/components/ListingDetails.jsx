@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../context/UseAuth";
+import { RenderUpdateListing } from "./UpdateListings";
 
 import { ReviewForm } from "./ReviewForm";
 
 export function ListingDetails() {
   const { listingId } = useParams();
   const { listings, token, user } = useAuth();
+  const [edit, setEdit] = useState(false);
 
   const [create, setCreate] = useState(false);
 
@@ -49,6 +51,21 @@ export function ListingDetails() {
             <button onClick={() => handleClick()}>Add Review</button>
           </div>
           {create ? <ReviewForm listingId={listingId} /> : <></>}
+
+          {user.isAdmin ? (
+            <button
+              onClick={async () => {
+
+              setEdit(!edit);
+              }}
+              type="edit"
+            >
+              Edit
+            </button>
+          ) : (
+            <></>
+          )}
+          {edit? (<RenderUpdateListing listingId={listingId}/>) : null }
         </div>
       );
     }
