@@ -114,7 +114,11 @@ export const Categories = () => {
 
   return (
     <div>
-      <h1>Welcome To Cloud9</h1>
+      {category === "Accessories" ? (
+        <h1> Accessories</h1>
+      ) : (
+        <h1>{capitalName(category)} Pillows</h1>
+      )}
 
       <div className="AllListings">{allCategoryListings}</div>
     </div>
