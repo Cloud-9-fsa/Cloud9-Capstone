@@ -46,7 +46,7 @@ async function createOrderListings(orderId, listingId) {
   }
 }
 
-async function updateOrderListings({ id, quantity }) {
+async function updateOrderListings({ id, quantity, orderId }) {
   try {
     const {
       rows: [orderListings],
@@ -82,7 +82,8 @@ async function updateOrderListings({ id, quantity }) {
     //         WHERE id = $2`,
     //   [currentTotal, orderId]
     // );
-    await updateOrderPrice(id);
+
+    await updateOrderPrice(orderId);
 
     return orderListings;
   } catch (error) {
@@ -153,30 +154,31 @@ async function deleteOrderListing(orderId, listingId) {
       [orderId, listingId]
     );
 
-    const {
-      rows: [price],
-    } = await client.query(
-      `
-      SELECT price FROM listings
-        WHERE id = $1`,
-      [listingId]
-    );
-    const {
-      rows: [total],
-    } = await client.query(
-      `SELECT total FROM orders
-          WHERE id=$1`,
-      [orderId]
-    );
+    // const {
+    //   rows: [price],
+    // } = await client.query(
+    //   `
+    //   SELECT price FROM listings
+    //     WHERE id = $1`,
+    //   [listingId]
+    // );
+    // const {
+    //   rows: [total],
+    // } = await client.query(
+    //   `SELECT total FROM orders
+    //       WHERE id=$1`,
+    //   [orderId]
+    // );
 
-    const currentTotal = total.total - price.price;
-    console.log(currentTotal);
-    await client.query(
-      `
-            UPDATE orders SET total = $1
-            WHERE id = $2`,
-      [currentTotal, orderId]
-    );
+    // const currentTotal = total.total - price.price;
+    // console.log(currentTotal);
+    // await client.query(
+    //   `
+    //         UPDATE orders SET total = $1
+    //         WHERE id = $2`,
+    //   [currentTotal, orderId]
+    // );
+    await updateOrderPrice(orderId);
 
     return listing;
   } catch (error) {
@@ -186,7 +188,6 @@ async function deleteOrderListing(orderId, listingId) {
 
 async function updateOrderPrice(orderId) {
   try {
-    console.log(orderId);
     const { rows: orders } = await client.query(
       `
       SELECT * FROM orders 

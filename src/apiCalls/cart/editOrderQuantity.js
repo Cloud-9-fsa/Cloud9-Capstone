@@ -1,4 +1,4 @@
-export async function editOrder(id, quantity) {
+export async function editOrder(orderId, id, quantity) {
   try {
     const response = await fetch(`/api/orderlistings/listings/quantity`, {
       method: "PATCH",
@@ -8,6 +8,7 @@ export async function editOrder(id, quantity) {
       body: JSON.stringify({
         id,
         quantity,
+        orderId,
       }),
     });
     const data = await response.json();

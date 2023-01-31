@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useState } from "react";
 import { useAuth } from "../context/UseAuth";
 import { Link } from "react-router-dom";
 import { createOrder } from "../apiCalls/cart/createOrderApi";
@@ -10,12 +10,14 @@ import { deleteListing } from "../apiCalls/deleteListingAPI";
 import { fetchListings } from "../apiCalls/listingsAPI";
 import "../styles/Categories.css";
 import { updateListing } from "../apiCalls/updateListingAPI";
+import { RenderUpdateListing } from "./UpdateListings";
 
 
 export const Categories = () => {
   const { listings, order, setOrder, token, user, setListings } = useAuth();
   const { category } = useParams();
   const navigate = useNavigate();
+  const [edit, setEdit] = useState(false);
 
   const capitalName = (name) => {
     const result = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
@@ -91,7 +93,7 @@ export const Categories = () => {
                 setListings(data);
               }}
             >
-              Delete Listing
+              Delete
             </button>
           ) : (
             <></>
@@ -101,29 +103,17 @@ export const Categories = () => {
           {user.isAdmin ? (
             <button
               onClick={async () => {
-                await updateListing({
-                  id,
-                  token,
-                  isHot,
-                  image,
-                  image2,
-                  image3,
-                  image4,
-                  image5,
-                  name,
-                  description,
-                  category,
-                  price,
-                  stock
-                });
+
+              setEdit(!edit);
               }}
               type="edit"
             >
-              Edit Listing
+              Edit
             </button>
           ) : (
             <></>
           )}
+          {edit? (<RenderUpdateListing/>) : null }
         </div>
       );
     }

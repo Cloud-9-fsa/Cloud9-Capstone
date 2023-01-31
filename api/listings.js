@@ -114,7 +114,7 @@ router.delete(
   requireUserAdmin,
   async (req, res, next) => {
     const { listingId } = req.params;
-    console.log(req.params);
+
     try {
       const deletedListing = await deleteListing(listingId);
       res.send(deletedListing);
