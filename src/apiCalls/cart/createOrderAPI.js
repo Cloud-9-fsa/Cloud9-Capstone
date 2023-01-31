@@ -1,4 +1,4 @@
-async function createOrder(token) {
+export async function createOrder(token) {
   try {
     const response = await fetch(`/api/orders/create`, {
       method: "POST",
@@ -13,5 +13,3 @@ async function createOrder(token) {
     console.error(error);
   }
 }
-
-module.exports = { createOrder };

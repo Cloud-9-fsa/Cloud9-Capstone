@@ -13,6 +13,7 @@ export const Categories = () => {
   const { listings, order, setOrder, token, user, setListings } = useAuth();
   const { category } = useParams();
   const navigate = useNavigate();
+  const [edit, setEdit] = useState(false);
 
   const capitalName = (name) => {
     const result = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
@@ -106,7 +107,6 @@ export const Categories = () => {
             <></>
           )}
           {edit ? <RenderUpdateListing /> : null}
-
         </div>
       );
     }

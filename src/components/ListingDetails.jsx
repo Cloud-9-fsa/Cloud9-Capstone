@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../context/UseAuth";
 import "../style/ListingDetails.css";
-import { createOrder } from "../apiCalls/cart/createOrderApi";
+import { createOrder } from "../apiCalls/cart/createOrderAPI";
 import { addListingToOrder } from "../apiCalls/cart/addListingToOrder";
 import { getOrder } from "../apiCalls/cart/getOrder";
 import { RenderUpdateListing } from "./UpdateListings";
@@ -85,8 +85,7 @@ export function ListingDetails() {
           {user.isAdmin ? (
             <button
               onClick={async () => {
-
-              setEdit(!edit);
+                setEdit(!edit);
               }}
               type="edit"
             >
@@ -95,7 +94,7 @@ export function ListingDetails() {
           ) : (
             <></>
           )}
-          {edit? (<RenderUpdateListing listingId={listingId}/>) : null }
+          {edit ? <RenderUpdateListing listingId={listingId} /> : null}
         </div>
       );
     }

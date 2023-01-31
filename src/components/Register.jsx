@@ -57,7 +57,6 @@ export default function SignUp() {
       alert(response.message);
     }
     if (response.token) {
-      set;
       const info = await getUserInfo(token);
       setUser(info);
       setToken(response.token);
