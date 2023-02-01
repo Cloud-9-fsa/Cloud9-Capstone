@@ -1,0 +1,114 @@
+.mainDiv {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  text-align: center;
+}
+
+.mainDiv h1 {
+  color: #1597ca;
+  font-size: 2.2vw;
+}
+
+.cartForm {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px #1597ca;
+}
+
+.text1 h1 {
+  font-size: 1.7vw;
+  margin: 0 auto;
+}
+
+.descript h1 {
+  text-align: center;
+}
+
+.theimage {
+  width: 10%;
+  height: 40%;
+  float: left;
+  margin: auto;
+  padding: 5px 5px 5px 5px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px #1597ca;
+}
+.quantityBar {
+  width: 20%;
+  height: 11%;
+  position: absolute;
+  top: 11%;
+  left: 77%;
+  object-fit: cover;
+  margin: 0 auto;
+  padding: 17px 10px 1px 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px #1597ca;
+}
+
+.upperForm {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: auto;
+  padding: 5px 5px 5px 5px;
+}
+
+.label {
+  color: #1597ca;
+}
+
+.button {
+  background-color: #1597ca;
+  background-image: linear-gradient(#1597ca);
+  border: 1px solid #1597ca;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
+  color: #ffffff;
+  cursor: pointer;
+  display: block;
+  font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 100%;
+  margin: 0;
+  outline: 0;
+  padding: 11px 15px 12px 10px;
+  text-align: center;
+  transition: box-shadow 0.05s ease-in-out, opacity 0.05s ease-in-out;
+  user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.button:hover {
+  box-shadow: rgba(255, 255, 255, 0.3) 0 0 2px inset,
+    rgba(0, 0, 0, 0.4) 0 1px 2px;
+  text-decoration: none;
+  transition-duration: 0.15s, 0.15s;
+}
+
+.button:active {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset, rgba(0, 0, 0, 0.4) 0 1px 1px;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.button:disabled:active {
+  pointer-events: none;
+}
+
+.button:disabled:hover {
+  box-shadow: none;
+}
