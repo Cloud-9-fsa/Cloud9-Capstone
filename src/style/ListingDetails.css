@@ -132,3 +132,7 @@
 .button:disabled:hover {
   box-shadow: none;
 }
+
+h1 {
+  color: #1597ca;
+}

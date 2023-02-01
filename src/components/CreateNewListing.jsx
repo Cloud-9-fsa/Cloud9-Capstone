@@ -3,11 +3,6 @@ import { useAuth } from "../context/UseAuth";
 import { createListing } from "../apiCalls/createListingAPI";
 import { fetchListings } from "../apiCalls/listingsAPI";
 
-
-
-
-
-
 export const RenderNewListing = () => {
     const {user,token,setListings} = useAuth();
 const [isHot, setIsHot] = useState(false);
@@ -21,8 +16,6 @@ const [description, setDescription] = useState("");
 const [category, setCategory] = useState("");
 const [price, setPrice] = useState("");
 const [stock, setStock] = useState("");
-
-
 
 const handleSubmit = async () => {
     if (user.isAdmin) {
