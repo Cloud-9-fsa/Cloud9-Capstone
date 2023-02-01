@@ -15,7 +15,13 @@ router.post("/Listings", async (req, res, next) => {
       listingId,
       quantity
     );
-    res.send(addListingsToOrder);
+    if (addListingsToOrder) {
+      res.send(addListingsToOrder);
+    } else
+      next({
+        name: "This item is already in your cart",
+        message: `This item is already in your cart!`,
+      });
   } catch (error) {
     next(error);
   }

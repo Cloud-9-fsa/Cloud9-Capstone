@@ -4,6 +4,7 @@ const {
   createOrders,
   makeOrderInactive,
   deleteOrder,
+  getOrdersById,
 } = require("../db");
 const { requireUser, requireUserAdmin } = require("./utils");
 const router = express.Router();
@@ -18,10 +19,26 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/create", requireUser, async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
+  const { id } = req.params;
   try {
-    const order = await createOrders(req.user.id);
-    res.send(order);
+    const orders = await getOrdersById(id);
+
+    res.send(orders);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/create", async (req, res, next) => {
+  try {
+    if (req.user) {
+      const order = await createOrders(req.user.id);
+      res.send(order);
+    } else {
+      const order = await createOrders();
+      res.send(order);
+    }
   } catch (error) {
     next(error);
   }

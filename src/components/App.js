@@ -16,6 +16,7 @@ import { Categories } from "./Categories";
 import { Profile } from "./Profile";
 import Checkout from "./Checkout";
 import { AllListings } from "./AllListings";
+import PillowTalk from "./PillowTalk";
 
 const App = () => {
   const [APIHealth, setAPIHealth] = useState("");
@@ -32,6 +33,7 @@ const App = () => {
     <div className="app-container">
       <Navbar />
       <Routes>
+        <Route path="/PillowTalks" element={<PillowTalk />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/returns" element={<Returns />} />

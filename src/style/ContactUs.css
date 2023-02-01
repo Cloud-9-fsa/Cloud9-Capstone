@@ -154,3 +154,64 @@ width: 50px;
   color: #666;
   margin-bottom: 10px;
 }
+
+
+@media (max-width: 1200px) {
+  .banner-image {
+    width: 100%;
+    height: auto;
+  }
+  .form-container {
+    width: 100%;
+  }
+  .card-container {
+    width: 100%;
+  }
+  .card {
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .banner-text {
+    font-size: 36px;
+  }
+  .sub-header {
+    font-size: 18px;
+  }
+  .form-container {
+    padding: 10px;
+  }
+  .card-container {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .banner-text {
+    left: 30%;
+    font-size: 32px;
+  }
+  .sub-header {
+    left: 10%;
+  }
+  label,
+  select,
+  input,
+  textarea {
+    font-size: 14px;
+  }
+  button[type="submit"] {
+    font-size: 1.2em;
+  }
+  .card {
+    padding: 5px;
+  }
+  .card h3 {
+    font-size: 1em;
+  }
+  .card p {
+    font-size: 0.8em;
+  }
+}

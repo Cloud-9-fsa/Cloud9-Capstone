@@ -2,6 +2,7 @@ import React, { useState, useEffect, createContext } from "react";
 import { getOrder } from "../apiCalls/cart/getOrder";
 import { getUserInfo } from "../apiCalls/getUserInfoAPI";
 import { fetchListings } from "../apiCalls/listingsAPI";
+import { getOrderById } from "../apiCalls/cart/getOrderNotLogged";
 
 export const AuthContext = createContext();
 
@@ -28,13 +29,21 @@ export default function AuthProvider({ children }) {
     setToken(localStorage["token"] || "");
     const getUser = async () => {
       const info = await getUserInfo(token);
-      setUser(info);
+      if (info.id) {
+        setUser(info);
+      }
     };
     getUser();
     const orders = async () => {
-      const oldOrder = await getOrder(token);
-
-      setOrder(oldOrder[0]);
+      if (token) {
+        const oldOrder = await getOrder(token);
+        setOrder(oldOrder[0]);
+      } else if (localStorage.getItem("orderId") != "undefined") {
+        const data = await getOrderById(
+          Number(localStorage.getItem("orderId"))
+        );
+        setOrder(data);
+      }
     };
     orders();
     const getAllListings = async () => {
