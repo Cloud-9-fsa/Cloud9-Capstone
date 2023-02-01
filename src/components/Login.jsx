@@ -16,6 +16,8 @@ import { login } from "../apiCalls/loginApi";
 import { useAuth } from "../context/UseAuth";
 import { useNavigate } from "react-router-dom";
 import { getUserInfo } from "../apiCalls/getUserInfoAPI";
+import { addListingToOrder } from "../apiCalls/cart/addListingToOrder";
+import { getOrder } from "../apiCalls/cart/getOrder";
 
 function Copyright(props) {
   return (
@@ -38,7 +40,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function LogIn() {
-  const { token, setToken, user, setUser } = useAuth();
+  const { token, setToken, user, setUser, order } = useAuth();
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -54,6 +56,16 @@ export default function LogIn() {
       setToken(response.token);
       localStorage.setItem("token", response.token);
       setUser(response.user);
+      if (order && order[0]) {
+        const data = await getOrder(response.token);
+        for (let i = 0; i < order[0].listings.length; i++) {
+          await addListingToOrder(
+            data[0].id,
+            order[0].listings[i].id,
+            order[0].listings[i].quantity
+          );
+        }
+      }
     }
     console.log(response);
     if (localStorage.getItem("token")) navigate("/");

@@ -4,15 +4,13 @@ const { attachListingsToOrders } = require("./order-listings");
 
 async function createOrders(userId) {
   try {
-    const {
-      rows: [orders],
-    } = await client.query(
+    const { rows: orders } = await client.query(
       `
         INSERT INTO orders ("userId") VALUES($1)
         RETURNING *`,
       [userId]
     );
-    return orders;
+    return attachListingsToOrders(orders);
   } catch (error) {
     console.error(error);
   }
