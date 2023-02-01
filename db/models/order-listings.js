@@ -2,7 +2,6 @@ const client = require("../client");
 
 async function createOrderListings(orderId, listingId, quantity) {
   try {
-    console.log(quantity);
     const {
       rows: [orderListings],
     } = await client.query(
@@ -150,17 +149,19 @@ async function updateOrderPrice(orderId) {
 
     let total = 0;
 
-    allOrders[0].listings.map((listing) => {
-      let listingTotal = listing.price * listing.quantity;
-      total = total + listingTotal;
-    });
+    if (allOrders[0]) {
+      allOrders[0].listings.map((listing) => {
+        let listingTotal = listing.price * listing.quantity;
+        total = total + listingTotal;
+      });
 
-    await client.query(
-      `
-            UPDATE orders SET total = $1
-            WHERE id = $2`,
-      [total, orderId]
-    );
+      await client.query(
+        `
+        UPDATE orders SET total = $1
+        WHERE id = $2`,
+        [total, orderId]
+      );
+    }
   } catch (error) {
     console.error(error);
   }

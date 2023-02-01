@@ -8,6 +8,9 @@ import { getOrder } from "../apiCalls/cart/getOrder";
 import { RenderUpdateListing } from "./UpdateListings";
 
 import { ReviewForm } from "./ReviewForm";
+import { createOrderNotLogged } from "../apiCalls/cart/createOrderNotLoggedInApi";
+import { getOrderById } from "../apiCalls/cart/getOrderNotLogged";
+import { ContactPageSharp } from "@mui/icons-material";
 
 export function ListingDetails() {
   const { listingId } = useParams();
@@ -68,17 +71,40 @@ export function ListingDetails() {
               className="button"
               type="button"
               onClick={async () => {
-                if (order) {
-                  addListingToOrder(
+                if (token) {
+                  const data = await addListingToOrder(
                     order.id,
                     singleListing.id,
                     Number(quantity)
                   );
+                  data;
+                  if (data.error) {
+                    alert(data.message);
+                  }
                   const oldOrder = await getOrder(token);
                   setOrder(oldOrder[0]);
                 } else {
-                  localStorage.setItem("cart", singleListing);
-                  console.log(localStorage.getItem("cart"));
+                  if (!order.length) {
+                    const newOrder = await createOrderNotLogged();
+
+                    setOrder(newOrder);
+                    localStorage.setItem("orderId", newOrder[0].id);
+                    await addListingToOrder(
+                      Number(localStorage.getItem("orderId")),
+                      singleListing.id,
+                      Number(quantity)
+                    );
+                  } else {
+                    await addListingToOrder(
+                      Number(localStorage.getItem("orderId")),
+                      singleListing.id,
+                      Number(quantity)
+                    );
+                    const data = await getOrderById(
+                      Number(localStorage.getItem("orderId"))
+                    );
+                    setOrder(data);
+                  }
                 }
               }}
             >
