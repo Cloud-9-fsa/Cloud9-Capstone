@@ -8,6 +8,8 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { deleteListing } from "../apiCalls/deleteListingAPI";
 import "../style/Categories.css";
+import flame from "../assets/flame.png"
+
 
 export const Categories = () => {
   const { listings, order, setOrder, token, user, setListings } = useAuth();
@@ -28,42 +30,40 @@ export const Categories = () => {
   const allCategoryListings = categoryListings?.map(
     ({ id, category, name, isHot, price, image, description }) => {
       return (
-        <div key={id}>
+        <div className="ListingBox" key={id}>
+          <img className="listingIMG" style={{ width: 300, height: 300 }} src={image} />
           <div
-            className="AllListings"
+            className="SingleListings"
             key={id}
             onClick={() => {
               navigate(`/listings/${id}`);
             }}
           >
-            <p>{name}</p>
-            <img style={{ width: 150, height: 150 }} src={image} />
+            
             {isHot ? (
-              <>
+              <div className="fireandtitle">
+                <p className="listingname" >{name}  </p>
+              <div className="firegroup">
                 <img
-                  style={{ width: 25, height: 25 }}
                   className="fireEmoji"
-                  src="https://www.clipartmax.com/png/small/26-260450_fire-emoji-png.png"
-                  alt="Fire Emoji Png @clipartmax.com"
+                  src={flame}
                 />
                 <img
-                  style={{ width: 25, height: 25 }}
                   className="fireEmoji"
-                  src="https://www.clipartmax.com/png/small/26-260450_fire-emoji-png.png"
-                  alt="Fire Emoji Png @clipartmax.com"
+                  src={flame}
                 />
-                <img
-                  style={{ width: 25, height: 25 }}
+               <img
                   className="fireEmoji"
-                  src="https://www.clipartmax.com/png/small/26-260450_fire-emoji-png.png"
-                  alt="Fire Emoji Png @clipartmax.com"
+                  src={flame}
                 />
-              </>
+                </div>
+          
+              </div>
             ) : (
-              <></>
+            <p className="listingname" >{name}</p>
             )}
-
-            <p>Price: {price}</p>
+            
+            <p className="pricetag" >${price}</p>
           </div>
           {/* <button
             type="button"
@@ -80,6 +80,7 @@ export const Categories = () => {
           >
             Add To Cart
           </button> */}
+        <div className="adminbuttons">
           {user.isAdmin ? (
             <button
               onClick={async () => {
@@ -100,24 +101,23 @@ export const Categories = () => {
                 setEdit(!edit);
               }}
               type="edit"
-            >
-              Edit
-            </button>
+            >Edit</button>
           ) : (
             <></>
           )}
           {edit ? <RenderUpdateListing /> : null}
-        </div>
+       </div> 
+       </div>
       );
     }
   );
 
   return (
-    <div>
+    <div className="CategoryHeader">
       {category === "Accessories" ? (
-        <h1> Accessories</h1>
+        <h1 > Accessories</h1>
       ) : (
-        <h1>{capitalName(category)} Pillows</h1>
+        <h1 >{capitalName(category)} Pillows</h1>
       )}
 
       <div className="AllListings">{allCategoryListings}</div>
