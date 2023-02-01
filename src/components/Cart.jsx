@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useAuth } from "../context/UseAuth";
 import { editOrder } from "../apiCalls/cart/editOrderQuantity";
@@ -16,6 +16,21 @@ export const Cart = () => {
     await deleteListingFromOrder(listingId, orderId);
   };
 
+  useEffect(() => {
+    const orders = async () => {
+      if (token) {
+        const oldOrder = await getOrder(token);
+        setOrder(oldOrder[0]);
+      } else if (localStorage.getItem("orderId") != "undefined") {
+        const data = await getOrderById(
+          Number(localStorage.getItem("orderId"))
+        );
+        setOrder(data);
+      }
+    };
+    orders();
+  }, []);
+
   if (user && user.id) {
     if (order && order.listings && order.listings.length) {
       const CartListings = order.listings.map((listing) => {
@@ -31,17 +46,19 @@ export const Cart = () => {
               name="quantity"
               placeholder={listing.quantity}
               onChange={async (e) => {
-                console.log();
-                await editOrder(
-                  order.id,
-                  listing.orderListingId,
-                  e.target.value
-                );
-                const oldOrder = await getOrder(token);
-                setOrder(oldOrder[0]);
+                if (e.target.value !== "") {
+                  await editOrder(
+                    order.id,
+                    listing.orderListingId,
+                    e.target.value
+                  );
+                  const oldOrder = await getOrder(token);
+                  setOrder(oldOrder[0]);
+                }
               }}
               min="1"
             />
+            <h1>Item Total: {listing.price * listing.quantity}</h1>
             <button
               onClick={async () => {
                 console.log("hi");
@@ -87,6 +104,7 @@ export const Cart = () => {
           <div className="cartForm" key={listing.id}>
             <h1>Name:{listing.name}</h1>
             <h1>Price:{listing.price}</h1>
+            <h1>Item Total: {listing.price * listing.quantity}</h1>
 
             <label>Quantity:</label>
             <input
@@ -107,6 +125,7 @@ export const Cart = () => {
               }}
               min="1"
             />
+
             <button
               onClick={async () => {
                 console.log("hi");
@@ -127,7 +146,7 @@ export const Cart = () => {
         <div>
           <h1>You have {order[0].listings.length} items in your cart !</h1>
           {NotLoggedInCartListings}
-          <h1>Your total is: {order[0].total}</h1>
+          <h1>Your total is: {order.total}</h1>
           <button
             onClick={() => {
               navigate("/cart/checkout");

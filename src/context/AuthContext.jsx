@@ -37,7 +37,6 @@ export default function AuthProvider({ children }) {
     const orders = async () => {
       if (token) {
         const oldOrder = await getOrder(token);
-
         setOrder(oldOrder[0]);
       } else if (localStorage.getItem("orderId") != "undefined") {
         const data = await getOrderById(

@@ -1,6 +1,5 @@
 export async function getOrderById(id) {
   try {
-    console.log(id);
     const response = await fetch(`/api/orders/${id}`, {
       method: "GET",
       headers: {
