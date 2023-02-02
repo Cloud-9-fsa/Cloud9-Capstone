@@ -8,8 +8,7 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: flex-start;
-    /* justify-content: center; */
+    justify-content: center;
     margin: 0 auto;
     width: 100%;
     padding: 0 20px;
@@ -18,8 +17,8 @@ body{
 
 
 .ListingBox {
-    width: 300px;
-    height: 500px;
+    width: 350px;
+    height: 550px;
     margin: 20px;
     margin-right: 12px;
     margin-bottom: 12px;
@@ -30,13 +29,8 @@ body{
     flex-direction: column;
     max-width:fit-content;
     align-items: center;
-    padding: 10px;
+    padding: 20px;
     background-color: #fff; 
-}
-
-
-.SingleListings {
-    height: 80px;
 }
 
 
@@ -54,14 +48,16 @@ body{
 
 .fireEmoji {
     width: 20px;
+    height: 20px;
+    margin: 0;
 }
 
 .firegroup{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-end;
     max-height: 20px;
-    margin: 10px;
+    
     margin-top: 20px;
 }
 
@@ -72,13 +68,19 @@ body{
 }
 
 .pricetag {
-    font-size: 18px;
+    font-size: 16px;
     margin: 0;
 }
 
 .listingname {
     font-size: 20px;
     font-weight: bold;    
+    /* margin-bottom: 2px; */
+  
+
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
 }
 
 
@@ -86,14 +88,17 @@ body{
 
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: flex-end;
     border-radius: 10px;
     border: 4px double #cccccc;
     color: #ffffff;
+    margin-top: 40px;
+    margin-bottom: 0px;
 }
 
 .adminbuttons button {
-    display: display;
+    display: inline-block;
     background-color: #1597ca;
     border-radius: 10px;
     border: 4px double #cccccc;
@@ -107,7 +112,7 @@ body{
     height: 50px;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 5px;
+    margin: 10px;
 
 }
 
@@ -120,4 +125,7 @@ button:hover {
   .fireandtitle {
     display: flex;
     flex-direction:row;
+    justify-content: space-between;
+    margin-bottom: 0;
+
   }
