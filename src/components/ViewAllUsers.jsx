@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/UseAuth";
 import { fetchAllUsers } from "../apiCalls/getAllUsersAPI";
 
+import "../style/Profile.css";
+
 export const ViewAllUsers = () => {
   const { token } = useAuth();
   const [getAllUsers, setGetAllUsers] = useState([]);
@@ -31,7 +33,7 @@ export const ViewAllUsers = () => {
   );
 
   return (
-    <div>
+    <div className="AllUsersMain">
       <h1>All Users</h1>
       <div className="AllUsers">{userList}</div>
     </div>
