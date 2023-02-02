@@ -18,8 +18,8 @@ export const Cart = () => {
 
   useEffect(() => {
     const orders = async () => {
-      if (token) {
-        const oldOrder = await getOrder(token);
+      if (localStorage.getItem("token") || token) {
+        const oldOrder = await getOrder(localStorage.getItem("token"));
         setOrder(oldOrder[0]);
       } else if (localStorage.getItem("orderId") != "undefined") {
         const data = await getOrderById(

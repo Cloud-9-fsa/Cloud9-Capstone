@@ -45,8 +45,6 @@ export default function LogIn() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log(data.get("email"));
-    console.log(data.get("password"));
 
     const response = await login(data.get("email"), data.get("password"));
     if (response.error) {
@@ -67,7 +65,7 @@ export default function LogIn() {
         }
       }
     }
-    console.log(response);
+
     if (localStorage.getItem("token")) navigate("/");
   };
 
