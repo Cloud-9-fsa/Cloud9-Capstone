@@ -8,8 +8,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { deleteListing } from "../apiCalls/deleteListingAPI";
 import "../style/Categories.css";
-import flame from "../assets/flame.png"
-
+import flame from "../assets/flame.png";
 
 export const Categories = () => {
   const { listings, order, setOrder, token, user, setListings } = useAuth();
@@ -31,7 +30,14 @@ export const Categories = () => {
     ({ id, category, name, isHot, price, image, description }) => {
       return (
         <div className="ListingBox" key={id}>
-          <img className="listingIMG" style={{ width: 300, height: 300 }} src={image} />
+          <img
+            onClick={() => {
+              navigate(`/listings/${id}`);
+            }}
+            className="listingIMG"
+            style={{ width: 300, height: 300 }}
+            src={image}
+          />
           <div
             className="SingleListings"
             key={id}
@@ -39,62 +45,55 @@ export const Categories = () => {
               navigate(`/listings/${id}`);
             }}
           >
-            
             {isHot ? (
               <div className="fireandtitle">
-                <p className="listingname" >{name}  </p>
-              <div className="firegroup">
-                <img
-                  className="fireEmoji"
-                  src={flame}
-                />
-                <img
-                  className="fireEmoji"
-                  src={flame}
-                />
-               <img
-                  className="fireEmoji"
-                  src={flame}
-                />
+                <p className="listingname">{name} </p>
+                <div className="firegroup">
+                  <img className="fireEmoji" src={flame} />
+                  <img className="fireEmoji" src={flame} />
+                  <img className="fireEmoji" src={flame} />
                 </div>
-          
               </div>
             ) : (
+           
+           <p className="listingname" >{name}</p>
             
-            <p className="listingname" >{name}</p>
             )}
-            
-            <p className="pricetag" >${price}</p>
-          </div>
-        
-        <div className="adminbuttons">
-          {user.isAdmin ? (
-            <button
-              onClick={async () => {
-                await deleteListing(id, token);
-                const data = listings?.filter((listing) => listing.id !== id);
-                setListings(data);
-              }}
-            >
-              Delete
-            </button>
-          ) : (
-            <></>
-          )}
 
-          {user.isAdmin ? (
-            <button
-              onClick={async () => {
-                setEdit(!edit);
-              }}
-              type="edit"
-            >Edit</button>
-          ) : (
-            <></>
-          )}
-          {edit ? <RenderUpdateListing /> : null}
-       </div> 
-       </div>
+            <p className="pricetag">${price}</p>
+          </div>
+
+    
+          <div className="adminbuttons">
+            {user.isAdmin ? (
+              <button
+                onClick={async () => {
+                  await deleteListing(id, token);
+                  const data = listings?.filter((listing) => listing.id !== id);
+                  setListings(data);
+                }}
+              >
+                Delete
+              </button>
+            ) : (
+              <></>
+            )}
+
+            {user.isAdmin ? (
+              <button
+                onClick={async () => {
+                  setEdit(!edit);
+                }}
+                type="edit"
+              >
+                Edit
+              </button>
+            ) : (
+              <></>
+            )}
+            {edit ? <RenderUpdateListing /> : null}
+          </div>
+        </div>
       );
     }
   );
@@ -102,9 +101,9 @@ export const Categories = () => {
   return (
     <div className="CategoryHeader">
       {category === "Accessories" ? (
-        <h1 > Accessories</h1>
+        <h1> Accessories</h1>
       ) : (
-        <h1 >{capitalName(category)} Pillows</h1>
+        <h1>{capitalName(category)} Pillows</h1>
       )}
 
       <div className="AllListings">{allCategoryListings}</div>
