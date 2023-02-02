@@ -21,7 +21,7 @@ server.use(express.static(path.join(__dirname, "build")));
 // here's our API
 server.use("/api", require("./api"));
 
-server.get("*", (req, res) => {
+server.get("*", (req, res, next) => {
   res.status(404);
   next({
     name: "404 - Not Found",
