@@ -16,8 +16,9 @@ import { registerUser } from "../apiCalls/registerApi";
 import { useAuth } from "../context/UseAuth";
 import { useNavigate } from "react-router-dom";
 import { getUserInfo } from "../apiCalls/getUserInfoAPI";
-// import { createOrder } from "../apiCalls/cart/createOrderApi";
+import { getOrder } from "../apiCalls/cart/getOrder";
 import { createOrder } from "../apiCalls/cart/createOrderAPI";
+import { addListingToOrder } from "../apiCalls/cart/addListingToOrder";
 
 function Copyright(props) {
   return (
@@ -40,7 +41,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
-  const { token, setToken, user, setUser } = useAuth();
+  const { token, setToken, user, setUser, order, setOrder } = useAuth();
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -57,14 +58,24 @@ export default function SignUp() {
       alert(response.message);
     }
     if (response.token) {
-      const info = await getUserInfo(token);
-      setUser(info);
       setToken(response.token);
       localStorage.setItem("token", response.token);
-      await createOrder(token);
-    }
+      const info = await getUserInfo(localStorage.getItem("token"));
+      setUser(info);
+      const newOrder = await getOrder(localStorage.getItem("token"));
+      setOrder(newOrder);
 
-    console.log(response);
+      if (order && order[0]) {
+        const data = await getOrder(localStorage.getItem("token"));
+        for (let i = 0; i < order[0].listings.length; i++) {
+          await addListingToOrder(
+            data[0].id,
+            order[0].listings[i].id,
+            order[0].listings[i].quantity
+          );
+        }
+      }
+    }
     if (localStorage.getItem("token")) navigate("/");
   };
 

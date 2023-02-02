@@ -1,9 +1,9 @@
 export const registerUser = async (
   email,
   password,
+  address,
   firstname,
-  lastname,
-  address
+  lastname
 ) => {
   try {
     const response = await fetch(`/api/users/register`, {
