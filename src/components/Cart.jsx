@@ -110,7 +110,7 @@ export const Cart = () => {
         </h1>
       );
   } else {
-    if (order[0] && order[0].listings && order[0].listings.length) {
+    if (order && order[0] && order[0].listings && order[0].listings.length) {
       const NotLoggedInCartListings = order[0].listings.map((listing) => {
         return (
           <div className="cartForm" key={listing.id}>

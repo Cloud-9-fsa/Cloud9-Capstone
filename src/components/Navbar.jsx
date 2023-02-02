@@ -28,9 +28,8 @@ const Navbar = () => {
     } else {
       return (
         <>
-          <NavLink to="Login" id="login">
-            {" "}
-            Login{" "}
+          <NavLink to="Login" className="navbar-link">
+            Login
           </NavLink>
           <NavLink to="/register" className="navbar-link">
             Signup
@@ -110,7 +109,6 @@ const Navbar = () => {
         />
       </NavLink>
       <ProfilePage />
-
     </nav>
   );
 };
