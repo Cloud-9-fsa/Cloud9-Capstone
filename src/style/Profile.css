@@ -1,9 +1,140 @@
-.navbar {
+.mainpage1 {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  width: 100%;
 }
 
 .userProfile {
   display: flex;
+  flex-direction: column;
   padding-top: 50px;
+}
+
+.profile1 {
+  width: 100%;
+}
+
+.navbar1 {
+  width: 30%;
+}
+
+.AllUsersMain {
+  width: 100%;
+  text-align: left;
+}
+
+.AllUsersMain h1 {
+  width: 70%;
+  text-align: center;
+  padding: 0;
+}
+
+.FormMain {
+  width: 90%;
+}
+
+.FormMain h2 {
+  text-align: center;
+  font-size: 1.4vw;
+}
+
+.newListingForm {
+  width: 100%;
+}
+.SingleUserInfo {
+  width: 70%;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px #1597ca;
+}
+.AllUsers h2 {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.order {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.orderimg {
+  width: 40%;
+  height: 80%;
+  float: left;
+  margin-top: 25px;
+  padding: 5px 5px 5px 5px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px #1597ca;
+}
+
+.listings {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: 20%;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px #1597ca;
+}
+
+.listingtext {
+  margin-top: 30px;
+  width: 80%;
+}
+
+.listings h2 {
+  text-align: center;
+}
+
+.button {
+  background-color: #1597ca;
+  background-image: linear-gradient(#1597ca);
+  border: 1px solid white;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
+  color: black;
+  cursor: pointer;
+  display: block;
+  font-family: -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+  font-size: 21px;
+  line-height: 100%;
+  margin: 50px;
+  outline: 0;
+  padding: 11px 15px 12px 10px;
+  text-align: center;
+  transition: box-shadow 0.05s ease-in-out, opacity 0.05s ease-in-out;
+  user-select: none;
+  touch-action: manipulation;
+  width: 80%;
+}
+
+.button:hover {
+  box-shadow: rgba(255, 255, 255, 0.3) 0 0 2px inset,
+    rgba(0, 0, 0, 0.4) 0 1px 2px;
+  text-decoration: none;
+  transition-duration: 0.15s, 0.15s;
+}
+
+.button:active {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset, rgba(0, 0, 0, 0.4) 0 1px 1px;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.button:disabled:active {
+  pointer-events: none;
+}
+
+.button:disabled:hover {
+  box-shadow: none;
 }

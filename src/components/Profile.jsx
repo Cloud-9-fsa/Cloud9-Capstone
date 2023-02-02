@@ -30,15 +30,17 @@ export const Profile = () => {
             {order.listings.map((listing) => {
               return (
                 <div className="listings">
-                  <img src={listing.image}></img>
-                  <h2> {listing.name}</h2>
-                  <h2>Quantity: {listing.quantity}</h2>
-                  <h2>Price:{listing.price}</h2>
-                  <h2>Item Total:{listing.price * listing.quantity}</h2>
+                  <img className="orderimg" src={listing.image}></img>
+                  <div className="listingtext">
+                    <h2> {listing.name}</h2>
+                    <h2>Quantity: {listing.quantity}</h2>
+                    <h2>Price:${listing.price}.00</h2>
+                    <h2>Item Total:${listing.price * listing.quantity}.00</h2>
+                  </div>
                 </div>
               );
             })}
-            <h2> Order Total: {order.total}</h2>
+            <h2> Order Total: ${order.total}.00</h2>
           </div>
         );
       });
@@ -57,9 +59,10 @@ export const Profile = () => {
   const UserProfile = () => {
     if (user) {
       return (
-        <div>
-          <nav className="navbar">
+        <div className="mainpage1">
+          <nav className="navbar1">
             <button
+              className="button"
               onClick={() => {
                 setNav("userInfo");
               }}
@@ -67,6 +70,7 @@ export const Profile = () => {
               User Info
             </button>
             <button
+              className="button"
               onClick={() => {
                 setNav("orderHistory");
               }}
@@ -76,6 +80,7 @@ export const Profile = () => {
             {user.isAdmin ? (
               <>
                 <button
+                  className="button"
                   onClick={() => {
                     setNav("createListing");
                   }}
@@ -83,6 +88,7 @@ export const Profile = () => {
                   Create Listing
                 </button>
                 <button
+                  className="button"
                   onClick={() => {
                     setNav("allUsers");
                   }}
@@ -93,21 +99,19 @@ export const Profile = () => {
             ) : null}
           </nav>
           {nav === "userInfo" ? (
-            <div>
+            <div className="profile1">
               <div className="userProfile">
                 <div className="name">
-                  <label>Name</label>
                   <h1>
-                    {capitalName(user.firstname)} {capitalName(user.lastname)}
+                    Username: {capitalName(user.firstname)}{" "}
+                    {capitalName(user.lastname)}
                   </h1>
                 </div>
                 <div className="email">
-                  <label>Email</label>
-                  <h1>{user.email}</h1>
+                  <h1>Email: {user.email}</h1>
                 </div>
                 <div className="location">
-                  <label>Location</label>
-                  <h1>{user.address}</h1>
+                  <h1>Address: {user.address}</h1>
                 </div>
               </div>
             </div>
