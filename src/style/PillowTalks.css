@@ -3,23 +3,33 @@
   width: 55%;
   border-radius: 15px;
   margin-bottom: 30px;
- margin-left: 275px;
+  margin-left: 300px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 0px 10px #ccc;
+  padding: 20px;
 
 }
+
+
  li, li3 {
-  font-size: 20px;
+  font-family: 'Solitreo', cursive;
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
   margin-top: 10px;
-  color: white;
+  color: rgb(255, 255, 255);
   font-style: oblique;
   margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
 }
+
 .perfectPillow {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #3fa3be;
+  list-style: none;
 
 }
 
@@ -67,14 +77,24 @@ li2 {
   padding: 20px;
 }
 
-img {
+.pillowIMG {
   width: 150px;
   height: 150px;
   margin-right: 20px;
+  border-radius: 50%;
+   box-shadow: 0px 0px 10px #ccc;
+  object-fit: cover;
+  border: 4px solid #333
+}
+.parent {
+  display: flex;
+  flex-direction: column;
 }
 
 li5 {
-  font-size: 18px;
+  font-family: 'Solitreo', cursive;
+
+font-size: 21px;
   font-weight: bold;
   margin-bottom: 10px;
   color: rgb(15, 117, 151);
@@ -82,7 +102,7 @@ li5 {
 }
 
 li6 {
-  font-size: 13px;
+font-size: 13px;
   margin-left: 10px;
   color: white;
 }
@@ -107,10 +127,10 @@ li9 {
   box-shadow: 0px 0px 10px #ccc;
 }
 
-b {
+b1 {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #333;
+  color: rgb(0, 0, 0);
 }
