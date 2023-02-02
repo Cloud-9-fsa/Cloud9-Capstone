@@ -6,10 +6,11 @@ import { useAuth } from "../context/UseAuth";
 import { RenderNewListing } from "./CreateNewListing";
 import { ViewAllUsers } from "./ViewAllUsers";
 import { getOrderHistory } from "../apiCalls/cart/orderHistoryAPI";
+import "../style/Profile.css";
 
 export const Profile = () => {
   const { user, token } = useAuth();
-  const [nav, setNav] = useState("");
+  const [nav, setNav] = useState("userInfo");
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
@@ -25,10 +26,10 @@ export const Profile = () => {
     if (history) {
       const orderHistory = history.map((order) => {
         return (
-          <div key={order.id}>
+          <div className="order" key={order.id}>
             {order.listings.map((listing) => {
               return (
-                <div>
+                <div className="listings">
                   <img src={listing.image}></img>
                   <h2> {listing.name}</h2>
                   <h2>Quantity: {listing.quantity}</h2>
@@ -57,7 +58,7 @@ export const Profile = () => {
     if (user) {
       return (
         <div>
-          <nav>
+          <nav className="navbar">
             <button
               onClick={() => {
                 setNav("userInfo");
@@ -94,11 +95,20 @@ export const Profile = () => {
           {nav === "userInfo" ? (
             <div>
               <div className="userProfile">
-                <h1>
-                  {capitalName(user.firstname)} {capitalName(user.lastname)}
-                </h1>
-                <h1>{user.email}</h1>
-                <h1>{user.address}</h1>
+                <div className="name">
+                  <label>Name</label>
+                  <h1>
+                    {capitalName(user.firstname)} {capitalName(user.lastname)}
+                  </h1>
+                </div>
+                <div className="email">
+                  <label>Email</label>
+                  <h1>{user.email}</h1>
+                </div>
+                <div className="location">
+                  <label>Location</label>
+                  <h1>{user.address}</h1>
+                </div>
               </div>
             </div>
           ) : null}

@@ -1,10 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/UseAuth";
+import { useNavigate } from "react-router-dom";
 import "../style/Navbar.css";
 
 const Navbar = () => {
   const { token, setToken, setUser, user } = useAuth();
+  const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();
     setUser({});
@@ -60,6 +62,9 @@ const Navbar = () => {
           src="https://i.ibb.co/KbW5wwv/Logo-Light-Mode.jpg"
           alt="companylogo"
           className="companylogo"
+          onClick={() => {
+            navigate("/");
+          }}
         />{" "}
       </h1>
       <NavLink to="/" className="navbar-link">
