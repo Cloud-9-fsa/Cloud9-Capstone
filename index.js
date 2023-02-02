@@ -21,7 +21,12 @@ server.use(express.static(path.join(__dirname, "build")));
 // here's our API
 server.use("/api", require("./api"));
 
-server.get("*", (req, res) => {
+// by default serve up the react app if we don't recognize the route
+server.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
+server.get("*", (req, res, next) => {
   res.status(404);
   next({
     name: "404 - Not Found",
@@ -38,11 +43,6 @@ server.use((error, req, res, next) => {
     message: error.message,
     table: error.table,
   });
-});
-
-// by default serve up the react app if we don't recognize the route
-server.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 // bring in the DB connection

@@ -11,7 +11,7 @@ import { fetchListings } from "../apiCalls/listingsAPI";
 import "../style/Categories.css";
 import { updateListing } from "../apiCalls/updateListingAPI";
 import { RenderUpdateListing } from "./UpdateListings";
-import flame from "../assets/flame.png"
+import flame from "../assets/flame.png";
 
 export const AllListings = () => {
   const { listings, order, setOrder, token, user, setListings } = useAuth();
@@ -22,7 +22,14 @@ export const AllListings = () => {
     ({ id, category, name, isHot, price, image, description }) => {
       return (
         <div className="ListingBox" key={id}>
-          <img className="listingIMG" style={{ width: 300, height: 300 }} src={image} />
+          <img
+            onClick={() => {
+              navigate(`/listings/${id}`);
+            }}
+            className="listingIMG"
+            style={{ width: 300, height: 300 }}
+            src={image}
+          />
           <div
             className="SingleListings"
             key={id}
@@ -30,61 +37,50 @@ export const AllListings = () => {
               navigate(`/listings/${id}`);
             }}
           >
-    
             {isHot ? (
               <div className="fireandtitle">
-                <p className="listingname" >{name}  </p>
-              <div className="firegroup">
-                <img
-                  className="fireEmoji"
-                  src={flame}
-                />
-                <img
-                  className="fireEmoji"
-                  src={flame}
-                />
-               <img
-                  className="fireEmoji"
-                  src={flame}
-                />
+                <p className="listingname">{name} </p>
+                <div className="firegroup">
+                  <img className="fireEmoji" src={flame} />
+                  <img className="fireEmoji" src={flame} />
+                  <img className="fireEmoji" src={flame} />
                 </div>
-          
               </div>
             ) : (
-            <p className="listingname" >{name}</p>
+              <p className="listingname">{name}</p>
             )}
 
-            <p className="pricetag" >${price}</p>
+            <p className="pricetag">${price}</p>
           </div>
 
           <div className="adminbuttons">
-          {user.isAdmin ? (
-            <button
-              onClick={async () => {
-                await deleteListing(id, token);
-                const data = listings?.filter((listing) => listing.id !== id);
-                setListings(data);
-              }}
-            >
-              Delete
-            </button>
-          ) : (
-            <></>
-          )}
+            {user.isAdmin ? (
+              <button
+                onClick={async () => {
+                  await deleteListing(id, token);
+                  const data = listings?.filter((listing) => listing.id !== id);
+                  setListings(data);
+                }}
+              >
+                Delete
+              </button>
+            ) : (
+              <></>
+            )}
 
-          {user.isAdmin ? (
-            <button
-              onClick={async () => {
-                setEdit(!edit);
-              }}
-              type="edit"
-            >
-              Edit
-            </button>
-          ) : (
-            <></>
-          )}
-          {edit ? <RenderUpdateListing /> : null}
+            {user.isAdmin ? (
+              <button
+                onClick={async () => {
+                  setEdit(!edit);
+                }}
+                type="edit"
+              >
+                Edit
+              </button>
+            ) : (
+              <></>
+            )}
+            {edit ? <RenderUpdateListing /> : null}
           </div>
         </div>
       );
