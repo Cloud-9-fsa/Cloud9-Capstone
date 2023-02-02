@@ -28,9 +28,11 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     setToken(localStorage["token"] || "");
     const getUser = async () => {
-      const info = await getUserInfo(token);
-      if (info.id) {
-        setUser(info);
+      if (token) {
+        const info = await getUserInfo(token);
+        if (info && info.id) {
+          setUser(info);
+        }
       }
     };
     getUser();
