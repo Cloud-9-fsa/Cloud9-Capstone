@@ -37,15 +37,13 @@ export const Cart = () => {
         return (
           <div className="cartForm" key={listing.id}>
             <div className="upperForm">
-              <div className="text1">
-                <h1>Name:{listing.name}</h1>
-                <h1>Price:{listing.price}</h1>
-
-                <div className="descript">
-                  <h1>{listing.description}</h1>
-                </div>
-              </div>
               <img className="theimage" src={listing.image} />
+              <div className="text1">
+                <h1>{listing.name}</h1>
+                <h4>${listing.price}.00</h4>
+                <h3>{listing.description}</h3>
+              </div>
+
               <div className="quantityBar">
                 <label>Quantity:</label>
                 <input
@@ -67,7 +65,7 @@ export const Cart = () => {
                   min="1"
                 />
 
-                <h1>Item Total: {listing.price * listing.quantity}</h1>
+                <p>Item Total: ${listing.price * listing.quantity}.00</p>
                 <button
                   className="button"
                   onClick={async () => {
@@ -93,7 +91,7 @@ export const Cart = () => {
             {user.firstname}!
           </h1>
           {CartListings}
-          <h1>Your total is: {order.total}</h1>
+          <h1 className="total">Your total is: ${order.total}</h1>
           <button
             className="button"
             onClick={() => {
@@ -117,15 +115,13 @@ export const Cart = () => {
         return (
           <div className="cartForm" key={listing.id}>
             <div className="upperForm">
-              <div className="text1">
-                <h1>Name:{listing.name}</h1>
-                <h1>Price:{listing.price}</h1>
-                <div className="descript">
-                  <h1> {listing.description}</h1>
-                </div>
-              </div>
               <img className="theimage" src={listing.image} />
-              <h1>Item Total: {listing.price * listing.quantity}</h1>
+              <div className="text1">
+                <h1>{listing.name}</h1>
+                <h4>${listing.price}.00</h4>
+                <h3> {listing.description}</h3>
+              </div>
+
               <div className="quantityBar">
                 <label>Quantity:</label>
                 <input
@@ -149,6 +145,7 @@ export const Cart = () => {
                   min="1"
                 />
 
+                <p>Item Total: ${listing.price * listing.quantity}.00</p>
                 <button
                   className="button"
                   onClick={async () => {
@@ -173,7 +170,7 @@ export const Cart = () => {
         <div className="mainDiv">
           <h1>You have {order[0].listings.length} items in your cart !</h1>
           {NotLoggedInCartListings}
-          <h1>Your total is: {order[0].total}</h1>
+          <h1>Your total is: ${order[0].total}.00</h1>
           <button
             className="button"
             onClick={() => {
