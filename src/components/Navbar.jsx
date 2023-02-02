@@ -67,11 +67,12 @@ const Navbar = () => {
           }}
         />{" "}
       </h1>
+
       <NavLink to="/" className="navbar-link">
         Home
       </NavLink>
       <div className="shop">
-        <a href="/shop" className="navbar-link">
+        <a href="/shop" className="navbar-link2">
           Shop
         </a>
         <div className="shop-dropdown">
@@ -98,6 +99,7 @@ const Navbar = () => {
       <NavLink to="/aboutus" className="navbar-link">
         About Us
       </NavLink>
+
       <LoginLogout />
 
       <NavLink to="/Cart" className="cart">
@@ -108,6 +110,7 @@ const Navbar = () => {
         />
       </NavLink>
       <ProfilePage />
+
     </nav>
   );
 };
