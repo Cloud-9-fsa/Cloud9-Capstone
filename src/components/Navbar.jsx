@@ -4,7 +4,7 @@ import { useAuth } from "../context/UseAuth";
 import "../style/Navbar.css";
 
 const Navbar = () => {
-  const { token, setToken, setUser } = useAuth();
+  const { token, setToken, setUser, user } = useAuth();
   const logout = () => {
     localStorage.clear();
     setUser({});
@@ -34,6 +34,20 @@ const Navbar = () => {
             Signup
           </NavLink>
         </>
+      );
+    }
+  };
+
+  const ProfilePage = () => {
+    if (localStorage.getItem("token")) {
+      return (
+        <NavLink to="/Profile">
+          <img
+            src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png"
+            alt="profile"
+            className="profilepic"
+          />
+        </NavLink>
       );
     }
   };
@@ -88,14 +102,7 @@ const Navbar = () => {
           className="cart2"
         />
       </NavLink>
-
-      <NavLink to="/Profile">
-        <img
-          src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-9.png"
-          alt="profile"
-          className="profilepic"
-        />
-      </NavLink>
+      <ProfilePage />
     </nav>
   );
 };

@@ -60,6 +60,21 @@ async function getOrdersByUserIsActive(userId) {
   }
 }
 
+async function getOrdersByUserIsNotActive(userId) {
+  try {
+    const { rows: orders } = await client.query(
+      `
+        SELECT * FROM orders 
+        WHERE "isActive" =false AND "userId" =$1`,
+      [userId]
+    );
+
+    return attachListingsToOrders(orders);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 async function deleteOrder(id) {
   try {
     await client.query(
@@ -106,4 +121,5 @@ module.exports = {
   getOrdersByUserIsActive,
   deleteOrder,
   makeOrderInactive,
+  getOrdersByUserIsNotActive,
 };

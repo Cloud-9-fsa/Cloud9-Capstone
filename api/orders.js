@@ -5,6 +5,7 @@ const {
   makeOrderInactive,
   deleteOrder,
   getOrdersById,
+  getOrdersByUserIsNotActive,
 } = require("../db");
 const { requireUser, requireUserAdmin } = require("./utils");
 const router = express.Router();
@@ -12,6 +13,16 @@ const router = express.Router();
 router.get("/", async (req, res, next) => {
   try {
     const orders = await getOrdersByUserIsActive(req.user.id);
+
+    res.send(orders);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/history", async (req, res, next) => {
+  try {
+    const orders = await getOrdersByUserIsNotActive(req.user.id);
 
     res.send(orders);
   } catch (error) {
