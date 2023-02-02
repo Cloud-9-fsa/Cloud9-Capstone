@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAuth } from "../context/UseAuth";
 import { createReview } from "../apiCalls/createReview";
 import { fetchListings } from "../apiCalls/listingsAPI";
+import "../style/ListingDetails.css";
 
 export const ReviewForm = ({ listingId }) => {
   const { user, token, listings, setListings } = useAuth();
@@ -37,24 +38,24 @@ export const ReviewForm = ({ listingId }) => {
   return (
     <div>
       <div className="newReviewForm">
-        <h4>Review</h4>
+        <h4>Add Your Review</h4>
         <form className="reviewForm" onSubmit={(e) => handleSubmit(e)}>
           <input
             value={title}
             type="text"
-            placeholder="title"
+            placeholder="Review Title"
             onChange={(e) => setTitle(e.target.value)}
           ></input>
           <input
             value={rating}
             type="number"
-            placeholder="rating"
+            placeholder="Rating"
             onChange={(e) => setRating(e.target.value)}
           ></input>
           <input
             value={description}
             type="text"
-            placeholder="description"
+            placeholder="Description"
             onChange={(e) => setDescription(e.target.value)}
           ></input>
           <br></br>

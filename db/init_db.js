@@ -213,7 +213,7 @@ async function populateInitialData() {
     await createListing({
       isHot: true,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZd9HFB5qJ_IaFB9rcleVvkQGmcB2Zzmqg8niMKMKAwAjxatMXqRVzN2zI6L3PMIJmT0s&usqp=CAU",
+        "https://images-us-prod.cms.dynamics365commerce.ms/cms/api/cncgmclkfv/imageFileData/search?fileName=/Products%2F134073P%20%5E%20%20%5E%20Twin%20%5E%20Reg%20%5E%20Prime_000_001.png&fallback=/Products/134073P_000_001.png,Product-Fallback-Image.png&m=6&q=80&cropfocalregion=true",
       name: "Memory Foam Mattress",
       description:
         "Our memory foam mattresses uses your own body heat to soften and form to your shape. these mattresses provide incredible support and comfort.",
@@ -224,7 +224,7 @@ async function populateInitialData() {
     await createListing({
       isHot: true,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpLKP9w3C3xz76XCJ2zHGdRqjWN0HG4lfZmjydMP9n2-i_MlN-Qz9g5iuJSTuAZrK5ZXE&usqp=CAU",
+        "https://cdn.shopify.com/s/files/1/0082/0215/8137/products/Olesilk_Silk_Duvet_Cover-White_7d44b07d-eb3e-4c65-af7d-18e49c3b29ea_1024x1024.jpg?v=1565944836",
       name: "Silk Bed Sheets",
       description:
         "Our silk sheets are made with natural protein fibers which are ideal for your skin. If you truly want to sleep in the clouds these sheets will get you there.",
@@ -235,7 +235,7 @@ async function populateInitialData() {
     await createListing({
       isHot: true,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7rqKw_pRhE_wDAFcnr7o4XVa7le49GQqQ5k_P_n_IE6k5GEwaTKiQ4V2rco-pc3D01Fw&usqp=CAU",
+        "https://cdn.shopify.com/s/files/1/0096/4414/6735/products/14_865e2c2d-04ed-4832-85bd-2d3bc9a914db.png?v=1659127341",
       name: "Satin Pillow Case",
       description:
         "Our 100% polyester satin pillowcases help protect your beard from scratches, creases and tugs, helping to reduce split ends and ensuring a night of restorative beard sleep.",
@@ -245,8 +245,7 @@ async function populateInitialData() {
     });
     await createListing({
       isHot: true,
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSTvizXFdNlDwJ3kVhnlK-HQJ7yRUrU7su6w&usqp=CAU",
+      image: "https://m.media-amazon.com/images/I/41+O9LK+hgL._SX679_.jpg",
       name: "Foot Pillow",
       description:
         "This pillow provides effective pain relief for those who sit for hours. Raising your feet at the desk promotes good sitting posture. Dont't let your feet suffer a long days work.",
@@ -257,7 +256,7 @@ async function populateInitialData() {
     await createListing({
       isHot: true,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQWPzTPjd3aJMFbOVqDz9-XLJmQldDjS1u8g&usqp=CAU",
+        "https://cdn.shopify.com/s/files/1/0064/3262/0633/products/Base-Cover-White_Cuddler-Cover_3_800x.jpg?v=1663071074",
       name: "Body Pillow",
       description:
         "For all of the side sleepers out there this pillow was designed with you in mind. If you're tired of waking up with your shoulders and hips hurting this pillow can provide the support you need to combat that wake up pain. You'll find yourself awaking to a fully rested body without changing your sleeping style.",
@@ -268,7 +267,7 @@ async function populateInitialData() {
     await createListing({
       isHot: true,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-TChhgIJFw4MOcL-55B8aVinRVScdkkAfQbwzJDi11OHw8enA8dSHpBdopWaK0Y41ErY&usqp=CAU",
+        "https://u7q2x7c9.stackpathcdn.com/photos/19/13/312814_27335_L.jpg",
       name: "Inflatable Outdoor Pillow",
       description:
         "This inflatable pillow will fit snug in your bag so that you can sleep snug at night.",
@@ -279,7 +278,7 @@ async function populateInitialData() {
     await createListing({
       isHot: true,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3ZexDV2xe1ZIQbogZ_IExs2VA1zAuok5-djuw87bBXhCtkSZB-AlV9AO88sC9SChI6N8&usqp=CAU",
+        "https://i5.walmartimages.com/asr/215acf2b-6f5a-4db4-aee3-5519a208e62d.6980b99244dba6ed6aa42d25a211fcfd.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
       name: "Compressed Pillow",
       description:
         "Few emergency pillows come close to matching the comfort of our compressed pillow. It can fit in any bag and takes up less space than a flashlight.",
@@ -290,7 +289,7 @@ async function populateInitialData() {
     await createListing({
       isHot: true,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8mxs-Lg63QxK-8l_X5ifJPA5p2rncI_Cgyw&usqp=CAU",
+        "https://www.rei.com/dam/content_team_081417_71478_choosing_sleeping_pads_lg.jpg",
       name: "Sleeping Pad",
       description:
         "This outdoor necessity will keep you comfortable on any surface you choose. Our sleeping pad has built in pillows and is made for even the most unforgiving of surfaces.",
@@ -301,7 +300,7 @@ async function populateInitialData() {
     await createListing({
       isHot: true,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-enicCGiSbzDugCOZl38gxsMi5XR0IcaSNw&usqp=CAU",
+        "https://www.rei.com/media/4803360b-285f-4f6c-b1b1-e8b90fab379b?size=784x588",
       name: "Extreme Camping Pillow",
       description:
         "This pillow can take whatever the wild has to throw at it. Whether it's weather or terrain nothing can keep you from having comfort in your bag. This pillow will outlast you.",
@@ -312,12 +311,23 @@ async function populateInitialData() {
     await createListing({
       isHot: true,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz5Yw4rbVe0qpT0WctPQxo_EMOwYNqPIV3jA&usqp=CAU",
+        "https://images.accentuate.io/?c_options=w_1000&shop=lujo-world.myshopify.com&image=https://cdn.accentuate.io/4486790905943/11923480936535/XL-Floor-Cushion-detail3-v1588198820385.jpg?1920x1920",
       name: "Outdoor Comfort Pillow",
       description:
         "If you want to bring the comforts of home with you during your adventures, then this pillow was made for you. It may not be meant for the extremes that the outdoors can throw at you, but it can make a light camping trip feel not so far from home.",
       category: "Outdoor",
       price: 100,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image:
+        "https://cdn.shopify.com/s/files/1/2061/3133/products/chillbo_shwaggins_inflatable_lounger_air_couch_inflatable_chair1_copy_2048x2048.jpg?v=1654054126",
+      name: "Inflatable Lounger",
+      description:
+        "Designed for comfort, the Inflatable Lounger provides all the support needed to chill anywhere, anytime.",
+      category: "Outdoor",
+      price: 250,
       stock: 100,
     });
     await createListing({
@@ -334,8 +344,8 @@ async function populateInitialData() {
     await createListing({
       isHot: true,
       image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgFy9s8wxJ3j3SGsJ0qABc2zAyD-459D1ReA&usqp=CAU",
-      name: "Bundle of sticks",
+        "https://t4.ftcdn.net/jpg/02/31/24/03/360_F_231240361_FbSf7C5eLLmRdmejQw3enbjRyqPmFXlK.jpg",
+      name: "Bundle of Sticks",
       description:
         "All of our sticks are locally sourced. If you've ever wondered what it was like to sleep on the forest floor, this pillow is for you. With this pillow you will go to bed uncomfortably and wake up feeling like a caveman. Comfort is for the weak, be strong, sleep on sticks.",
       category: "Accessories",
