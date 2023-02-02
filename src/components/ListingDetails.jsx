@@ -34,9 +34,9 @@ export function ListingDetails() {
         ({ id, description, rating, title }) => {
           return (
             <div className="singleReview" key={id}>
-              <p>title: {title}</p>
-              <p>rating:{rating}</p>
-              <p>description:{description}</p>
+              <p>Review Title: {title}</p>
+              <p>Rating: {rating}</p>
+              <p>Review Details: {description}</p>
             </div>
           );
         }
@@ -54,12 +54,31 @@ export function ListingDetails() {
           </div>
           <div className="info">
             <h1 className="listingname">{singleListing.name}</h1>
+
+
+            <div className="adminEditbutton">
+          {user.isAdmin ? (
+            <button
+              onClick={async () => {
+                setEdit(!edit);
+              }}
+              type="edit"
+            >
+              Edit
+            </button>
+          ) : (
+            <></>
+          )}
+          {edit ? <RenderUpdateListing listingId={listingId} /> : null}
+          </div>  
+
             <div className="listingdetails">
               <h2 className="price">Price: ${singleListing.price}</h2>
               <h2>{singleListing.description}</h2>
               <h2>Category: {singleListing.category}</h2>
             </div>
             <input
+              className="input"
               type="number"
               id="quantity"
               name="quantity"
@@ -122,22 +141,9 @@ export function ListingDetails() {
               Add Review
             </button>
             <RenderReviews />
-          </div>
+        
           {create ? <ReviewForm listingId={listingId} /> : <></>}
-
-          {user.isAdmin ? (
-            <button
-              onClick={async () => {
-                setEdit(!edit);
-              }}
-              type="edit"
-            >
-              Edit
-            </button>
-          ) : (
-            <></>
-          )}
-          {edit ? <RenderUpdateListing listingId={listingId} /> : null}
+          </div>
         </div>
       );
     }
