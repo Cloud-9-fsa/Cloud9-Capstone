@@ -9,8 +9,8 @@
     "client:build": "react-scripts build",
     "server:dev": "nodemon index.js",
     "db:build": "node ./db/init_db",
-    "start:dev": "concurrently \"npm run client:build\" \"npm run client:dev\" \"npm run server:dev\"",
-    "start": "concurrently \"node index.js\" \"react-scripts start\"",
+    "start": "concurrently \"npm run client:build\" \"npm run client:dev\" \"npm run server:dev\"",
+    "start:dev": "concurrently \"node index.js\" \"react-scripts start\"",
     "test": "jest --runInBand"
   },
   "keywords": [],
