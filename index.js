@@ -18,6 +18,10 @@ server.use(express.json());
 const path = require("path");
 server.use(express.static(path.join(__dirname, "build")));
 
+// by default serve up the react app if we don't recognize the route
+server.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
+});
 // here's our API
 server.use("/api", require("./api"));
 
@@ -38,11 +42,6 @@ server.use((error, req, res, next) => {
     message: error.message,
     table: error.table,
   });
-});
-
-// by default serve up the react app if we don't recognize the route
-server.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 // bring in the DB connection
