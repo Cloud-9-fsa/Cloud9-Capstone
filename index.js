@@ -18,12 +18,13 @@ server.use(express.json());
 const path = require("path");
 server.use(express.static(path.join(__dirname, "build")));
 
+// here's our API
+server.use("/api", require("./api"));
+
 // by default serve up the react app if we don't recognize the route
 server.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
-// here's our API
-server.use("/api", require("./api"));
 
 server.get("*", (req, res, next) => {
   res.status(404);
