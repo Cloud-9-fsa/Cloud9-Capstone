@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/UseAuth";
 import { createReview } from "../apiCalls/createReview";
+import { fetchListings } from "../apiCalls/listingsAPI";
 
 export const ReviewForm = ({ listingId }) => {
   const { user, token, listings, setListings } = useAuth();
@@ -22,6 +23,8 @@ export const ReviewForm = ({ listingId }) => {
         rating,
         token
       );
+      const data = await fetchListings();
+      setListings(data);
 
       setTitle("");
       setRating("");

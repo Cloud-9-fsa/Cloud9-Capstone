@@ -19,6 +19,7 @@ export function ListingDetails() {
   const [quantity, setQuantity] = useState(1);
   const [create, setCreate] = useState(false);
 
+  console.log(listings);
   const singleListing = listings.find(
     (listing) => listing.id.toString() === listingId
   );
@@ -29,7 +30,7 @@ export function ListingDetails() {
 
   const RenderReviews = () => {
     if (singleListing.reviews) {
-      const ReviewListing = singleListing.reviews?.map(
+      const ReviewListing = singleListing.reviews.map(
         ({ id, description, rating, title }) => {
           return (
             <div className="singleReview" key={id}>
