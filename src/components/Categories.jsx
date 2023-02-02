@@ -55,26 +55,15 @@ export const Categories = () => {
                 </div>
               </div>
             ) : (
-              <p className="listingname">{name}</p>
+           
+           <p className="listingname" >{name}</p>
+            
             )}
 
             <p className="pricetag">${price}</p>
           </div>
-          {/* <button
-            type="button"
-            onClick={async () => {
-              if (order.length === 0) {
-                const newOrder = await createOrder(token);
-                setOrder(newOrder);
-              }
-              addListingToOrder(order.id, id);
-              const oldOrder = await getOrder(token);
 
-              setOrder(oldOrder[0]);
-            }}
-          >
-            Add To Cart
-          </button> */}
+    
           <div className="adminbuttons">
             {user.isAdmin ? (
               <button

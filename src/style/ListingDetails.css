@@ -24,16 +24,17 @@
   height: 700px;
   width: 850px;
   align-content: center;
+  margin-top: 15px;
 }
 
-.price1 {
+/* .price1 {
   text-align: center;
   color: #1597ca;
   font-size: 30px;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0px 5px 10px #1597ca;
-}
+} */
 .namepic {
   display: inline-block;
   color: #1597ca;
@@ -51,17 +52,15 @@
 
 .info {
   display: inline-block;
-  color: #1597ca;
   flex-direction: row;
   gap: 8px;
-  text-align: center;
   justify-content: right;
   margin: 0 auto;
   width: 100%;
   padding: 0 20px;
-  border: 1px solid #ccc;
+  /* border: 1px solid red;
   border-radius: 10px;
-  box-shadow: 0px 5px 10px #1597ca;
+  box-shadow: 0px 5px 10px #1597ca; */
 }
 
 .singleReview {
@@ -133,6 +132,23 @@
   box-shadow: none;
 }
 
-h1 {
+
+.listingname h1 {
+  /* background-color: red; */
   color: #1597ca;
+  text-align: left;
+  font-weight: bold;
 }
+
+
+.listingdetails h2{
+  text-align: left;
+  text-transform: capitalize;
+  font-weight: normal;
+  font-size: 15px;
+}
+
+/* .price h2 {
+  font-weight: bold;
+  background-color: red;
+} */

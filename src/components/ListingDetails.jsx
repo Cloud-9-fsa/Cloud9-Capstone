@@ -50,13 +50,15 @@ export function ListingDetails() {
       return (
         <div className="singleListing" key={listingId}>
           <div className="namepic">
-            <h1 className="name1">{singleListing.name}</h1>
             <img className="pic1" src={singleListing.image} />
           </div>
           <div className="info">
-            <h1 className="price1">${singleListing.price}</h1>
-            <h1 className="price1">{singleListing.description}</h1>
-            <h1 className="price1">Category: {singleListing.category}</h1>
+            <h1 className="listingname">{singleListing.name}</h1>
+            <div className="listingdetails">
+              <h2 classname="price">Price: ${singleListing.price}</h2>
+              <h2>{singleListing.description}</h2>
+              <h2>Category: {singleListing.category}</h2>
+            </div>
             <input
               type="number"
               id="quantity"
