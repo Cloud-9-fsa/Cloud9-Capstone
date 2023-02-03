@@ -31,11 +31,14 @@ export function ListingDetails() {
   const RenderReviews = () => {
     if (singleListing.reviews) {
       const ReviewListing = singleListing.reviews.map(
-        ({ id, description, rating, title }) => {
+        ({ id, description, rating, title, firstname, lastname }) => {
           return (
             <div className="singleReview" key={id}>
+              <p>
+                Review Author: {firstname} {lastname}
+              </p>
               <p>Review Title: {title}</p>
-              <p>Rating: {rating}</p>
+              <p>Rating: {rating} out of 5</p>
               <p>Review Details: {description}</p>
             </div>
           );
@@ -55,22 +58,21 @@ export function ListingDetails() {
           <div className="info">
             <h1 className="listingname">{singleListing.name}</h1>
 
-
             <div className="adminEditbutton">
-          {user.isAdmin ? (
-            <button
-              onClick={async () => {
-                setEdit(!edit);
-              }}
-              type="edit"
-            >
-              Edit
-            </button>
-          ) : (
-            <></>
-          )}
-          {edit ? <RenderUpdateListing listingId={listingId} /> : null}
-          </div>  
+              {user.isAdmin ? (
+                <button
+                  onClick={async () => {
+                    setEdit(!edit);
+                  }}
+                  type="edit"
+                >
+                  Edit
+                </button>
+              ) : (
+                <></>
+              )}
+              {edit ? <RenderUpdateListing listingId={listingId} /> : null}
+            </div>
 
             <div className="listingdetails">
               <h2 className="price">Price: ${singleListing.price}</h2>
@@ -141,8 +143,8 @@ export function ListingDetails() {
               Add Review
             </button>
             <RenderReviews />
-        
-          {create ? <ReviewForm listingId={listingId} /> : <></>}
+
+            {create ? <ReviewForm listingId={listingId} /> : <></>}
           </div>
         </div>
       );
