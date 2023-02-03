@@ -10,10 +10,8 @@
 
 Cloud 9 is a fully functional website where we sell the greatest and latest pillows for your needs!
 
-_</b> Image(s) Insert Here_ </b> - here is where you can place images of your project, a demo gif, and link to a deployed site - visuals matter!
-
-<p align=‘center’/>
-<p align='center'><a href="https://www.loom.com/share/04d6c8482c7341fb9b423d10f0bea30b"> <img style="max-width:300px" src="https://cdn.loom.com/sessions/thumbnails/04d6c8482c7341fb9b423d10f0bea30b-with-play.gif"> </br> <p align='center'> Watch Video</p> </a> </p>
+<!-- <p align=‘center’/>
+<p align='center'><a href="https://www.loom.com/share/04d6c8482c7341fb9b423d10f0bea30b"> <img style="max-width:300px" src="https://cdn.loom.com/sessions/thumbnails/04d6c8482c7341fb9b423d10f0bea30b-with-play.gif"> </br> <p align='center'> Watch Video</p> </a> </p> -->
 
 ## Deployed Site | Cloud 9 |:
 
@@ -42,10 +40,10 @@ Thanks to the following people who have contributed to this project:
 
 ## Connect with the devs!
 
-Connect with Mohamad on LinkedIn <https://www.linkedin.com/in/mohamad-ayyad-17b175257/>.
+Connect with Mohamad on LinkedIn: <https://www.linkedin.com/in/mohamad-ayyad-17b175257/>.
 
-Connect with Jellena on LinkedIn <https://www.linkedin.com/in/jellena-solan-016bba93/>.
+Connect with Jellena on LinkedIn: <https://www.linkedin.com/in/jellena-solan-016bba93/>.
 
-Connect with Chris on LinkedIn <https://www.linkedin.com/in/christopher-pettypiece-65b0b7256/>.
+Connect with Chris on LinkedIn: <https://www.linkedin.com/in/christopher-pettypiece-65b0b7256/>.
 
-Connect with Rahmat on LinkedIn <https://www.linkedin.com/in/rahmat-bakhshi-3ba67ab8/>.
+Connect with Rahmat on LinkedIn: <https://www.linkedin.com/in/rahmat-bakhshi-3ba67ab8/>.
