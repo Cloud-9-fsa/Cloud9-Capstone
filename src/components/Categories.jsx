@@ -29,22 +29,19 @@ export const Categories = () => {
   const allCategoryListings = categoryListings?.map(
     ({ id, category, name, isHot, price, image, description }) => {
       return (
-        <div className="ListingBox" key={id}>
+        <div
+          onClick={() => {
+            navigate(`/listings/${id}`);
+          }}
+          className="ListingBox"
+          key={id}
+        >
           <img
-            onClick={() => {
-              navigate(`/listings/${id}`);
-            }}
             className="listingIMG"
             style={{ width: 300, height: 300 }}
             src={image}
           />
-          <div
-            className="SingleListings"
-            key={id}
-            onClick={() => {
-              navigate(`/listings/${id}`);
-            }}
-          >
+          <div className="SingleListings" key={id}>
             {isHot ? (
               <div className="fireandtitle">
                 <p className="listingname">{name} </p>
@@ -55,19 +52,17 @@ export const Categories = () => {
                 </div>
               </div>
             ) : (
-           
-           <p className="listingname" >{name}</p>
-            
+              <p className="listingname">{name}</p>
             )}
 
             <p className="pricetag">${price}</p>
           </div>
 
-    
           <div className="adminbuttons">
             {user.isAdmin ? (
               <button
-                onClick={async () => {
+                onClick={async (e) => {
+                  e.stopPropagation();
                   await deleteListing(id, token);
                   const data = listings?.filter((listing) => listing.id !== id);
                   setListings(data);
@@ -81,7 +76,8 @@ export const Categories = () => {
 
             {user.isAdmin ? (
               <button
-                onClick={async () => {
+                onClick={async (e) => {
+                  e.stopPropagation();
                   setEdit(!edit);
                 }}
                 type="edit"
