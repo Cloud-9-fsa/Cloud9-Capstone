@@ -7,7 +7,9 @@ processes = []
 
 
 [env]
-PORT=8080
+
+[deploy]
+RELEASE_COMMAND="npm run db:build"
 
 [experimental]
   auto_rollback = true
