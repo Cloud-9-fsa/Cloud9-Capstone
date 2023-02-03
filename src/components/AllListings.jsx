@@ -62,21 +62,12 @@ export const AllListings = () => {
               >
                 Delete
               </button>
-              <button
-                onClick={async (e) => {
-                  e.stopPropagation();
-                  setEdit(!edit);
-                }}
-                type="edit"
-              >
-                Edit
-              </button>
             </div>
           ) : (
             <></>
           )}
 
-          {edit ? <RenderUpdateListing /> : null}
+        
         </div>
       );
     }

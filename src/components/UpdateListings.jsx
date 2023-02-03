@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/UseAuth";
 import { updateListing } from "../apiCalls/updateListingAPI";
+import "../style/ListingDetails.css";
 
 export const RenderUpdateListing = ({listingId}) => {
     const {user,token,setListings} = useAuth();
@@ -55,8 +56,9 @@ const [stock, setStock] = useState("");
   return (
     <div>
       <div className="updateListingForm">
-        <h4>Update Listing</h4>
+      
         <form className="listingForm">
+        <h4>Update Listing</h4>
           <input
             value={name}
             type="text"
@@ -117,7 +119,7 @@ const [stock, setStock] = useState("");
             placeholder="image5"
             onChange={(e) => setImage5(e.target.value)}
           ></input>
-          <input
+          <label>Hot Item?</label><input
             value={isHot}
             type="checkbox"
             placeholder="isHot"
