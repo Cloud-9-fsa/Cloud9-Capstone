@@ -147,7 +147,7 @@ export const Cart = () => {
 
                 <p>Item Total: ${listing.price * listing.quantity}.00</p>
                 <button
-                  className="button"
+                  className="button2"
                   onClick={async () => {
                     console.log("hi");
                     await deleteListing(listing.id, order[0].id);
@@ -172,7 +172,7 @@ export const Cart = () => {
           {NotLoggedInCartListings}
           <h1>Your total is: ${order[0].total}.00</h1>
           <button
-            className="button"
+            className="button2"
             onClick={() => {
               navigate("/cart/checkout");
             }}
