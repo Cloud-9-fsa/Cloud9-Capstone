@@ -40,8 +40,6 @@ Thanks to the following people who have contributed to this project:
 - [Chris Pettypiece](https://github.com/Pettyison) 📖
 - [Mohamad Ayyad](https://github.com/Yamato-Amaterasu) 📖
 
-## Contact:
-
 ## Connect with the devs!
 
 Connect with Mohamad on LinkedIn <https://www.linkedin.com/in/mohamad-ayyad-17b175257/>.
