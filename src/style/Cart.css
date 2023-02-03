@@ -12,6 +12,13 @@
   width: 70%;
 }
 
+h1 {
+  height: 90vh;
+  display: flex;
+  text-align: center;
+  margin-top: 300px;
+}
+
 .cartForm {
   border: 1px solid #ccc;
   border-radius: 20px;
