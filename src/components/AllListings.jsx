@@ -88,8 +88,6 @@ export const AllListings = () => {
 
   return (
     <div>
-      <h1>Welcome To Cloud9</h1>
-
       <div className="AllListings">{allListings}</div>
     </div>
   );
