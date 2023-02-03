@@ -3,7 +3,7 @@ import "../style/AboutUs.css";
 
 function AboutUs() {
   return (
-    <div>
+
       <div>
         <div className="about-us-container">
           <div className="about-us-text-container">
@@ -31,11 +31,30 @@ function AboutUs() {
             <p>For us there is no time to rest while achieving comfort.</p>
           </div>
           </div>
-
+          <div className="developers-container">
+        <h9>Meet the Developers</h9>
+        <div className="developer-card">
+          <h3>Jellena Solan</h3>
+          <p>Bio:</p>
+        </div>
+        <div className="developer-card">
+          <h3>Mohamad Ayyad</h3>
+          <p>Bio:</p>
+        </div>
+        <div className="developer-card">
+          <h3>Rahmat Bakhshi</h3>
+          <p>Bio: </p>
+        </div>
+        <div className="developer-card">
+          <h3>Christopher Pettypiece</h3>
+          <p>Bio: </p>
+        </div>
       </div>
-
     </div>
   );
 }
+
+
+
 
 export default AboutUs;
