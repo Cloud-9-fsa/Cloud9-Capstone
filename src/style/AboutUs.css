@@ -74,5 +74,17 @@ top: -50px;
 
   .developer-card h3 {
     font-family: 'Solitreo', cursive;
+    font-size: 20px;
+
+  }
+
+  .developer-card p{
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.5;
+    text-align: center;
+
+
 
   }
