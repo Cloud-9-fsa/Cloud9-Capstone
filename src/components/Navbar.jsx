@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/UseAuth";
 import { useNavigate } from "react-router-dom";
 import "../style/Navbar.css";
+import Logo from "../assets/Logo.JPG";
 
 const Navbar = () => {
   const { token, setToken, setUser, user } = useAuth();
@@ -58,7 +59,7 @@ const Navbar = () => {
       <h1>
         {" "}
         <img
-          src="https://i.ibb.co/KbW5wwv/Logo-Light-Mode.jpg"
+          src={Logo}
           alt="companylogo"
           className="companylogo"
           onClick={() => {
