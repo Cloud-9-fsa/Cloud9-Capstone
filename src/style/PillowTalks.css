@@ -1,12 +1,12 @@
 .Card{
-  margin-top: 100px;
+  margin: auto;
   width: 55%;
   border-radius: 15px;
   margin-bottom: 30px;
-  margin-left: 320px;
   background-color: #f9f9f9;
   box-shadow: 0px 0px 10px #ccc;
   padding: 20px;
+  margin-top: 100px;
 
 }
 
@@ -110,12 +110,18 @@ font-size: 13px;
 
 h2 {
   font-size: 1.5em;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   color: #333;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  /* letter-spacing: 2px;
   margin-left: 590px;
-  margin-top: 75px;
+  margin-top: 75px; */
+
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  margin:auto;
+
 
 }
 
@@ -138,7 +144,8 @@ b1 {
 }
 
 ul{
-  width: 75%;
-margin-left: 195px;
+  margin: auto;
+  padding: 10px;
+  width: 90%;
 
 }
