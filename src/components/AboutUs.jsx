@@ -35,19 +35,19 @@ function AboutUs() {
         <h9>Meet the Developers</h9>
         <div className="developer-card">
           <h3>Jellena Solan</h3>
-          <p>Bio:</p>
+          <p>Frontend/ CSS / Golden Retriever fanatic. From New Jersey</p>
         </div>
         <div className="developer-card">
           <h3>Mohamad Ayyad</h3>
-          <p>Bio:</p>
+          <p>Backend / funny / cat lover guy. From New Orleans</p>
         </div>
         <div className="developer-card">
           <h3>Rahmat Bakhshi</h3>
-          <p>Bio: </p>
+          <p>Love the frontend/CSS. Sports enthusiast, loves cars.  From Ohio. </p>
         </div>
         <div className="developer-card">
           <h3>Christopher Pettypiece</h3>
-          <p>Bio: </p>
+          <p>CSS Master/ motivator/ entrepreneur/ lover of milk and cool breezes. From Oklahoma. </p>
         </div>
       </div>
     </div>
