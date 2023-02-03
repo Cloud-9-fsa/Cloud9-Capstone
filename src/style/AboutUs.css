@@ -20,9 +20,10 @@
   .about-us-text-container h1 {
     font-size: 28px;
     margin-bottom: 20px;
-    text-decoration: underline;
     color: black;
     text-shadow: px;
+    font-family: 'Solitreo', cursive;
+
 
 
   }
@@ -40,20 +41,38 @@
   .about-us-image-container {
     width: 50%;
   }
+  .developers-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    margin-top: 50px;
+  }
 
+  h9{
+    font-family: 'Solitreo', cursive;
 
+margin-bottom: 80px;
+text-align: center;
+position: absolute;
+font-size: 28px;
+font-weight: bold;
+top: -50px;
 
-  footer{
+  }
+
+  .developer-card {
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    box-shadow: 0px 0px 10px #ccc;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
     text-align: center;
-    bottom: 0;
+  }
 
-}
+  .developer-card h3 {
+    font-family: 'Solitreo', cursive;
 
-.contact
-{
-    width: 120px;
-}
-footer img
-{
-    width: 75px;
-}
+  }
