@@ -62,7 +62,7 @@ export const Profile = () => {
         <div className="mainpage1">
           <nav className="navbar1">
             <button
-              className="button"
+              className="button1"
               onClick={() => {
                 setNav("userInfo");
               }}
@@ -70,7 +70,7 @@ export const Profile = () => {
               User Info
             </button>
             <button
-              className="button"
+              className="button1"
               onClick={() => {
                 setNav("orderHistory");
               }}
@@ -80,7 +80,7 @@ export const Profile = () => {
             {user.isAdmin ? (
               <>
                 <button
-                  className="button"
+                  className="button1"
                   onClick={() => {
                     setNav("createListing");
                   }}
@@ -88,7 +88,7 @@ export const Profile = () => {
                   Create Listing
                 </button>
                 <button
-                  className="button"
+                  className="button1"
                   onClick={() => {
                     setNav("allUsers");
                   }}
