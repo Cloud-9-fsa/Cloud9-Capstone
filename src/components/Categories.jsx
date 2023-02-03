@@ -58,8 +58,9 @@ export const Categories = () => {
             <p className="pricetag">${price}</p>
           </div>
 
-          <div className="adminbuttons">
+         
             {user.isAdmin ? (
+              <div className="adminbuttons">
               <button
                 onClick={async (e) => {
                   e.stopPropagation();
@@ -70,25 +71,11 @@ export const Categories = () => {
               >
                 Delete
               </button>
+              </div>
             ) : (
               <></>
             )}
-
-            {user.isAdmin ? (
-              <button
-                onClick={async (e) => {
-                  e.stopPropagation();
-                  setEdit(!edit);
-                }}
-                type="edit"
-              >
-                Edit
-              </button>
-            ) : (
-              <></>
-            )}
-            {edit ? <RenderUpdateListing /> : null}
-          </div>
+        
         </div>
       );
     }

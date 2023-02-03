@@ -92,7 +92,7 @@ export function ListingDetails() {
               min="1"
             />
             <button
-              className="button"
+              className="button5"
               type="button"
               onClick={async () => {
                 if (token) {
@@ -136,7 +136,7 @@ export function ListingDetails() {
             </button>
             <br></br>
             <button
-              className="button"
+              className="button5"
               role="button"
               onClick={() => handleClick()}
             >
