@@ -50,8 +50,8 @@ export const AllListings = () => {
             <p className="pricetag">${price}</p>
           </div>
 
-          <div className="adminbuttons">
-            {user.isAdmin ? (
+          {user.isAdmin ? (
+            <div className="adminbuttons">
               <button
                 onClick={async (e) => {
                   e.stopPropagation();
@@ -62,11 +62,6 @@ export const AllListings = () => {
               >
                 Delete
               </button>
-            ) : (
-              <></>
-            )}
-
-            {user.isAdmin ? (
               <button
                 onClick={async (e) => {
                   e.stopPropagation();
@@ -76,11 +71,12 @@ export const AllListings = () => {
               >
                 Edit
               </button>
-            ) : (
-              <></>
-            )}
-            {edit ? <RenderUpdateListing /> : null}
-          </div>
+            </div>
+          ) : (
+            <></>
+          )}
+
+          {edit ? <RenderUpdateListing /> : null}
         </div>
       );
     }
