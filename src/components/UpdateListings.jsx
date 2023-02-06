@@ -3,97 +3,96 @@ import { useAuth } from "../context/UseAuth";
 import { updateListing } from "../apiCalls/updateListingAPI";
 import "../style/ListingDetails.css";
 
-export const RenderUpdateListing = ({listingId}) => {
-    const {user,token,setListings} = useAuth();
-const [isHot, setIsHot] = useState(false);
-const [image, setImage] = useState("");
-const [image2, setImage2] = useState("");
-const [image3, setImage3] = useState("");
-const [image4, setImage4] = useState("");
-const [image5, setImage5] = useState("");
-const [name, setName] = useState("");
-const [description, setDescription] = useState("");
-const [category, setCategory] = useState("");
-const [price, setPrice] = useState("");
-const [stock, setStock] = useState("");
+export const RenderUpdateListing = ({ listingId }) => {
+  const { user, token, setListings } = useAuth();
+  const [isHot, setIsHot] = useState(false);
+  const [image, setImage] = useState("");
+  const [image2, setImage2] = useState("");
+  const [image3, setImage3] = useState("");
+  const [image4, setImage4] = useState("");
+  const [image5, setImage5] = useState("");
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [price, setPrice] = useState("");
+  const [stock, setStock] = useState("");
 
   const handleSubmit = async () => {
     if (user.isAdmin) {
-
-        await updateListing({
-            listingId,
-            token,
-            isHot,
-            image,
-            image2,
-            image3,
-            image4,
-            image5,
-            name,
-            description,
-            category,
-            price,
-            stock
-            
-    });
-        setName("");
-        setDescription("");
-        setCategory("");
-        setPrice("");
-        setStock("");
-        setImage("");
-        setImage2("");
-        setImage3("");
-        setImage4("");
-        setImage5("");
-        setIsHot(true);
-
-
-
-
+      await updateListing({
+        listingId,
+        token,
+        isHot,
+        image,
+        image2,
+        image3,
+        image4,
+        image5,
+        name,
+        description,
+        category,
+        price,
+        stock,
+      });
+      setName("");
+      setDescription("");
+      setCategory("");
+      setPrice("");
+      setStock("");
+      setImage("");
+      setImage2("");
+      setImage3("");
+      setImage4("");
+      setImage5("");
+      setIsHot(true);
     }
   };
   return (
     <div>
       <div className="updateListingForm">
-      
         <form className="listingForm">
-        <h4>Update Listing</h4>
+          <h4>Update Listing</h4>
           <input
             value={name}
             type="text"
             placeholder="name"
             onChange={(e) => setName(e.target.value)}
+            required
           ></input>
           <input
             value={description}
             type="text"
             placeholder="description"
             onChange={(e) => setDescription(e.target.value)}
+            required
           ></input>
           <input
             value={category}
             type="text"
             placeholder="category"
             onChange={(e) => setCategory(e.target.value)}
+            required
           ></input>
           <input
             value={price}
             type="number"
             placeholder="price"
             onChange={(e) => setPrice(e.target.value)}
+            required
           ></input>
           <input
             value={stock}
             type="number"
             placeholder="stock"
             onChange={(e) => setStock(e.target.value)}
+            required
           ></input>
           <input
             value={image}
             type="text"
             placeholder="image"
             onChange={(e) => setImage(e.target.value)}
+            required
           ></input>
           <input
             value={image2}
@@ -119,7 +118,8 @@ const [stock, setStock] = useState("");
             placeholder="image5"
             onChange={(e) => setImage5(e.target.value)}
           ></input>
-          <label>Hot Item?</label><input
+          <label>Hot Item?</label>
+          <input
             value={isHot}
             type="checkbox"
             placeholder="isHot"
