@@ -27,7 +27,7 @@ export default function Review() {
       </Typography>
       <List disablePadding>
         {order.listings.map((product) => (
-          <ListItem key={product.name} sx={{ py: 1, px: 0 }}>
+          <ListItem key={product.name} sx={{ py: 1, px: 0, color: "black" }}>
             <ListItemText
               primary={product.name}
               secondary={`Quantity:${product.quantity}`}
@@ -38,9 +38,12 @@ export default function Review() {
           </ListItem>
         ))}
 
-        <ListItem sx={{ py: 1, px: 0 }}>
+        <ListItem sx={{ py: 1, px: 0, color: "black" }}>
           <ListItemText primary="Total" />
-          <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+          <Typography
+            variant="subtitle1"
+            sx={{ fontWeight: 700, color: "black" }}
+          >
             ${order.total}
           </Typography>
         </ListItem>
