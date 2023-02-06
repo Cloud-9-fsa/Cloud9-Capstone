@@ -61,9 +61,8 @@ export default function LogIn() {
           );
         }
       }
+      if (response.token) navigate("/");
     }
-
-    if (localStorage.getItem("token")) navigate("/");
   };
 
   return (
