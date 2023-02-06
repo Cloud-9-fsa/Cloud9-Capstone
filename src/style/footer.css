@@ -20,9 +20,9 @@
   margin: 0 1rem;
 }
 .footer a:hover {
-  color: #0a73e7;
+  color: #0dccdc;
   font-weight: bold;
-  text-shadow: 0px 0px 10px #0a73e7;
+  text-shadow: 0px 0px 10px #0dccdc;
   transition: all 0.3s ease;
 }
 

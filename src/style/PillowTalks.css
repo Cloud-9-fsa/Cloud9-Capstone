@@ -1,5 +1,4 @@
-
-.Card{
+.Card {
   margin: auto;
   width: 55%;
   border-radius: 15px;
@@ -8,12 +7,11 @@
   box-shadow: 0px 0px 10px #ccc;
   padding: 20px;
   margin-top: 100px;
-
 }
 
-
- li, li3 {
-  font-family: 'Solitreo', cursive;
+li,
+li3 {
+  font-family: "Solitreo", cursive;
   font-size: 30px;
   font-weight: bold;
   text-align: center;
@@ -29,9 +27,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #3fa3be;
+  background-color: #0dccdc;
   list-style: none;
-
 }
 
 li2 {
@@ -39,9 +36,8 @@ li2 {
   margin-top: 10px;
   font-size: 16px;
   text-align: center;
-  color: rgb(15, 117, 151);
+  color: #0dccdc;
   font-weight: bold;
-
 }
 
 .Visco {
@@ -54,7 +50,7 @@ li2 {
 .Polyester {
   display: flex;
   align-items: center;
-  background-color: #3fa3be;
+  background-color: #0dccdc;
   padding: 20px;
 }
 .Down {
@@ -67,7 +63,7 @@ li2 {
 .Gel {
   display: flex;
   align-items: center;
-  background-color: #3fa3be;
+  background-color: #0dccdc;
   padding: 20px;
 }
 
@@ -83,9 +79,9 @@ li2 {
   height: 150px;
   margin-right: 20px;
   border-radius: 50%;
-   box-shadow: 0px 0px 10px #ccc;
+  box-shadow: 0px 0px 10px #ccc;
   object-fit: cover;
-  border: 4px solid #333
+  border: 4px solid #333;
 }
 .parent {
   display: flex;
@@ -93,21 +89,19 @@ li2 {
 }
 
 li5 {
-  font-family: 'Solitreo', cursive;
+  font-family: "Solitreo", cursive;
 
-font-size: 21px;
+  font-size: 21px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: rgb(15, 117, 151);
-
+  color: #0dccdc;
 }
 
 li6 {
-font-size: 13px;
+  font-size: 13px;
   margin-left: 10px;
   color: white;
 }
-
 
 h2 {
   font-size: 1.5em;
@@ -118,12 +112,10 @@ h2 {
   margin-left: 590px;
   margin-top: 75px; */
 
-  display:flex;
+  display: flex;
   flex-direction: column;
   text-align: center;
-  margin:auto;
-
-
+  margin: auto;
 }
 
 li9 {
@@ -144,9 +136,8 @@ b1 {
   color: rgb(0, 0, 0);
 }
 
-ul{
+ul {
   margin: auto;
   padding: 10px;
   width: 90%;
-
 }

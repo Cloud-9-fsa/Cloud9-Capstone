@@ -68,9 +68,9 @@ const Navbar = () => {
         />{" "}
       </h1>
 
-      <NavLink to="/" className="navbar-link">
+      {/* <NavLink to="/" className="navbar-link">
         Home
-      </NavLink>
+      </NavLink> */}
       <div className="shop">
         <a href="/shop" className="navbar-link2">
           Shop
