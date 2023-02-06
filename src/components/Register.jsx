@@ -73,7 +73,7 @@ export default function SignUp() {
         }
       }
     }
-    if (localStorage.getItem("token")) navigate("/");
+    if (response.token) navigate("/");
   };
 
   return (

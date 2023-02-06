@@ -15,7 +15,7 @@ export const Cart = () => {
   const deleteListing = async (listingId, orderId) => {
     await deleteListingFromOrder(listingId, orderId);
   };
-
+  console.log(order);
   useEffect(() => {
     const orders = async () => {
       if (localStorage.getItem("token") || token) {
@@ -25,13 +25,12 @@ export const Cart = () => {
         const data = await getOrderById(
           Number(localStorage.getItem("orderId"))
         );
-        setOrder(data);
+        setOrder(data[0]);
       }
     };
     orders();
   }, []);
 
-  // if (user && user.id) {
   if (order && order.listings && order.listings.length) {
     const CartListings = order.listings.map((listing) => {
       return (
@@ -84,7 +83,7 @@ export const Cart = () => {
                     const oldOrder = await getOrderById(
                       Number(localStorage.getItem("orderId"))
                     );
-                    setOrder(oldOrder);
+                    setOrder(oldOrder[0]);
                   }
                 }}
               >
@@ -100,8 +99,8 @@ export const Cart = () => {
     return (
       <div className="mainDiv">
         <h1>
-          You have {order.listings.length} items in your cart , {user.firstname}
-          !
+          You have {order.listings.length} items in your cart
+          {user && user.length ? `,${user.firstname}` : null}!
         </h1>
         {CartListings}
         <h1 className="total">Your total is: ${order.total}</h1>
