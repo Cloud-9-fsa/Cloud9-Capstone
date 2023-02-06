@@ -17,7 +17,6 @@ async function createReviews({
           RETURNING *`,
       [userId, firstname, lastname, title, description, rating]
     );
-    // console.log("This is reviews:", reviews);
     return reviews;
   } catch (error) {
     console.error(error);

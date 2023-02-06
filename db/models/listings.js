@@ -78,13 +78,11 @@ async function updateListing({ id, ...fields }) {
   const filteredObject = Object.fromEntries(
     Object.entries(fields).filter(([key, val]) => val !== "")
   );
-  console.log(filteredObject);
 
   const setString = Object.keys(filteredObject)
     .map((key, index) => `"${key}"=$${index + 1}`)
     .join(", ");
 
-  console.log(setString);
   try {
     if (!setString.length) return;
     const {
@@ -99,7 +97,6 @@ async function updateListing({ id, ...fields }) {
       Object.values(filteredObject)
     );
 
-    console.log("this is the updated listing:", listing);
     return listing;
   } catch (error) {
     console.error(error);

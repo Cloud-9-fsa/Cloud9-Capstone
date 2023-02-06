@@ -15,7 +15,6 @@ export const Cart = () => {
   const deleteListing = async (listingId, orderId) => {
     await deleteListingFromOrder(listingId, orderId);
   };
-  console.log(order);
   useEffect(() => {
     const orders = async () => {
       if (localStorage.getItem("token") || token) {

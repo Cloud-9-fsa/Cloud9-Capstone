@@ -1,16 +1,8 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/UseAuth";
-import { Link } from "react-router-dom";
-
-import { addListingToOrder } from "../apiCalls/cart/addListingToOrder";
-import { getOrder } from "../apiCalls/cart/getOrder";
-import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { deleteListing } from "../apiCalls/deleteListingAPI";
-import { fetchListings } from "../apiCalls/listingsAPI";
 import "../style/Categories.css";
-import { updateListing } from "../apiCalls/updateListingAPI";
-import { RenderUpdateListing } from "./UpdateListings";
 import flame from "../assets/flame.png";
 
 export const AllListings = () => {
@@ -66,8 +58,6 @@ export const AllListings = () => {
           ) : (
             <></>
           )}
-
-        
         </div>
       );
     }
