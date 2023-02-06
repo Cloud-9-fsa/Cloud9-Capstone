@@ -75,12 +75,16 @@ async function getListingById(id) {
 }
 
 async function updateListing({ id, ...fields }) {
-  const setString = Object.keys(fields)
+  const filteredObject = Object.fromEntries(
+    Object.entries(fields).filter(([key, val]) => val !== "")
+  );
+  console.log(filteredObject);
+
+  const setString = Object.keys(filteredObject)
     .map((key, index) => `"${key}"=$${index + 1}`)
     .join(", ");
-  console.log("these are my fields", fields);
-  console.log("THIS IS MY SETSTRING:", setString);
-  // console.log("dependency array", Object.values(fields));
+
+  console.log(setString);
   try {
     if (!setString.length) return;
     const {
@@ -92,7 +96,7 @@ async function updateListing({ id, ...fields }) {
         WHERE id=${id}
         RETURNING *;
         `,
-      Object.values(fields)
+      Object.values(filteredObject)
     );
 
     console.log("this is the updated listing:", listing);
