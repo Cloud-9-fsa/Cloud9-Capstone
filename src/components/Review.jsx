@@ -20,6 +20,7 @@ export default function Review() {
     cardExpiry,
     cardNumber,
   } = useAuth();
+  console.log(order);
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>

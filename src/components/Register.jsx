@@ -3,8 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -17,7 +15,6 @@ import { useAuth } from "../context/UseAuth";
 import { useNavigate } from "react-router-dom";
 import { getUserInfo } from "../apiCalls/getUserInfoAPI";
 import { getOrder } from "../apiCalls/cart/getOrder";
-import { createOrder } from "../apiCalls/cart/createOrderAPI";
 import { addListingToOrder } from "../apiCalls/cart/addListingToOrder";
 
 function Copyright(props) {
@@ -65,13 +62,13 @@ export default function SignUp() {
       const newOrder = await getOrder(localStorage.getItem("token"));
       setOrder(newOrder);
 
-      if (order && order[0]) {
+      if (order) {
         const data = await getOrder(localStorage.getItem("token"));
         for (let i = 0; i < order[0].listings.length; i++) {
           await addListingToOrder(
             data[0].id,
-            order[0].listings[i].id,
-            order[0].listings[i].quantity
+            order.listings[i].id,
+            order.listings[i].quantity
           );
         }
       }
@@ -156,7 +153,6 @@ export default function SignUp() {
                   autoComplete="new-password"
                 />
               </Grid>
-    
             </Grid>
             <Button
               type="submit"

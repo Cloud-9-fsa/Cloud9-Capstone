@@ -39,14 +39,21 @@ async function getReviewsByUser(userId) {
   }
 }
 
-async function deleteReviews(id, userId) {
+async function deleteReviews(id) {
   try {
     await client.query(
       `
-          DELETE FROM reviews
-          WHERE id = $1 AND "userId" = $2
+          DELETE FROM review_listings
+          WHERE "reviewId" = $1
           `,
-      [id, userId]
+      [id]
+    );
+    await client.query(
+      `
+          DELETE FROM reviews
+          WHERE id = $1
+          `,
+      [id]
     );
   } catch (error) {
     console.error(error);

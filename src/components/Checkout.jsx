@@ -125,6 +125,7 @@ export default function Checkout() {
                       await createOrder(token);
                       const data = await getOrder(token);
                       setOrder(data);
+                      localStorage.removeItem("orderId");
                     }
                   }}
                   sx={{ mt: 3, ml: 1 }}
