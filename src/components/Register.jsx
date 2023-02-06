@@ -72,8 +72,8 @@ export default function SignUp() {
           );
         }
       }
+      if (response.token) navigate("/");
     }
-    if (response.token) navigate("/");
   };
 
   return (
