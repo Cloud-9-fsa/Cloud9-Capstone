@@ -45,18 +45,23 @@ export const ReviewForm = ({ listingId }) => {
             type="text"
             placeholder="Review Title"
             onChange={(e) => setTitle(e.target.value)}
+            required
           ></input>
           <input
             value={rating}
             type="number"
             placeholder="Rating"
             onChange={(e) => setRating(e.target.value)}
+            min={1}
+            max={5}
+            required
           ></input>
           <input
             value={description}
             type="text"
             placeholder="Description"
             onChange={(e) => setDescription(e.target.value)}
+            required
           ></input>
           <br></br>
           <button className="reviewSubmit" type="submit">
