@@ -1,18 +1,18 @@
 
 .Card{
   margin: auto;
-  width: 55%;
+  width: 80%;
   border-radius: 15px;
   margin-bottom: 30px;
   background-color: #f9f9f9;
   box-shadow: 0px 0px 10px #ccc;
   padding: 20px;
-  margin-top: 100px;
+  margin-top: 50px;
 
 }
 
 
- li, li3 {
+ h3 {
   font-family: 'Solitreo', cursive;
   font-size: 30px;
   font-weight: bold;
@@ -31,16 +31,6 @@
   align-items: center;
   background-color: #3fa3be;
   list-style: none;
-
-}
-
-li2 {
-  margin-bottom: 10px;
-  margin-top: 10px;
-  font-size: 16px;
-  text-align: center;
-  color: rgb(15, 117, 151);
-  font-weight: bold;
 
 }
 
@@ -92,20 +82,23 @@ li2 {
   flex-direction: column;
 }
 
-li5 {
+h4 {
   font-family: 'Solitreo', cursive;
-
-font-size: 21px;
+  font-size: 21px;
   font-weight: bold;
   margin-bottom: 10px;
   color: rgb(15, 117, 151);
+  margin-right: 5%;
+  width: 60px;
 
 }
 
-li6 {
-font-size: 13px;
-  margin-left: 10px;
+p {
+  font-size: 13px;
+  margin-left: 20px;
   color: white;
+  text-align: justify;
+  width: 500px;
 }
 
 
@@ -126,7 +119,7 @@ h2 {
 
 }
 
-li9 {
+h6 {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
@@ -136,17 +129,10 @@ li9 {
   box-shadow: 0px 0px 10px #ccc;
 }
 
-b1 {
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: rgb(0, 0, 0);
-}
-
 ul{
   margin: auto;
   padding: 10px;
   width: 90%;
 
 }
+
