@@ -32,6 +32,7 @@ export function ListingDetails() {
     if (user.id === reviewId || user.id) {
       return (
         <button
+          className="buttondelete"
           onClick={async () => {
             await deleteReview(reviewId, token);
             const data = await fetchListings();
@@ -49,14 +50,17 @@ export function ListingDetails() {
       const ReviewListing = singleListing.reviews.map(
         ({ id, description, rating, title, firstname, lastname, userId }) => {
           return (
-            <div className="singleReview" key={id}>
-              <p>
-                Review Author: {firstname} {lastname}
-              </p>
-              <p>Review Title: {title}</p>
-              <p>Rating: {rating} out of 5</p>
-              <p>Review Details: {description}</p>
-              {DeleteReviewButton(id)}
+            <div >
+              <div className="singleReview" key={id}>
+                <p>
+                  Review Author: {firstname} {lastname}
+                </p>
+                <p>Review Title: {title}</p>
+                <p>Rating: {rating} out of 5</p>
+                <p>Review Details: {description}</p>
+               
+                </div> 
+                {DeleteReviewButton(id)}
             </div>
           );
         }
