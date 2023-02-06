@@ -311,6 +311,17 @@ async function populateInitialData() {
     await createListing({
       isHot: true,
       image:
+        "https://cdn.shopify.com/s/files/1/0261/9479/collections/all-products-collection_850x.jpg?v=1588200598",
+      name: "Outdoor Bean Lounger",
+      description:
+        "Our extra large bean bag throws back to the more traditional bean bag form with a stylish, modern edge for the modern home. Relax in any setting.",
+      category: "Outdoor",
+      price: 200,
+      stock: 100,
+    });
+    await createListing({
+      isHot: true,
+      image:
         "https://images.accentuate.io/?c_options=w_1000&shop=lujo-world.myshopify.com&image=https://cdn.accentuate.io/4486790905943/11923480936535/XL-Floor-Cushion-detail3-v1588198820385.jpg?1920x1920",
       name: "Outdoor Comfort Pillow",
       description:

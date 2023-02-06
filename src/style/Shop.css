@@ -6,18 +6,18 @@
 
 .LinkHeader {
   display: flex;
+  margin: 15px;
 }
 
 .CampaignImg {
   text-align: center;
   width: 98%;
-  margin: 15px;
+  margin: 10px;
 }
 
 .picmain img {
   width: 93%;
   height: 93%;
-  margin: auto;
 }
 
 .CampaignImg h1 {
@@ -30,6 +30,8 @@
 .LinkHeader h2 {
   color: #1597ca;
   font-size: 2.2vw;
+
+
 }
 .picshop1 {
   width: 95%;
