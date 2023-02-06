@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../context/UseAuth";
 import "../style/ListingDetails.css";
-import { createOrder } from "../apiCalls/cart/createOrderAPI";
 import { addListingToOrder } from "../apiCalls/cart/addListingToOrder";
 import { getOrder } from "../apiCalls/cart/getOrder";
 import { RenderUpdateListing } from "./UpdateListings";
-
+import { fetchListings } from "../apiCalls/listingsAPI";
 import { ReviewForm } from "./ReviewForm";
 import { createOrderNotLogged } from "../apiCalls/cart/createOrderNotLoggedInApi";
 import { getOrderById } from "../apiCalls/cart/getOrderNotLogged";
 import { ContactPageSharp } from "@mui/icons-material";
+import { deleteReview } from "../apiCalls/deleteReview";
 
 export function ListingDetails() {
   const { listingId } = useParams();
-  const { listings, token, user, order, setOrder } = useAuth();
+  const { listings, token, user, order, setOrder, setListings } = useAuth();
   const [edit, setEdit] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [create, setCreate] = useState(false);
@@ -28,10 +28,26 @@ export function ListingDetails() {
     setCreate(!create);
   };
 
+  const DeleteReviewButton = (reviewId) => {
+    if (user.id === reviewId || user.id) {
+      return (
+        <button
+          onClick={async () => {
+            await deleteReview(reviewId, token);
+            const data = await fetchListings();
+            setListings(data);
+          }}
+        >
+          Delete Review
+        </button>
+      );
+    }
+  };
+
   const RenderReviews = () => {
     if (singleListing.reviews) {
       const ReviewListing = singleListing.reviews.map(
-        ({ id, description, rating, title, firstname, lastname }) => {
+        ({ id, description, rating, title, firstname, lastname, userId }) => {
           return (
             <div className="singleReview" key={id}>
               <p>
@@ -40,6 +56,7 @@ export function ListingDetails() {
               <p>Review Title: {title}</p>
               <p>Rating: {rating} out of 5</p>
               <p>Review Details: {description}</p>
+              {DeleteReviewButton(id)}
             </div>
           );
         }
@@ -108,10 +125,10 @@ export function ListingDetails() {
                   const oldOrder = await getOrder(token);
                   setOrder(oldOrder[0]);
                 } else {
-                  if (!order.length) {
+                  if (!order) {
                     const newOrder = await createOrderNotLogged();
 
-                    setOrder(newOrder);
+                    setOrder(newOrder[0]);
                     localStorage.setItem("orderId", newOrder[0].id);
                     await addListingToOrder(
                       Number(localStorage.getItem("orderId")),
@@ -119,15 +136,19 @@ export function ListingDetails() {
                       Number(quantity)
                     );
                   } else {
-                    await addListingToOrder(
+                    const addListingToCart = await addListingToOrder(
                       Number(localStorage.getItem("orderId")),
                       singleListing.id,
                       Number(quantity)
                     );
+                    addListingToCart;
+                    if (addListingToCart.error) {
+                      alert(addListingToCart.message);
+                    }
                     const data = await getOrderById(
                       Number(localStorage.getItem("orderId"))
                     );
-                    setOrder(data);
+                    setOrder(data[0]);
                   }
                 }
               }}

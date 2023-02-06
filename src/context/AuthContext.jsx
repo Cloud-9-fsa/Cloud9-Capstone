@@ -44,7 +44,7 @@ export default function AuthProvider({ children }) {
         const data = await getOrderById(
           Number(localStorage.getItem("orderId"))
         );
-        setOrder(data);
+        setOrder(data[0]);
       }
     };
     orders();

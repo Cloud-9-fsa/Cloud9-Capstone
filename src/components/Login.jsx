@@ -3,8 +3,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -15,7 +13,6 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { login } from "../apiCalls/loginApi";
 import { useAuth } from "../context/UseAuth";
 import { useNavigate } from "react-router-dom";
-import { getUserInfo } from "../apiCalls/getUserInfoAPI";
 import { addListingToOrder } from "../apiCalls/cart/addListingToOrder";
 import { getOrder } from "../apiCalls/cart/getOrder";
 
@@ -54,13 +51,13 @@ export default function LogIn() {
       setToken(response.token);
       localStorage.setItem("token", response.token);
       setUser(response.user);
-      if (order && order[0]) {
+      if (order) {
         const data = await getOrder(response.token);
         for (let i = 0; i < order[0].listings.length; i++) {
           await addListingToOrder(
             data[0].id,
-            order[0].listings[i].id,
-            order[0].listings[i].quantity
+            order.listings[i].id,
+            order.listings[i].quantity
           );
         }
       }
