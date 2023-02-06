@@ -1,15 +1,12 @@
 .singleListing {
   display: inline-flex;
-  color: #1597ca;
+  color: #0dccdc;
   position: inherit;
   align-items: right;
   justify-content: center;
-  
 }
 
-
 .pic1 {
- 
   max-width: 100%;
   max-height: 100%;
   display: block;
@@ -23,10 +20,9 @@
   width: 100%;
 }
 
-
 .namepic {
   display: flex;
-  color: #1597ca;
+  color: #0dccdc;
   justify-content: center;
   margin: 15px;
   max-width: 100%;
@@ -58,7 +54,6 @@
   font-weight: bold;
 }
 
-
 .newReviewForm {
   display: flex;
   flex-direction: column;
@@ -67,9 +62,9 @@
 }
 
 .button5 {
-  background-color: #1597ca;
-  background-image: linear-gradient(#1597ca);
-  border: 1px solid #1597ca;
+  background-color: #0dccdc;
+  background-image: linear-gradient(#0dccdc);
+  border: 1px solid #0dccdc;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
   color: #ffffff;
@@ -112,9 +107,9 @@
 }
 
 .buttondelete {
-  background-color: #1597ca;
-  background-image: linear-gradient(#1597ca);
-  border: 1px solid #1597ca;
+  background-color: #0dccdc;
+  background-image: linear-gradient(#0dccdc);
+  border: 1px solid #0dccdc;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
   color: #ffffff;
@@ -134,49 +129,45 @@
   justify-content: center;
 }
 
-
 .singleListing h1 {
-  color: #1597ca;
+  color: #0dccdc;
   font-size: 30px;
   margin-left: 0;
   display: flex;
   align-items: flex-start;
-  margin-bottom:0;
+  margin-bottom: 0;
 }
-
 
 .listingdetails .price {
   font-size: 18px;
   font-weight: bold;
 }
 
-.listingdetails h2{
+.listingdetails h2 {
   text-align: left;
-  text-transform: capitalize;
+  text-transform: none;
   font-weight: normal;
   font-size: 15px;
   margin-left: 16px;
   margin-top: 10px;
 }
 
-
-
 .adminEditbutton {
   display: flex;
   flex-direction: column;
-  margin-top:0;
+  margin-top: 0;
 }
 
 .adminEditbutton button {
-  background-color: #1597ca;
+  background-color: #0dccdc;
   border-radius: 10px;
   border: 4px double #cccccc;
   color: #ffffff;
   transition: all 0.5s;
-  cursor: pointer; 
-  background-color: #1597ca;
-  background-image: linear-gradient(#1597ca);
-  border: 1px solid #1597ca;
+  cursor: pointer;
+  background-color: #0dccdc;
+  background-image: linear-gradient(#0dccdc);
+  border: 1px solid #0dccdc;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
   color: #ffffff;
@@ -194,7 +185,6 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   width: 100%;
-
 }
 
 h4 {
@@ -203,14 +193,12 @@ h4 {
   font-size: 20px;
 }
 
-
 .updateListingForm {
   width: 700px;
   margin-bottom: 20px;
   display: flex;
   padding: 10px;
 }
-
 
 .listingSubmit {
   width: 25%;

@@ -7,7 +7,7 @@
 }
 
 .mainDiv h1 {
-  color: #1597ca;
+  color: #0dccdc;
   font-size: 1.4vw;
   width: 70%;
 }
@@ -22,7 +22,7 @@
 .cartForm {
   border: 1px solid #ccc;
   border-radius: 20px;
-  box-shadow: 0px 5px 10px #1597ca;
+  /* box-shadow: 0px 5px 10px #0dccdc; */
   margin: 20px;
   width: 97%;
 }
@@ -40,9 +40,9 @@
   float: left;
   margin: auto;
   padding: 5px 5px 5px 5px;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc;
   border-radius: 20px;
-  box-shadow: 0px 5px 10px #1597ca;
+  box-shadow: 0px 5px 10px #0dccdc; */
 }
 .quantityBar {
   width: 20%;
@@ -51,15 +51,16 @@
   text-align: center;
   margin: 0 auto;
   padding: 10px 10px 1px 10px;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc;
   border-radius: 20px;
-  box-shadow: 0px 5px 10px #1597ca;
+  box-shadow: 0px 5px 10px #0dccdc; */
 }
 
 .text1 h1 {
-  border: 1px solid #ccc;
+  padding-left: 50px;
+  /* border: 1px solid #ccc;
   border-radius: 20px;
-  box-shadow: 0px 5px 10px #1597ca;
+  box-shadow: 0px 5px 10px #0dccdc; */
 }
 
 .text1 h4 {
@@ -73,6 +74,7 @@
 .text1 h3 {
   color: black;
   font-size: 1.2vw;
+  font-weight: normal;
   width: 70%;
   text-align: center;
   margin: 15px;
@@ -89,13 +91,13 @@
 }
 
 .label {
-  color: #1597ca;
+  color: #0dccdc;
 }
 
 .button2 {
-  background-color: #1597ca;
-  background-image: linear-gradient(#1597ca);
-  border: 1px solid #1597ca;
+  background-color: #0dccdc;
+  background-image: linear-gradient(#0dccdc);
+  border: 1px solid #0dccdc;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
   color: #ffffff;

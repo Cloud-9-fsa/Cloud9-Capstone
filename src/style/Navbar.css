@@ -7,8 +7,7 @@
   align-items: center;
   background-color: rgb(255, 255, 255);
   color: #fff;
-  padding: 10px 20px;
-  box-shadow: 0px 3px 5px rgba(73, 240, 255, 0.808);
+  padding: 10px 40px;
   height: 75px;
 }
 .navbar h1 {
@@ -32,6 +31,7 @@
   text-decoration: none;
   margin-right: 80px;
   font-size: 18px;
+  margin-left: 45px;
 }
 .navbar-link {
   color: rgb(0, 0, 0);
@@ -63,17 +63,20 @@
 .shop {
   position: relative;
   display: inline-block;
+  text-align: center;
   color: black;
   text-decoration: none;
   font-size: 18px;
-  margin-left: 20px;
-  padding: 10px 20px;
+  margin-left: 5px;
+  /* padding: 10px 20px; */
   border-radius: 25px;
   transition: all 0.3s ease-in-out;
 }
 
 .shop:hover {
   background-color: rgb(255, 255, 255);
+  text-align: center;
+  align-items: left;
   color: rgb(0, 0, 0);
   text-decoration: none;
   cursor: pointer;
@@ -82,7 +85,7 @@
 .shop-dropdown {
   position: absolute;
   background-color: rgb(255, 255, 255);
-  padding: 10px;
+  padding: 0;
   top: 100%;
   left: 0;
   display: none;
@@ -97,8 +100,9 @@
 .shop:hover .shop-dropdown {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  float: left;
+  align-items: left;
   background-color: #f2f2f2;
   color: #000;
   padding: 10px 0;
@@ -114,6 +118,7 @@
 .shop-dropdown a {
   display: block;
   padding: 10px;
+  text-align: center;
   color: #000;
   text-decoration: none;
   margin-bottom: 10px;
@@ -121,7 +126,7 @@
 }
 
 .shop-dropdown a:hover {
-  color: rgb(13, 159, 204);
+  color: #0dccdc;
   text-decoration: underline;
 }
 
@@ -146,7 +151,7 @@
     display: flex;
     width: 150px;
     height: 100%;
-    box-shadow: 0px 3px 5px rgba(73, 240, 255, 0.808);
+    box-shadow: 0px 3px 5px #0dccdc;
   }
 
   .navbar h1 {

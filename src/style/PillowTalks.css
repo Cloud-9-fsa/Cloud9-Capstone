@@ -1,5 +1,4 @@
-
-.Card{
+.Card {
   margin: auto;
   width: 80%;
   border-radius: 15px;
@@ -29,9 +28,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #3fa3be;
+  background-color: #0dccdc;
   list-style: none;
-
 }
 
 .Visco {
@@ -44,7 +42,7 @@
 .Polyester {
   display: flex;
   align-items: center;
-  background-color: #3fa3be;
+  background-color: #0dccdc;
   padding: 20px;
 }
 .Down {
@@ -57,7 +55,7 @@
 .Gel {
   display: flex;
   align-items: center;
-  background-color: #3fa3be;
+  background-color: #0dccdc;
   padding: 20px;
 }
 
@@ -73,14 +71,15 @@
   height: 150px;
   margin-right: 20px;
   border-radius: 50%;
-   box-shadow: 0px 0px 10px #ccc;
+  box-shadow: 0px 0px 10px #ccc;
   object-fit: cover;
-  border: 4px solid #333
+  border: 4px solid #333;
 }
 .parent {
   display: flex;
   flex-direction: column;
 }
+
 
 h4 {
   font-family: 'Solitreo', cursive;
@@ -101,7 +100,6 @@ p {
   width: 500px;
 }
 
-
 h2 {
   font-size: 1.5em;
   /* margin-bottom: 20px; */
@@ -111,12 +109,10 @@ h2 {
   margin-left: 590px;
   margin-top: 75px; */
 
-  display:flex;
+  display: flex;
   flex-direction: column;
   text-align: center;
-  margin:auto;
-
-
+  margin: auto;
 }
 
 h6 {
@@ -129,10 +125,9 @@ h6 {
   box-shadow: 0px 0px 10px #ccc;
 }
 
-ul{
+ul {
   margin: auto;
   padding: 10px;
   width: 90%;
-
 }
 
