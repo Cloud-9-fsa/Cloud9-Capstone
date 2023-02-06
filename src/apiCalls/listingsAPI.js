@@ -10,6 +10,6 @@ export const fetchListings = async () => {
 
     return data;
   } catch (error) {
-    throw error;
+    console.error(error);
   }
 };

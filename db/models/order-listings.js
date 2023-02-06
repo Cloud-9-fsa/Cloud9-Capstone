@@ -32,31 +32,6 @@ async function updateOrderListings({ id, quantity, orderId }) {
       [quantity, id]
     );
 
-    // const {
-    //   rows: [price],
-    // } = await client.query(
-    //   `
-    //   SELECT price FROM listings
-    //     WHERE id = $1`,
-    //   [orderListings.listingId]
-    // );
-    // const {
-    //   rows: [total],
-    // } = await client.query(
-    //   `SELECT total FROM orders
-    //       WHERE id=$1`,
-    //   [orderId]
-    // );
-
-    // const currentTotal = total.total + price.price;
-    // console.log(currentTotal);
-    // await client.query(
-    //   `
-    //         UPDATE orders SET total = $1
-    //         WHERE id = $2`,
-    //   [currentTotal, orderId]
-    // );
-
     await updateOrderPrice(orderId);
 
     return orderListings;

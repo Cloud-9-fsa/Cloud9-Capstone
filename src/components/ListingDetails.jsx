@@ -9,7 +9,6 @@ import { fetchListings } from "../apiCalls/listingsAPI";
 import { ReviewForm } from "./ReviewForm";
 import { createOrderNotLogged } from "../apiCalls/cart/createOrderNotLoggedInApi";
 import { getOrderById } from "../apiCalls/cart/getOrderNotLogged";
-import { ContactPageSharp } from "@mui/icons-material";
 import { deleteReview } from "../apiCalls/deleteReview";
 
 export function ListingDetails() {
@@ -19,7 +18,6 @@ export function ListingDetails() {
   const [quantity, setQuantity] = useState(1);
   const [create, setCreate] = useState(false);
 
-  console.log(listings);
   const singleListing = listings.find(
     (listing) => listing.id.toString() === listingId
   );
@@ -50,7 +48,7 @@ export function ListingDetails() {
       const ReviewListing = singleListing.reviews.map(
         ({ id, description, rating, title, firstname, lastname, userId }) => {
           return (
-            <div >
+            <div>
               <div className="singleReview" key={id}>
                 <p>
                   Review Author: {firstname} {lastname}
@@ -58,9 +56,8 @@ export function ListingDetails() {
                 <p>Review Title: {title}</p>
                 <p>Rating: {rating} out of 5</p>
                 <p>Review Details: {description}</p>
-               
-                </div> 
-                {DeleteReviewButton(id)}
+              </div>
+              {DeleteReviewButton(id)}
             </div>
           );
         }

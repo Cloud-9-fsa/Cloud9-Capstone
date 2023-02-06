@@ -8,7 +8,6 @@ export async function deleteListing(listingId, token) {
       },
     });
     const data = await response.json();
-    console.log("data from delete:", data);
     return data;
   } catch (error) {
     console.error(error);

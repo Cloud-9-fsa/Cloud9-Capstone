@@ -13,7 +13,6 @@ export const Profile = () => {
   useEffect(() => {
     const getHistory = async () => {
       const data = await getOrderHistory(token);
-      console.log(data);
       setHistory(data);
     };
     getHistory();

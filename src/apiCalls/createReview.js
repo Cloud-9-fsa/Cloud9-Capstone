@@ -9,7 +9,6 @@ export async function createReview(
   token
 ) {
   try {
-    console.log(listingId);
     const response = await fetch(`/api/reviews/${listingId}`, {
       method: "POST",
       headers: {
