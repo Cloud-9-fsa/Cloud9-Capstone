@@ -28,26 +28,26 @@ function AboutUs() {
               there for our clients when it comes to the many demands of a
               restful night.
             </p>
-            <p>For us there is no time to rest while achieving comfort.</p>
+            <p>For us, there is no time to rest while achieving comfort.</p>
           </div>
           </div>
           <div className="developers-container">
         <h9>Meet the Developers</h9>
         <div className="developer-card">
           <h3>Jellena Solan</h3>
-          <p>Frontend/ CSS / Golden Retriever fanatic. From New Jersey</p>
+          <p>Frontend/ CSS / Golden Retriever fanatic. Based in New Jersey.</p>
         </div>
         <div className="developer-card">
           <h3>Mohamad Ayyad</h3>
-          <p>Backend / funny / cat lover guy. From New Orleans</p>
+          <p>Backend / funny / cat lover guy. Based in New Orleans.</p>
         </div>
         <div className="developer-card">
           <h3>Rahmat Bakhshi</h3>
-          <p>Love the frontend/CSS. Sports enthusiast, loves cars.  From Ohio. </p>
+          <p>Love the frontend/CSS. Sports enthusiast, loves cars.  Based in Ohio. </p>
         </div>
         <div className="developer-card">
           <h3>Christopher Pettypiece</h3>
-          <p>CSS Master/ motivator/ entrepreneur/ lover of milk and cool breezes. From Oklahoma. </p>
+          <p>CSS Master/ motivator/ entrepreneur/ lover of milk and cool breezes. Based in Oklahoma. </p>
         </div>
       </div>
     </div>
