@@ -6,8 +6,9 @@ import "../style/footer.css";
 const Footer = () => {
   return (
     <div className="footer">
-      <Link to="">Terms & Conditions</Link> |
-      <Link to="">Privacy Policy</Link> |
+
+
+      <Link to="aboutus">About Us</Link> |
       <Link to="/contact">Contact Us</Link> |
       <Link to="/returns">Return Policy</Link>
       <div className="social-icons">
@@ -21,6 +22,7 @@ const Footer = () => {
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Facebook-icon-1.png/640px-Facebook-icon-1.png" alt="twitter logo" />
         </a>
       </div>
+
     </div>
   );
 };
