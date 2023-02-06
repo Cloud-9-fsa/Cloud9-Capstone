@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { getUserInfo } from "../apiCalls/getUserInfoAPI";
-
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/UseAuth";
 import { RenderNewListing } from "./CreateNewListing";
 import { ViewAllUsers } from "./ViewAllUsers";
