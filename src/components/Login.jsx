@@ -63,7 +63,7 @@ export default function LogIn() {
       }
     }
 
-    if (localStorage.getItem("token")) navigate("/");
+    if (response.token) navigate("/");
   };
 
   return (
