@@ -130,7 +130,7 @@
 }
 
 .singleListing h1 {
-  color: #0dccdc;
+  color: black;
   font-size: 30px;
   margin-left: 0;
   display: flex;
@@ -150,6 +150,7 @@
   font-size: 15px;
   margin-left: 16px;
   margin-top: 10px;
+  color: black;
 }
 
 .adminEditbutton {

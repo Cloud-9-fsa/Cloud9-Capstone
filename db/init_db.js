@@ -130,7 +130,7 @@ async function populateInitialData() {
         "https://images.unsplash.com/photo-1581888475780-27b6b0bc3690?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80",
       name: "The Modern Dog",
       description:
-        "This extremely cozy and soft pillow bed will give any pooch the proper slumber. This square-shaped pet pillow has a flat surface that gives your pup plenty of room to sprawl out. The fluffy polyester fiber filling provides maximum comfort while its sleek design compliments the decor of any home. Fabric is machine washable. ",
+        "This extremely cozy and soft pillow bed will give any pooch the proper slumber. This square-shaped pet pillow has a flat surface that gives your pup plenty of room to sprawl out. The fluffy, polyester fiber filling provides maximum comfort while its sleek design compliments the decor of any home. Fabric is machine washable. ",
       category: "Pet",
       price: 350,
       stock: 100,
@@ -144,7 +144,7 @@ async function populateInitialData() {
         "https://cdn.shopify.com/s/files/1/0616/1331/0131/products/d6ff1364b24e95414a9d28ba2c1cea1f_1080x.jpg?v=1666880239",
       name: "Luxury in the Banana Boat",
       description:
-        "Does your cat love to sleep in weird places? Huddled under a basket of clothes or the classic cardboard box? Why not have her sprawled out in a luxury banana bed. Its plush memory foam perfectly pairs with it's cave-like warmth. This luxury fruit boat will make any gump into a cheery kitty again.",
+        "Does your cat love to sleep in weird places? Huddled under a basket of clothes or the classic cardboard box? Why not have her sprawled out in a luxury banana bed! Its plush memory foam perfectly pairs with its cave-like atmosphere. This luxury fruit boat will make any grump into a cheery kitty again.",
       category: "Pet",
       price: 300,
       stock: 100,
@@ -156,7 +156,7 @@ async function populateInitialData() {
       image2: "https://m.media-amazon.com/images/I/81zPcrN6m+L._AC_SX679_.jpg",
       name: "The Donut",
       description:
-        "This soft faux shag fur will keep both cats and dogs comfortable at night. The extra filling will provide relieft from join and mucle pain, while it's circular design allows extreme comfort to the pets who like to curl into a ball. Not only does this pillow has a water-resistant nylon bottom that keeps your floors safe in case of an accident, it is machine washable. Available in two colors: fancy white or steel grey.",
+        "This soft faux shag fur will keep both cats and dogs comfortable at night. The extra filling will provide relief from both joint and muscle pains, and its circular design allows extreme comfort to the pets who like to curl into a ball. Not only does this pillow have a water-resistant nylon bottom that keeps your floors safe in case of an accident, it is machine washable.",
       category: "Pet",
       price: 100,
       stock: 100,
@@ -168,7 +168,7 @@ async function populateInitialData() {
         "https://images.unsplash.com/photo-1583512603866-910c8542ba1b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1376&q=80",
       name: "The Arizona Cactus",
       description:
-        "To the pets who like to camp under the stars or slumber in a small nook, we have found the perfect bed for them. Inside, the memory-foam pillow is made with the highest quality - ensuring every paw can stetch out perfectly. It's tall ceilings will create a cozy illusion, while the cactus print showcase its bohemian vibes. Yes, your pet is too cool for you, but at least they can sleep in secure style. ",
+        "To the pets who like to camp under the stars or slumber in a small nook, we have found the perfect bed for them. Inside, the memory-foam pillow is made with the highest quality - ensuring every paw can stetch out perfectly. Its tall ceilings will create a cozy illusion, while the cactus print showcase relaxing bohemian vibes. Yes, your pet is too cool for you, but at least they can sleep in secure style. ",
       category: "Pet",
       price: 100,
       stock: 100,
@@ -180,7 +180,7 @@ async function populateInitialData() {
         "https://cb.scene7.com/is/image/Crate/CresteCrdryIvoryPillowsFSSF22/$web_pdp_main_carousel_high$/220818095037/creste-ivory-corduroy-throw-pillows-by-athena-calderone.jpg",
       name: "The Ivory Throw Collection",
       description:
-        "With this ribbing texture, the Ivory Collection is meant to live in any home. It's simplicity and minimalistic design will enhance any space of the house.",
+        "With this ribbing texture, the Ivory Collection is meant to reside in any home. Its simplicity and minimalistic design will enhance any space of the house.",
       category: "Decorative",
       price: 100,
       stock: 100,
@@ -192,7 +192,7 @@ async function populateInitialData() {
         "https://cb.scene7.com/is/image/Crate/SkaColorblckVlvLn23PlwsFSSF22/$web_pdp_main_carousel_high$/220816143327/ska-23-colorblock-velvet-linen-pillows.jpg",
       name: "The Arizona Velvet",
       description:
-        "The Arizona collection is met with classic pieces that fits any home. It's simplistic color scheme adds a touch of modernism. This works well with any home that strives for the western look. ",
+        "The Arizona collection plays with a simplistic color scheme that adds a touch of modernism. This works well with any home that strives for the western look. ",
       category: "Decorative",
       price: 100,
       stock: 100,
@@ -216,7 +216,7 @@ async function populateInitialData() {
         "https://images-us-prod.cms.dynamics365commerce.ms/cms/api/cncgmclkfv/imageFileData/search?fileName=/Products%2F134073P%20%5E%20%20%5E%20Twin%20%5E%20Reg%20%5E%20Prime_000_001.png&fallback=/Products/134073P_000_001.png,Product-Fallback-Image.png&m=6&q=80&cropfocalregion=true",
       name: "Memory Foam Mattress",
       description:
-        "Our memory foam mattresses uses your own body heat to soften and form to your shape. these mattresses provide incredible support and comfort.",
+        "Our memory foam mattresses uses your own body heat to soften and form to your shape. These mattresses provide incredible support and comfort.",
       category: "Sleep",
       price: 1200,
       stock: 100,
@@ -248,7 +248,7 @@ async function populateInitialData() {
       image: "https://m.media-amazon.com/images/I/41+O9LK+hgL._SX679_.jpg",
       name: "Foot Pillow",
       description:
-        "This pillow provides effective pain relief for those who sit for hours. Raising your feet at the desk promotes good sitting posture. Dont't let your feet suffer a long days work.",
+        "This pillow provides effective pain relief for those who sit for hours. Raising your feet at the desk promotes good sitting posture. Dont't let your feet suffer a long day's work.",
       category: "Sleep",
       price: 150,
       stock: 100,
@@ -259,7 +259,7 @@ async function populateInitialData() {
         "https://cdn.shopify.com/s/files/1/0064/3262/0633/products/Base-Cover-White_Cuddler-Cover_3_800x.jpg?v=1663071074",
       name: "Body Pillow",
       description:
-        "For all of the side sleepers out there this pillow was designed with you in mind. If you're tired of waking up with your shoulders and hips hurting this pillow can provide the support you need to combat that wake up pain. You'll find yourself awaking to a fully rested body without changing your sleeping style.",
+        "For all of the side sleepers out there, this pillow was designed with you in mind. If you're tired of waking up with your shoulders and hips hurting this pillow can provide the support you need to combat that wake up pain. You'll find yourself awaking to a fully rested body without changing your sleeping style.",
       category: "Sleep",
       price: 350,
       stock: 100,
@@ -303,7 +303,7 @@ async function populateInitialData() {
         "https://www.rei.com/media/4803360b-285f-4f6c-b1b1-e8b90fab379b?size=784x588",
       name: "Extreme Camping Pillow",
       description:
-        "This pillow can take whatever the wild has to throw at it. Whether it's weather or terrain nothing can keep you from having comfort in your bag. This pillow will outlast you.",
+        "This pillow can take whatever the wild has to throw at it. Whether it's weather or terrain, nothing can keep you from having comfort in your bag. This pillow will outlast you.",
       category: "Outdoor",
       price: 200,
       stock: 100,
@@ -314,7 +314,7 @@ async function populateInitialData() {
         "https://cdn.shopify.com/s/files/1/0261/9479/collections/all-products-collection_850x.jpg?v=1588200598",
       name: "Outdoor Bean Lounger",
       description:
-        "Our extra large bean bag throws back to the more traditional bean bag form with a stylish, modern edge for the modern home. Relax in any setting.",
+        "Our extra large bean bag throws back to the more traditional bean bag form with a stylish, modern edge for the modern home. Relax in any setting - indoor or out.",
       category: "Outdoor",
       price: 200,
       stock: 100,
@@ -336,7 +336,7 @@ async function populateInitialData() {
         "https://cdn.shopify.com/s/files/1/2061/3133/products/chillbo_shwaggins_inflatable_lounger_air_couch_inflatable_chair1_copy_2048x2048.jpg?v=1654054126",
       name: "Inflatable Lounger",
       description:
-        "Designed for comfort, the Inflatable Lounger provides all the support needed to chill anywhere, anytime.",
+        "Designed for comfort, the Inflatable Lounger provides all the support to chill anywhere, anytime.",
       category: "Outdoor",
       price: 250,
       stock: 100,
@@ -380,7 +380,7 @@ async function populateInitialData() {
         "https://images.squarespace-cdn.com/content/v1/6054d185e94f5975342c7d5e/f1b4fa36-475b-4dbb-820c-e76cbffcfd98/The+Eliza+Jane+Hotel+Lobby+Pillows.jpg",
       name: "Stolen Hotel Lobby Pillow",
       description:
-        "Our team went on a company retreat and came back with pillows from every hotel we could find. Though we can't provide the names of the hotels we can tell you that these pillows are seemingly comfortable and overpriced.",
+        "Our team went on a company retreat and came back with pillows from every hotel we could find. Although we can't provide the names of the hotels, we can tell you that these pillows are seemingly comfortable and overpriced.",
       category: "Accessories",
       price: 12000,
       stock: 100,
@@ -391,7 +391,7 @@ async function populateInitialData() {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQkGDnSqqvytFeKFa71rlBegkDMr0Pildy5Q&usqp=CAU",
       name: "Water Pillow",
       description:
-        "You may have heard of a water bed, but I'm guessing you've never heard of a water pillow. Our water pillows bring all of the joy of a water bed into a smaller inconveniet size. Water balloons don't have anything on this pillow. Please buy them, we made too many.",
+        "You may have heard of a water bed, but I'm guessing you've never heard of a water pillow. Our water pillows bring all of the joy of a water bed into a smaller inconvenient size. Water balloons don't have anything on this pillow. Please buy them, we made too many.",
       category: "Accessories",
       price: 350,
       stock: 100,
@@ -406,7 +406,6 @@ async function populateInitialData() {
       rating: 5,
     });
     await getReviewsByUser(1);
-    // await deleteReviews(1, 1);
     await createReviewListings(1, 1);
     await getReviewsByListingId(1);
     await getAllListings();
