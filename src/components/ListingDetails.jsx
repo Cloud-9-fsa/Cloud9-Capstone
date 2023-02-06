@@ -29,7 +29,7 @@ export function ListingDetails() {
   };
 
   const DeleteReviewButton = (reviewId) => {
-    if (user.id === reviewId || user.id) {
+    if (user.id === reviewId || user.isAdmin) {
       return (
         <button
           onClick={async () => {
