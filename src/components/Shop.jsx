@@ -55,7 +55,7 @@ export const Shop = () => {
             </div>
             <img
               className="picshop4"
-              src="https://images.unsplash.com/photo-1572830061526-bbd2c00f516c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+              src="https://cdn.shopify.com/s/files/1/0261/9479/collections/all-products-collection_850x.jpg?v=1588200598"
             ></img>
           </Link>
         </div>
