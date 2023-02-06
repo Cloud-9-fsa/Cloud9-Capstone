@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/UseAuth";
 import { updateListing } from "../apiCalls/updateListingAPI";
+import { fetchListings } from "../apiCalls/listingsAPI";
 import "../style/ListingDetails.css";
 
 export const RenderUpdateListing = ({ listingId }) => {
@@ -44,7 +45,9 @@ export const RenderUpdateListing = ({ listingId }) => {
       setImage3("");
       setImage4("");
       setImage5("");
-      setIsHot(true);
+      setIsHot(false);
+      const data = await fetchListings();
+      setListings(data);
     }
   };
   return (
@@ -123,7 +126,7 @@ export const RenderUpdateListing = ({ listingId }) => {
             value={isHot}
             type="checkbox"
             placeholder="isHot"
-            onChange={(e) => setIsHot(e.target.value)}
+            onChange={(e) => setIsHot(!isHot)}
           ></input>
           <br></br>
           <button
