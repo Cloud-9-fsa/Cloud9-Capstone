@@ -64,16 +64,18 @@ export default function SignUp() {
 
       if (order) {
         const data = await getOrder(localStorage.getItem("token"));
-        for (let i = 0; i < order[0].listings.length; i++) {
+        for (let i = 0; i < order.listings.length; i++) {
           await addListingToOrder(
             data[0].id,
             order.listings[i].id,
             order.listings[i].quantity
           );
         }
+
+        localStorage.removeItem("orderId");
       }
-      if (response.token) navigate("/");
     }
+    if (response.token) navigate("/");
   };
 
   return (
