@@ -6,12 +6,13 @@ import "../style/Navbar.css";
 import Logo from "../assets/Logo.JPG";
 
 const Navbar = () => {
-  const { token, setToken, setUser, user } = useAuth();
+  const { token, setToken, setUser, user, setOrder } = useAuth();
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();
     setUser({});
     setToken("");
+    setOrder({});
   };
   const LoginLogout = () => {
     if (localStorage.getItem("token")) {
